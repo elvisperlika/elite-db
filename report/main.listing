@@ -1,0 +1,4 @@
+    INSERT INTO CLIENTE (Nome, Cognome, Email, Telefono, Badge)
+    VALUES ('Mario', 'Rossi', 'mario.rossi@email.it', '3331234567', '1234567890');
+    INSERT INTO BADGE (ID_Badge, DataScadenza, Cliente)
+    VALUES ('1234567890', '2021-12-31', '1234567890');
