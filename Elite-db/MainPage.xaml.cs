@@ -1,23 +1,40 @@
-﻿namespace Elite_db;
+﻿using System.Data;
+using MySql.Data.MySqlClient;
+
+namespace Elite_db;
 
 public partial class MainPage : ContentPage
 {
-    int count = 0;
-
     public MainPage()
     {
         InitializeComponent();
     }
 
-    private void OnCounterClicked(object sender, EventArgs e)
+    private void OnLogInClicked(object sender, EventArgs e)
     {
-        count++;
+        var emailTmp = EmailBox.Text;
+        
+        MySqlConnection con = new("SERVER=localhost; DATABASE=ElegantMotors; " +
+                                  "UID=root; PASSWORD=Elvis101");
+        con.Open();
+        string query = "SELECT Nome, Cognome FROM DIPENDENTE WHERE Email_Aziendale = @email";
+        MySqlCommand cmd = new MySqlCommand(query, con);
+        cmd.CommandType = CommandType.Text;
+        cmd.Parameters.AddWithValue("@email", emailTmp);
+        
+        using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd)) {
+            using (DataTable dt = new DataTable()) {
+                sda.Fill(dt);
+                if (dt.Rows.Count > 0) {
+                    // Navigation.PushAsync(new OperationsPage());
+                    LogInBtn.Text = "Email found!";
+                }
+                else {
+                    LogInBtn.Text = "Email not found, retry!";
+                }
+            }
+        }
 
-        if (count == 1)
-            CounterBtn.Text = $"Clicked {count} time";
-        else
-            CounterBtn.Text = $"Clicked {count} times";
-
-        SemanticScreenReader.Announce(CounterBtn.Text);
+        con.Close();
     }
 }

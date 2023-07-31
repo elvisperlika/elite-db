@@ -3,33 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Elite_db.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
-
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
-    </ScrollView>
-
+    <Grid>
+        <Image Source="lambo.jpeg" Aspect="AspectFill"/>
+        <Label
+            Text="Welcome to Elegant Motors!"
+            TextColor="White"
+            FontSize="40"
+            HorizontalOptions="Center" />
+        
+        <ScrollView>
+            <VerticalStackLayout
+                Spacing="15"
+                Padding="30,0"
+                VerticalOptions="Center">
+                
+                <Entry
+                    x:Name="EmailBox"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    HorizontalTextAlignment="Center"
+                    Placeholder="Enter your email ...@elegant.it"
+                    HorizontalOptions="Center" 
+                    WidthRequest="400" />
+                    
+                <Button
+                    x:Name="LogInBtn"
+                    Text="Log In"
+                    SemanticProperties.Hint="Log in my stage!"
+                    Clicked="OnLogInClicked"
+                    HorizontalOptions="Center" />
+    
+            </VerticalStackLayout>
+        </ScrollView>    
+    </Grid>
 </ContentPage>
