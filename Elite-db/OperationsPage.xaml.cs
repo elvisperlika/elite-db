@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace Elite_db;
 
@@ -15,7 +11,8 @@ public partial class OperationsPage : ContentPage
 
     private void InsertNewCustomerClicked(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        var InsertNewCustomerPage = new InsertNewCostumer();
+        ContentPresenter.Content = InsertNewCustomerPage.Content;
     }
 
     private void ViewCustomersOrderClicked(object sender, EventArgs e)

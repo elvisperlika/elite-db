@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Elite_db.InsertNewCostumer">
+    <ContentPage.Content>
+        
+        <StackLayout VerticalOptions="Center">
+            <Entry
+                x:Name="Name"
+                HorizontalTextAlignment="Center"
+                Placeholder="Name"
+                HorizontalOptions="FillAndExpand" />
+            <Entry
+                x:Name="Surname"
+                HorizontalTextAlignment="Center"
+                Placeholder="Surname"
+                HorizontalOptions="FillAndExpand" />
+            <Entry
+                x:Name="CF"
+                HorizontalTextAlignment="Center"
+                Placeholder="CF"
+                HorizontalOptions="FillAndExpand" />
+            <Entry
+                x:Name="Email"
+                HorizontalTextAlignment="Center"
+                Placeholder="Email"
+                HorizontalOptions="FillAndExpand" />
+            <Entry
+                x:Name="Cellular"
+                HorizontalTextAlignment="Center"
+                Placeholder="Cellular"
+                HorizontalOptions="FillAndExpand" />
+            
+            <Button x:Name="InsertBtn" Text="Insert" Clicked="InsertClicked"/>
+            
+            <Label x:Name="BadgeIDLabel" HorizontalTextAlignment="Center"/>
+            <Label x:Name="DeadlineLabel" HorizontalTextAlignment="Center"/>
+            <Label x:Name="Namelabel" HorizontalTextAlignment="Center"/>
+            <Label x:Name="Surnamelabel" HorizontalTextAlignment="Center"/>
+            <Label x:Name="Cflabel" HorizontalTextAlignment="Center"/>
+            <Label x:Name="EmailLabel" HorizontalTextAlignment="Center"/>
+            <Label x:Name="Cellularelabel" HorizontalTextAlignment="Center"/>
+
+            <Button x:Name="ConfirmBtn"  Text="Confirm" IsEnabled="False" Clicked="ConfirmClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

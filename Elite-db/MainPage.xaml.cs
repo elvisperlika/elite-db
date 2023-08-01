@@ -10,7 +10,7 @@ public partial class MainPage
         InitializeComponent();
     }
 
-    private void OnLogInClicked(object sender, EventArgs e)
+    private async void OnLogInClicked(object sender, EventArgs e)
     {
         var emailTmp = EmailBox.Text;
 
@@ -26,7 +26,7 @@ public partial class MainPage
             using (DataTable dt = new DataTable()) {
                 sda.Fill(dt);
                 if (dt.Rows.Count > 0) {
-                    Navigation.PushAsync(new OperationsPage());
+                    await Navigation.PushAsync(new OperationsPage());
                 }
                 else {
                     LogInBtn.Text = "Email not found, retry!";

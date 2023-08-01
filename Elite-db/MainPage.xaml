@@ -5,6 +5,7 @@
 
     <Grid>
         <Image Source="lambo.jpeg" Aspect="AspectFill"/>
+        
         <Label
             Text="Welcome to Elegant Motors!"
             TextColor="White"

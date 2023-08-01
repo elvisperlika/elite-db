@@ -1,8 +1,8 @@
-PWD /Users/elvisperlika/Desktop/Elegant Motors-report
+PWD /Users/elvisperlika/Desktop/Elite-db/report
 INPUT /usr/local/texlive/2022/texmf.cnf
 INPUT /usr/local/texlive/2022/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/elvisperlika/Desktop/Elegant Motors-report/main.tex
+INPUT /Users/elvisperlika/Desktop/Elite-db/report/main.tex
 OUTPUT main.log
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
