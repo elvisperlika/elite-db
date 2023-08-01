@@ -8,7 +8,7 @@
         <Label
             Text="Welcome to Elegant Motors!"
             TextColor="White"
-            FontSize="40"
+            FontSize="44"
             HorizontalOptions="Center" />
         
         <ScrollView>

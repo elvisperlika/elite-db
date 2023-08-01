@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Elite_db.OperationsPage">
+    
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <Button
+                x:Name="InsertNewCustomer" 
+                Text="Insert New Customer"
+                Clicked="InsertNewCustomerClicked"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,10" />
+            
+            <Button
+                x:Name="ViewCustomersOrder" 
+                Text="View Customers Order"
+                Clicked="ViewCustomersOrderClicked"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,10" />
+            
+            <Button
+                x:Name="ShowOptionalsCompany" 
+                Text="Show Optionals of a Company"
+                Clicked="ShowOptionalsCompanyClicked"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,10" />
+            
+            <Button
+                x:Name="InsertNewOrder"
+                Text="Insert New Order"
+                Clicked="InsertNewOrderClicked"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,10" />
+            
+            <Button
+                x:Name="InsertConsignment"
+                Text="Insert Consignment"
+                Clicked="InsertConsignmentClicked"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,10" />
+            
+            <Button
+                x:Name="ShowEmployeesWithBonus"
+                Text="Show Employees With Bonus"
+                Clicked="ShowEmployeesWithBonusClicked"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,10" />
+            
+            <Button 
+                x:Name="ShowTop10Seupercar"
+                Text="Show Top 10 Supercar"
+                Clicked="ShowTop10SupercarClicked"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,10" />
+            
+            <Button
+                x:Name="InsertNewSupercarVersion"
+                Text="Insert New Supercar Version"
+                Clicked="InsertNewSupercarVersionClicked"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,10" />
+            
+            <Button
+                x:Name="InsertMaintenance"
+                Text="Insert Maintenance"
+                Clicked="InsertMaintananceClicked"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,10" />
+            
+            <Button
+                x:Name="ShowOldestCostumers"
+                Text="Show Oldest Costumers"
+                Clicked="ShowOldestCostumersClicked"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,10" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
