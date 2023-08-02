@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Elite_db.ViewCustomerOrder">
+    
+    <ContentPage.Content>
+        <VerticalStackLayout>
+            
+            <Entry
+                x:Name="CustomerBadgeBox"
+                HorizontalTextAlignment="Center"
+                Placeholder="Insert Costumer Badge ID"
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand"
+                Margin="10,10,10,10" />
+    
+            <DatePicker 
+                x:Name="StartDatePicker" 
+                Format="yyyy/MM/dd" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                Margin="10,10,10,10" />
+        
+            <DatePicker 
+                x:Name="EndDatePicker" 
+                Format="yyyy/MM/dd" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                Margin="10,10,10,10" />
+            
+            <Button 
+                x:Name="SearchButton" 
+                Text="Search" 
+                Clicked="SearchOrdersClicked" 
+                VerticalOptions="FillAndExpand" 
+                HorizontalOptions="FillAndExpand"
+                Margin="10,10,10,10" />
+            
+            <ScrollView VerticalScrollBarVisibility="Always">
+                <Grid x:Name="OrderList" VerticalOptions="FillAndExpand" HeightRequest="400" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                
+                    <Label Grid.Column="0" Text="ID" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="Date" FontAttributes="Bold"/>
+                    <Label Grid.Column="2" Text="Time" FontAttributes="Bold"/>
+                    <Label Grid.Column="3" Text="Mail" FontAttributes="Bold"/>
+                </Grid>    
+            </ScrollView>
+            
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

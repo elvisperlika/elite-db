@@ -11,13 +11,14 @@ public partial class OperationsPage : ContentPage
 
     private void InsertNewCustomerClicked(object sender, EventArgs e)
     {
-        var InsertNewCustomerPage = new InsertNewCostumer();
-        ContentPresenter.Content = InsertNewCustomerPage.Content;
+        var insertNewCustomerPage = new InsertNewCostumer();
+        ContentPresenter.Content = insertNewCustomerPage.Content;
     }
 
-    private void ViewCustomersOrderClicked(object sender, EventArgs e)
+    private void ViewCustomerOrderClicked(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        var viewCustomersOrderPage = new ViewCustomerOrder();
+        ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 
     private void ShowOptionalsCompanyClicked(object sender, EventArgs e)

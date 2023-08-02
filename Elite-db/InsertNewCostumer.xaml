@@ -10,27 +10,32 @@
                 x:Name="Name"
                 HorizontalTextAlignment="Center"
                 Placeholder="Name"
-                HorizontalOptions="FillAndExpand" />
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand"/>
             <Entry
                 x:Name="Surname"
                 HorizontalTextAlignment="Center"
                 Placeholder="Surname"
-                HorizontalOptions="FillAndExpand" />
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand"/>
             <Entry
                 x:Name="CF"
                 HorizontalTextAlignment="Center"
                 Placeholder="CF"
-                HorizontalOptions="FillAndExpand" />
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand"/>
             <Entry
                 x:Name="Email"
                 HorizontalTextAlignment="Center"
                 Placeholder="Email"
-                HorizontalOptions="FillAndExpand" />
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand"/>
             <Entry
                 x:Name="Cellular"
                 HorizontalTextAlignment="Center"
                 Placeholder="Cellular"
-                HorizontalOptions="FillAndExpand" />
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand"/>
             
             <Button x:Name="InsertBtn" Text="Insert" Clicked="InsertClicked"/>
             

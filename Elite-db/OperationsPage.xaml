@@ -6,7 +6,7 @@
     
     <ContentPage.Content>
         <StackLayout VerticalOptions="Fill">
-            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never" >
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Always" >
                 <HorizontalStackLayout>
                     <Button
                     x:Name="InsertNewCustomer" 
@@ -16,9 +16,9 @@
                     Margin="5,5,5,5" />
                     
                 <Button
-                    x:Name="ViewCustomersOrder" 
-                    Text="View Customers Order"
-                    Clicked="ViewCustomersOrderClicked"
+                    x:Name="ViewCustomerOrder" 
+                    Text="View Customer Order"
+                    Clicked="ViewCustomerOrderClicked"
                     HorizontalOptions="Center" 
                     Margin="5,5,5,5" />
                 
