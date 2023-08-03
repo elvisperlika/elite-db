@@ -332,18 +332,20 @@ mercato e preformare al meglio nelle vendite.
     \begin{tabularx}{\linewidth}{c X c}
       \rowcolor{red!20!}
       \textbf{Codice} & \textbf{Operazione} & \textbf{Frequenza} \\
-      1 & Inserimento di un nuovo cliente & 33 al mese \\
-      2 & Visualizza le vetture acquistate da un cliente in un certo periodo & 14 al mese \\
-      3 & Visualizza gli optional di una certa azienda & 20 al mese \\
-      4 & Inserimento di un nuovo ordine & 66 al mese \\
-      5 & Aggiungere un contratto di conto vendita & 1.6 al mese \\
-      6 & Visualizza i dipendenti che in un certo mese hanno ottenuto il bonus &
+      1 & Log In di un dipendente & 900 al mese \\
+      2 & Inserimento di un nuovo cliente & 33 al mese \\
+      3 & Visualizza le vetture acquistate da un cliente in un certo periodo in
+      ordine crescente di data & 14 al mese \\
+      4 & Visualizza gli optional di una certa azienda & 20 al mese \\
+      5 & Inserimento di un nuovo ordine & 66 al mese \\
+      6 & Aggiungere un contratto di conto vendita & 1.6 al mese \\
+      7 & Visualizza i dipendenti che in un certo mese hanno ottenuto il bonus &
       12 al anno \\
-      7 & Visualizza Top 10 supercar più vendute di un segmento & 3 al mese \\
-      8 & Inserisci una nuova versione di una supercar & 75 al mese \\
-      9 & Aggiungi manutenzione ad un veicolo & 500 all' anno \\
-      10 & Visualizza i 5 clienti iscritti da più tempo &  20 all' anno \\
-      11 & Visualizza le vetture che hanno eseguito manutenzione ordinaria in un
+      8 & Visualizza Top 10 supercar più vendute di un segmento & 3 al mese \\
+      9 & Inserisci una nuova versione di una supercar & 75 al mese \\
+      10 & Aggiungi manutenzione ad un veicolo & 500 all' anno \\
+      11 & Visualizza i 5 clienti iscritti da più tempo &  20 all' anno \\
+      12 & Visualizza le vetture che hanno eseguito manutenzione ordinaria in un
       certo anno & 5 all'anno \\
     \end{tabularx}
     \label{tab:tabella_frequenze}
@@ -353,7 +355,22 @@ mercato e preformare al meglio nelle vendite.
 Di seguito si riportano le tabelle degli accessi delle operazioni sopracitate.
 Si considera il peso dello scritture doppio rispetto a quello delle letture.
 
-\subsubsection{Inserimento di un nuovo cliente} \label{Inserimento di un nuovo cliente}
+\subsection{Log In di un dipendente}
+
+\begin{table}[H]
+    \centering
+    \rowcolors{2}{red!5!}{white}
+    \begin{tabular}{ c c c c }
+        \rowcolor{red!20!}
+        \textbf{Concetto} & \textbf{Costrutto} & \textbf{Accessi} &
+        \textbf{Tipo}\\
+        DIPENDENTE & E & 30 & L \\
+    \end{tabular}\\
+    \( 30L \rightarrow 900 \) al mese = \( 30L \times 900 =  27000\) al mese
+\end{table}
+
+
+\subsubsection{Inserimento di un nuovo cliente}
 
 \begin{table}[H]
     \centering
@@ -368,9 +385,8 @@ Si considera il peso dello scritture doppio rispetto a quello delle letture.
     \( 2S \rightarrow 33 \) al mese = \( 2S \times 2 \times 33 = 132 \) al mese
 \end{table}
 
-\subsubsection{Visualizza le vetture acquistate da un cliente in un certo
-periodo} \label{Visualizza le vetture acquistate da un cliente in un certo
-periodo}
+\subsubsection{Visualizza le vetture acquistate da un cliente in un certo periodo in
+ordine crescente di data}
 
 Accedendo alla sezione di un cliente attraverso il suo badge analizziamo i suoi
 ordini, i quali mediamente contengono una supercar, successivamente eseguiamo
@@ -657,19 +673,23 @@ Si è scelto di utilizzare il DBMS MySQL.
                 'CognomeCliente', 'CodiceFiscale', 'NumeroCellulare', 'EmailCliente');
 \end{lstlisting}
 
-\subsubsection*{Visualizza le vetture acquistate da un cliente in un
-certo periodo}
+\subsubsection*{Visualizza le vetture acquistate da un cliente in un certo perio-
+do in ordine di data}
 
 \begin{lstlisting}
-    SELECT * FROM ORDINE
-    WHERE Cliente = '1234567890' 
-    AND DataOrdine BETWEEN '2020-01-01' AND '2020-12-31';
+    SELECT Cod_Ordine, Data, Ora, Email_Aziendale 
+    FROM ORDINE
+    WHERE ID_Badge = 'ID Badge Cliente' 
+    AND Data BETWEEN 'Data di Inzio' AND 'Data di Fine'
+    ORDER BY Data;
 \end{lstlisting}
 
 \subsubsection*{Visualizza gli optional di una certa azienda}
 \begin{lstlisting}
-    SELECT * FROM OPTIONAL
-    WHERE Produttore = 'cod_produttore';
+    SELECT Nome_Optional
+    FROM OPTIONAL_AUTO, PRODUTTORE
+    WHERE PRODUTTORE.Nome = 'Ferrari'
+    AND OPTIONAL_AUTO.P_IVA = PRODUTTORE.P_IVA;
 \end{lstlisting}
 
 \subsubsection*{Inserimento di un nuovo ordine}

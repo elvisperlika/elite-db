@@ -53,4 +53,24 @@
         <PackageReference Include="MySql.Data.EntityFramework" Version="8.1.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <MauiXaml Update="operations\InsertNewCostumer.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="operations\ViewCustomerOrder.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="operations\InsertNewCostumer.xaml.cs">
+        <DependentUpon>InsertNewCostumer.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="operations\ViewCustomerOrder.xaml.cs">
+        <DependentUpon>ViewCustomerOrder.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>

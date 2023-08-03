@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.20)  1 AUG 2023 10:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.20)  3 AUG 2023 16:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -525,7 +525,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 21.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 21.
-<images/lambo.jpeg, id=163, 4111.36pt x 2312.64pt>
+<images/lambo.jpeg, id=167, 4111.36pt x 2312.64pt>
 File: images/lambo.jpeg Graphic file (type jpg)
 <use images/lambo.jpeg>
 Package pdftex.def Info: images/lambo.jpeg  used on input line 26.
@@ -543,87 +543,88 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [3] [4]
-<images/cliente.png, id=231, 490.83376pt x 103.38625pt>
+ [3] [4] [5]
+<images/cliente.png, id=241, 490.83376pt x 103.38625pt>
 File: images/cliente.png Graphic file (type png)
 <use images/cliente.png>
 Package pdftex.def Info: images/cliente.png  used on input line 108.
 (pdftex.def)             Requested size: 433.62pt x 91.33827pt.
-<images/ordine.png, id=233, 766.865pt x 127.47626pt>
+<images/ordine.png, id=243, 766.865pt x 127.47626pt>
 File: images/ordine.png Graphic file (type png)
 <use images/ordine.png>
 Package pdftex.def Info: images/ordine.png  used on input line 129.
 (pdftex.def)             Requested size: 433.62pt x 72.08257pt.
- [5 <./images/cliente.png> <./images/ordine.png>]
-<images/dipendente.png, id=240, 724.7075pt x 262.9825pt>
+ [6 <./images/cliente.png> <./images/ordine.png>]
+<images/dipendente.png, id=250, 724.7075pt x 262.9825pt>
 File: images/dipendente.png Graphic file (type png)
 <use images/dipendente.png>
 Package pdftex.def Info: images/dipendente.png  used on input line 147.
 (pdftex.def)             Requested size: 433.62pt x 157.3533pt.
-<images/versione.png, id=241, 955.57pt x 242.9075pt>
+<images/versione.png, id=251, 955.57pt x 242.9075pt>
 File: images/versione.png Graphic file (type png)
 <use images/versione.png>
 Package pdftex.def Info: images/versione.png  used on input line 177.
 (pdftex.def)             Requested size: 433.62pt x 110.22656pt.
- [6 <./images/dipendente.png> <./images/versione.png>]
-<images/optional.png, id=249, 1051.93pt x 386.44376pt>
+ [7 <./images/dipendente.png> <./images/versione.png>]
+<images/optional.png, id=260, 1051.93pt x 386.44376pt>
 File: images/optional.png Graphic file (type png)
 <use images/optional.png>
 Package pdftex.def Info: images/optional.png  used on input line 199.
 (pdftex.def)             Requested size: 433.62pt x 159.29797pt.
-<images/contovendita.png, id=250, 1061.9675pt x 287.0725pt>
+<images/contovendita.png, id=261, 1061.9675pt x 287.0725pt>
 File: images/contovendita.png Graphic file (type png)
 <use images/contovendita.png>
 Package pdftex.def Info: images/contovendita.png  used on input line 225.
 (pdftex.def)             Requested size: 433.62pt x 117.21864pt.
- [7 <./images/optional.png>] [8 <./images/contovendita.png>]
-<images/schemaScheletro.png, id=262, 812.0739pt x 443.7378pt>
+ [8 <./images/optional.png>] [9 <./images/contovendita.png>]
+<images/schemaScheletro.png, id=272, 812.0739pt x 443.7378pt>
 File: images/schemaScheletro.png Graphic file (type png)
 <use images/schemaScheletro.png>
 Package pdftex.def Info: images/schemaScheletro.png  used on input line 262.
 (pdftex.def)             Requested size: 609.05392pt x 332.80252pt.
- [9] [10 <./images/schemaScheletro.png>]
-<images/schemaFinale.png, id=272, 757.3896pt x 440.847pt>
+ [10] [11 <./images/schemaScheletro.png>]
+<images/schemaFinale.png, id=282, 757.3896pt x 440.847pt>
 File: images/schemaFinale.png Graphic file (type png)
 <use images/schemaFinale.png>
 Package pdftex.def Info: images/schemaFinale.png  used on input line 269.
 (pdftex.def)             Requested size: 643.78421pt x 374.72171pt.
- [11 <./images/schemaFinale.png>] [12]
-<images/acquistiCliente.png, id=283, 1067.99pt x 517.935pt>
+ [12 <./images/schemaFinale.png>] [13]
+<images/acquistiCliente.png, id=294, 1067.99pt x 517.935pt>
 File: images/acquistiCliente.png Graphic file (type png)
 <use images/acquistiCliente.png>
-Package pdftex.def Info: images/acquistiCliente.png  used on input line 380.
+Package pdftex.def Info: images/acquistiCliente.png  used on input line 396.
 (pdftex.def)             Requested size: 427.18845pt x 207.17032pt.
- [13 <./images/acquistiCliente.png>]
-<images/optionalProduttore.png, id=292, 730.73pt x 308.15125pt>
+ [14]
+<images/optionalProduttore.png, id=301, 730.73pt x 308.15125pt>
 File: images/optionalProduttore.png Graphic file (type png)
 <use images/optionalProduttore.png>
-Package pdftex.def Info: images/optionalProduttore.png  used on input line 405.
+Package pdftex.def Info: images/optionalProduttore.png  used on input line 421.
 (pdftex.def)             Requested size: 365.3641pt x 154.07524pt.
-<images/bonusDipendenti.png, id=293, 286.06876pt x 522.95375pt>
+ [15 <./images/acquistiCliente.png> <./images/optionalProduttore.png>]
+<images/bonusDipendenti.png, id=308, 286.06876pt x 522.95375pt>
 File: images/bonusDipendenti.png Graphic file (type png)
 <use images/bonusDipendenti.png>
-Package pdftex.def Info: images/bonusDipendenti.png  used on input line 466.
+Package pdftex.def Info: images/bonusDipendenti.png  used on input line 482.
 (pdftex.def)             Requested size: 143.03403pt x 261.47623pt.
- [14 <./images/optionalProduttore.png>] [15 <./images/bonusDipendenti.png>] [16] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
+ [16 <./images/bonusDipendenti.png>] [17] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [17] [18] (./main.aux)
+) [18] [19] [20] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EB635CB29AE42CE2406315F79BFB9310;10415.
+(rerunfilecheck)             Checksum: FB67BB2CCE568369AF567A14F7FEA68E;10755.
  ) 
 Here is how much of TeX's memory you used:
- 22013 strings out of 478268
- 403713 string characters out of 5846346
- 985043 words of memory out of 5000000
- 39781 multiletter control sequences out of 15000+600000
+ 22026 strings out of 478268
+ 403810 string characters out of 5846346
+ 1025233 words of memory out of 5000000
+ 39787 multiletter control sequences out of 15000+600000
  477031 words of font info for 54 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  83i,12n,80p,799b,1338s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on main.pdf (18 pages, 1977174 bytes).
+Output written on main.pdf (20 pages, 1978464 bytes).
 PDF statistics:
- 429 PDF objects out of 1000 (max. 8388607)
- 362 compressed objects within 4 object streams
- 98 named destinations out of 1000 (max. 500000)
- 385 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 449 PDF objects out of 1000 (max. 8388607)
+ 380 compressed objects within 4 object streams
+ 105 named destinations out of 1000 (max. 500000)
+ 393 words of extra memory for PDF output out of 10000 (max. 10000000)
 

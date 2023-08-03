@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Elite_db.operations.ShowCompanyOptional">
+    <ContentPage.Content>
+        <VerticalStackLayout>
+
+            <Entry
+                x:Name="CompanyNameBox"
+                HorizontalTextAlignment="Center"
+                Placeholder="Insert Company Name"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Margin="10,10,10,10" />
+
+            <Button
+                x:Name="SearchButton"
+                Text="Show"
+                Clicked="SearchOptionalsClicked"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                Margin="10,10,10,10" />
+            
+            
+            <Label Text="----" HorizontalOptions="CenterAndExpand"/>
+
+            <ListView x:Name="dataListView" HeightRequest="500">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid x:Name="dataGrid">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding OptionalName}"
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

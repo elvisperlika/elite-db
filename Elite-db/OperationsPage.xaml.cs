@@ -1,3 +1,4 @@
+using Elite_db.operations;
 using MySql.Data.MySqlClient;
 
 namespace Elite_db;
@@ -23,7 +24,8 @@ public partial class OperationsPage : ContentPage
 
     private void ShowOptionalsCompanyClicked(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        var viewCustomersOrderPage = new ShowCompanyOptional();
+        ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 
     private void InsertNewOrderClicked(object sender, EventArgs e)
