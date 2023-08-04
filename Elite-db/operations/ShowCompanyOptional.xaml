@@ -25,6 +25,23 @@
             
             <Label Text="----" HorizontalOptions="CenterAndExpand"/>
 
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Optional Name" HorizontalOptions="Center" FontAttributes="Bold" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Price" HorizontalOptions="Center" FontAttributes="Bold" />
+                <Label Grid.Row="0" Grid.Column="2" Text="Quality Level" HorizontalOptions="Center" FontAttributes="Bold" />
+                FontAttributes="Bold" />
+            </Grid>
+            
             <ListView x:Name="dataListView" HeightRequest="500">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -37,9 +54,15 @@
 
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
                                 <Label Grid.Row="0" Grid.Column="0" Text="{Binding OptionalName}"
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Price}"
+                                       HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Italic"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding QualityLevel}"
                                        HorizontalOptions="Center" VerticalOptions="Center" />
                                 
                             </Grid>

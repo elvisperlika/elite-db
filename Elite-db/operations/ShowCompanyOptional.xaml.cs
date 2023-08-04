@@ -27,7 +27,7 @@ public partial class ShowCompanyOptional : ContentPage
             con.Open();
 
             var selectQuery =
-                "SELECT Nome_Optional " +
+                "SELECT Nome_Optional, Prezzo, Livello_Qualita " +
                 "FROM OPTIONAL_AUTO, PRODUTTORE " +
                 "WHERE PRODUTTORE.Nome = @companyName " +
                 "AND OPTIONAL_AUTO.P_IVA = PRODUTTORE.P_IVA";
@@ -39,8 +39,10 @@ public partial class ShowCompanyOptional : ContentPage
             var dataList = new ObservableCollection<RowData>();
 
             var reader = cmd.ExecuteReader();
-            while (reader.Read())
-                dataList.Add(new RowData(reader["Nome_Optional"].ToString()));
+            while (reader.Read()) {
+                dataList.Add(new RowData(reader["Nome_Optional"].ToString(),
+                    reader["Prezzo"].ToString(), reader["Livello_Qualita"].ToString()));
+            }
 
             dataListView.ItemsSource = dataList;
             reader.Close();
@@ -58,10 +60,14 @@ public partial class ShowCompanyOptional : ContentPage
     public class RowData
     {
         public string OptionalName { get; }
+        public string Price { get; }
+        public string QualityLevel { get; }
 
-        public RowData(string optionalName)
+        public RowData(string optionalName, string price, string qualityLevel)
         {
             OptionalName = optionalName;
+            Price = price;
+            QualityLevel = qualityLevel;
         }
     }
 }
