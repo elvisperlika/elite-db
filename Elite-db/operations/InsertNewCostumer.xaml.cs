@@ -5,11 +5,12 @@ namespace Elite_db;
 
 public partial class InsertNewCostumer : ContentPage
 {
+    private string _cellular;
+    private string _cf;
+    private string _email;
     private string _name;
     private string _surname;
-    private string _cf;
-    private string _cellular;
-    private string _email;
+
     public InsertNewCostumer()
     {
         InitializeComponent();
@@ -24,7 +25,7 @@ public partial class InsertNewCostumer : ContentPage
         _email = Email.Text;
 
         ConfirmBtn.IsEnabled = true;
-        
+
         Namelabel.Text = _name;
         Surnamelabel.Text = _surname;
         Cflabel.Text = _cf;
@@ -38,10 +39,10 @@ public partial class InsertNewCostumer : ContentPage
                                   "UID=root; PASSWORD=Elvis101");
         try {
             con.Open();
-            string insertQuery =
+            var insertQuery =
                 "INSERT INTO CLIENTE(Data_Scadenza, Nome, Cognome, CF, Cellulare_Personale, Mail_Personale) " +
                 "VALUES (date_add(curdate(), INTERVAL 1 YEAR), @name, @surname, @cf, @cellular, @email)";
-            MySqlCommand cmd = new MySqlCommand(insertQuery, con);
+            var cmd = new MySqlCommand(insertQuery, con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@name", _name);
             cmd.Parameters.AddWithValue("@surname", _surname);
@@ -58,7 +59,7 @@ public partial class InsertNewCostumer : ContentPage
             ConfirmBtn.Text = "Error, retry!";
         }
         finally {
-            con.Close();   
+            con.Close();
         }
     }
 }

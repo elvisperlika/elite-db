@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Utilities;
 
 namespace Elite_db.operations;
 
@@ -18,27 +19,34 @@ public partial class InsertNewOrder : ContentPage
         _con = new("SERVER=localhost; DATABASE=ElegantMotors; " +
                                   "UID=root; PASSWORD=Elvis101");
         _userMail = mainPageEmail;
+
+        fillListView();
     }
 
-    private void AddPickerClicked(object sender, EventArgs e)
+    private void fillListView()
     {
-        Picker myPicker = new Picker
-        {
-            Title = "Click to Chose", // Titolo visualizzato quando il Picker è chiuso
-            VerticalOptions = LayoutOptions.CenterAndExpand // Opzioni di layout
-        };
-
+        
         try {
             _con.Open();
-            string insertQuery = "SELECT Nome_Modello FROM VERSIONE";
-            MySqlCommand cmd = new MySqlCommand(insertQuery, _con);
+            /*
+             * Estrae dal DB solo i veicoli che non sono presenti in un ordine.
+             */
+            string selectQuery = "SELECT PRODUTTORE.Nome, VERSIONE.Nome_Modello, VERSIONE.Colore, " +
+                                 "SUPERCAR.Cavalli_Potenza, SUPERCAR.Alimentazione, VERSIONE.Prezzo  " +
+                                 "FROM VERSIONE, SUPERCAR, PRODUTTORE " +
+                                 "WHERE VERSIONE.Nome_Modello = SUPERCAR.Nome_Modello " +
+                                 "AND SUPERCAR.P_IVA = PRODUTTORE.P_IVA " +
+                                 "AND VERSIONE.Cod_Ordine IS NULL";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, _con);
             
             var reader = cmd.ExecuteReader();
             while (reader.Read()) {
-                myPicker.Items.Add(reader["Nome_Modello"].ToString());
+                var models = reader["Nome"] + " " + reader["Nome_Modello"] + " - " +
+                             reader["Colore"] + " - " + reader["Cavalli_Potenza"] + "HP - " +
+                             reader["Alimentazione"] + " - " + reader["Prezzo"] + "$";
             }
             reader.Close();
-            
+            // Models.ItemsSource = models;
         }
         catch (Exception exception) {
             Console.WriteLine(exception);
@@ -46,13 +54,20 @@ public partial class InsertNewOrder : ContentPage
         finally {
             _con.Close();
         }
+    }
 
-        StackLayout.Children.Add(myPicker);
+
+    private void MyPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker) sender;
+        // estrai il valore selezionato
+
     }
 
     private void ConfirmBtnClicked(object sender, EventArgs e)
     {
         var costumerBadge = EntryCostumerBadge.Text;
+        
         try {
             _con.Open();
             
