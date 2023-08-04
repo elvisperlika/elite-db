@@ -5,8 +5,10 @@ namespace Elite_db;
 
 public partial class OperationsPage : ContentPage
 {
-    public OperationsPage()
+    public MainPage MainPage { get; set; }
+    public OperationsPage(MainPage mainPage)
     {
+        MainPage = mainPage;
         InitializeComponent();
     }
 
@@ -30,7 +32,8 @@ public partial class OperationsPage : ContentPage
 
     private void InsertNewOrderClicked(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        var viewCustomersOrderPage = new InsertNewOrder(MainPage.Email);
+        ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 
     private void InsertConsignmentClicked(object sender, EventArgs e)

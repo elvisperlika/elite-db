@@ -5,6 +5,8 @@ namespace Elite_db;
 
 public partial class MainPage
 {
+    public string Email { get; set; }
+
     public MainPage()
     {
         InitializeComponent();
@@ -26,7 +28,8 @@ public partial class MainPage
             using (DataTable dt = new DataTable()) {
                 sda.Fill(dt);
                 if (dt.Rows.Count > 0) {
-                    await Navigation.PushAsync(new OperationsPage());
+                    Email = emailTmp;
+                    await Navigation.PushAsync(new OperationsPage(this));
                 }
                 else {
                     LogInBtn.Text = "Email not found, retry!";

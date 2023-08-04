@@ -39,10 +39,9 @@
                 <Label Grid.Row="0" Grid.Column="0" Text="Optional Name" HorizontalOptions="Center" FontAttributes="Bold" />
                 <Label Grid.Row="0" Grid.Column="1" Text="Price" HorizontalOptions="Center" FontAttributes="Bold" />
                 <Label Grid.Row="0" Grid.Column="2" Text="Quality Level" HorizontalOptions="Center" FontAttributes="Bold" />
-                FontAttributes="Bold" />
             </Grid>
             
-            <ListView x:Name="dataListView" HeightRequest="500">
+            <ListView x:Name="DataListView" HeightRequest="500">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

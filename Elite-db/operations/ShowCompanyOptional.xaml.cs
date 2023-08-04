@@ -44,7 +44,7 @@ public partial class ShowCompanyOptional : ContentPage
                     reader["Prezzo"].ToString(), reader["Livello_Qualita"].ToString()));
             }
 
-            dataListView.ItemsSource = dataList;
+            DataListView.ItemsSource = dataList;
             reader.Close();
         }
         catch {
