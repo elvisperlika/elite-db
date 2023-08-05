@@ -17,26 +17,26 @@
 \contentsline {subsection}{\numberline {3.1}Stima del volume dei dati}{13}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Descrizione delle operazioni principali e stima della loro frequenza}{13}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Schemi di navigazione e tabelle degli accessi}{14}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Log In di un dipendente}{14}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Inserimento di un nuovo cliente}{14}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Visualizza le vetture acquistate da un cliente in un certo periodo in ordine crescente di data}{14}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Visualizza gli optional di una certa azienda}{15}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}Inserimento di un nuovo ordine}{16}{subsubsection.3.4.4}%
-\contentsline {subsubsection}{\numberline {3.4.5}Aggiungere un contratto di conto vendita}{16}{subsubsection.3.4.5}%
-\contentsline {subsubsection}{\numberline {3.4.6}Visualizza i dipendenti che in un certo mese hanno ottenuto il bonus}{16}{subsubsection.3.4.6}%
-\contentsline {subsubsection}{\numberline {3.4.7}Visualizza Top 10 supercar più veloci di un segmento}{16}{subsubsection.3.4.7}%
-\contentsline {subsubsection}{\numberline {3.4.8}Inserisci una nuova versione di una supercar}{17}{subsubsection.3.4.8}%
-\contentsline {subsubsection}{\numberline {3.4.9}Aggiungi manutenzione ad un veicolo}{17}{subsubsection.3.4.9}%
-\contentsline {subsubsection}{\numberline {3.4.10}Visualizza i 5 clienti iscritti da più tempo}{17}{subsubsection.3.4.10}%
-\contentsline {subsubsection}{\numberline {3.4.11}Visualizza le vetture che hanno eseguito almeno una manutenzione ordinaria}{17}{subsubsection.3.4.11}%
-\contentsline {subsection}{\numberline {3.5}Raffinamento dello schema (eliminazione di identificatori esterni, attributi composti e gerarchie, scelta delle chiavi)}{17}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Attributi Composti}{17}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Eliminazione delle Gerarchie}{18}{subsubsection.3.5.2}%
-\contentsline {subsubsection}{\numberline {3.5.3}Scelta delle Chiavi}{18}{subsubsection.3.5.3}%
-\contentsline {subsubsection}{\numberline {3.5.4}Accorpamento di Entità}{18}{subsubsection.3.5.4}%
-\contentsline {subsection}{\numberline {3.6}Analisi delle ridondanze}{18}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Traduzione di entità e associazioni in relazioni}{18}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}Schema relazionale finale}{18}{subsection.3.8}%
-\contentsline {subsection}{\numberline {3.9}Traduzione delle operazioni in query SQL}{18}{subsection.3.9}%
+\contentsline {subsubsection}{\numberline {3.3.1}Log In di un dipendente}{14}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Inserimento di un nuovo cliente}{14}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Visualizza le vetture acquistate da un cliente in un certo periodo in ordine crescente di data}{14}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Visualizza gli optional di una certa azienda}{15}{subsubsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.5}Inserimento di un nuovo ordine}{16}{subsubsection.3.3.5}%
+\contentsline {subsubsection}{\numberline {3.3.6}Aggiungere un contratto di conto vendita}{16}{subsubsection.3.3.6}%
+\contentsline {subsubsection}{\numberline {3.3.7}Visualizza i dipendenti che in un certo mese hanno ottenuto il bonus}{16}{subsubsection.3.3.7}%
+\contentsline {subsubsection}{\numberline {3.3.8}Visualizza Top 10 supercar più veloci di un segmento e calcola la media dei cavalli potenza}{17}{subsubsection.3.3.8}%
+\contentsline {subsubsection}{\numberline {3.3.9}Inserisci una nuova versione di una supercar}{17}{subsubsection.3.3.9}%
+\contentsline {subsubsection}{\numberline {3.3.10}Aggiungi manutenzione ad un veicolo}{17}{subsubsection.3.3.10}%
+\contentsline {subsubsection}{\numberline {3.3.11}Calcola l'importo totale di un ordine}{17}{subsubsection.3.3.11}%
+\contentsline {subsubsection}{\numberline {3.3.12}Calcola la spesa annuale in risorse umane della concessionaria}{18}{subsubsection.3.3.12}%
+\contentsline {subsection}{\numberline {3.4}Raffinamento dello schema (eliminazione di identificatori esterni, attributi composti e gerarchie, scelta delle chiavi)}{18}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Attributi Composti}{18}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Eliminazione delle Gerarchie}{18}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Scelta delle Chiavi}{18}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Accorpamento di Entità}{18}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Analisi delle ridondanze}{19}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Traduzione di entità e associazioni in relazioni}{19}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Schema relazionale finale}{19}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Traduzione delle operazioni in query SQL}{19}{subsection.3.8}%
 \contentsline {section}{\numberline {4}Progettazione dell'applicazione}{20}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Descrizione dell'architettura dell'applicazione realizzata con obbligo di inserire alcuni screenshot dell'interfaccia utente}{20}{subsection.4.1}%
