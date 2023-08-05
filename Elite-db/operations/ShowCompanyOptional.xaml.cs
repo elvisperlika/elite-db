@@ -11,20 +11,19 @@ namespace Elite_db.operations;
 
 public partial class ShowCompanyOptional : ContentPage
 {
-    public ShowCompanyOptional()
+    private readonly MySqlConnection _con; 
+    public ShowCompanyOptional(MySqlConnection mySqlConnection)
     {
         InitializeComponent();
+        _con = mySqlConnection;
     }
 
     private void SearchOptionalsClicked(object sender, EventArgs e)
     {
         var companyName = CompanyNameBox.Text;
-        
-        MySqlConnection con = new("SERVER=localhost; DATABASE=ElegantMotors; " +
-                                  "UID=root; PASSWORD=Elvis101");
-        
+
         try {
-            con.Open();
+            _con.Open();
 
             var selectQuery =
                 "SELECT Nome_Optional, Prezzo, Livello_Qualita " +
@@ -32,7 +31,7 @@ public partial class ShowCompanyOptional : ContentPage
                 "WHERE PRODUTTORE.Nome = @companyName " +
                 "AND OPTIONAL_AUTO.P_IVA = PRODUTTORE.P_IVA";
 
-            var cmd = new MySqlCommand(selectQuery, con);
+            var cmd = new MySqlCommand(selectQuery, _con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@companyName", companyName);
 
@@ -51,10 +50,8 @@ public partial class ShowCompanyOptional : ContentPage
             SearchButton.Text = "Error, retry!";
         }
         finally {
-            con.Close();
+            _con.Close();
         }
-        
-        throw new NotImplementedException();
     }
     
     public class RowData

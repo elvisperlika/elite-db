@@ -339,8 +339,8 @@ mercato e preformare al meglio nelle vendite.
       4 & Visualizza gli optional di una certa azienda & 20 al mese \\
       5 & Inserimento di un nuovo ordine & 66 al mese \\
       6 & Aggiungere un contratto di conto vendita & 1.6 al mese \\
-      7 & Visualizza i dipendenti che in un certo mese hanno ottenuto il bonus &
-      12 al anno \\
+      7 & Visualizza i dipendenti che in un certo mese hanno ottenuto il bonus & 12
+      al anno \\
       8 & Visualizza Top 10 supercar più vendute di un segmento & 3 al mese \\
       9 & Inserisci una nuova versione di una supercar & 75 al mese \\
       10 & Aggiungi manutenzione ad un veicolo & 500 all' anno \\
@@ -475,8 +475,7 @@ contratto di conto vendita}
 \end{table}
 
 \subsubsection{Visualizza i dipendenti che in un certo mese hanno ottenuto il
-bonus} \label{Visualizza i dipendenti che in un certo mese hanno ottenuto il
-bonus}
+bonus} 
 
 \begin{center}
     \includegraphics[scale=0.50]{images/bonusDipendenti.png}
@@ -496,7 +495,6 @@ bonus}
 \end{table}
 
 \subsubsection{Visualizza Top 10 supercar più veloci di un segmento}
-\label{Visualizza Top 10 supercar più veloci di un segmento}
 
 Dato un certo segmento vado a ordinare le supercar appartenenti prendendo come
 parametro i Cavalli Potenza. In media abbiamo 900 supercar / 10 segmenti = 90
@@ -515,8 +513,7 @@ supercar per segmento.
     \( 91L  \rightarrow  3 \) al mese = \( 91L \times 3 = 273 \) al mese
 \end{table}
 
-\subsubsection{Inserisci una nuova versione di una supercar} \label{Inserisci
-una nuova versione di una supercar}
+\subsubsection{Inserisci una nuova versione di una supercar} 
 
 \begin{table}[H]
     \centering
@@ -532,8 +529,7 @@ una nuova versione di una supercar}
     75 = 225 \) al mese
 \end{table}
 
-\subsubsection{Aggiungi manutenzione ad un veicolo} \label{Aggiungi manutenzione
-ad un veicolo}
+\subsubsection{Aggiungi manutenzione ad un veicolo} 
 
 \begin{table}[H]
     \centering
@@ -549,8 +545,7 @@ ad un veicolo}
     \times 500 = 1500 \) all'anno
 \end{table}
 
-\subsubsection{Visualizza i 5 clienti iscritti da più tempo} \label{Visualizza i
-5 clienti iscritti da più tempo}
+\subsubsection{Visualizza i 5 clienti iscritti da più tempo} 
 
 \begin{table}[H]
     \centering
@@ -566,8 +561,7 @@ ad un veicolo}
 \end{table}
 
 \subsubsection{Visualizza le vetture che hanno eseguito almeno una manutenzione
-ordinaria} \label{Visualizza le vetture che hanno eseguito almeno una
-manutenzione ordinaria}
+ordinaria}
 
 Nonostante la tabella dei volumi ci presenti un numero
 basso di MANUTENZIONE ci si trova in caso specifico, quello del primo anno di
@@ -694,29 +688,54 @@ do in ordine di data}
 
 \subsubsection*{Inserimento di un nuovo ordine}
 \begin{lstlisting}
-    INSERT INTO ORDINE (ID_Ordine, DataOrdine, Cliente, Dipendente)
-    VALUES (curdate(), current_time(), '1234567890');
-    INSERT INTO VERSIONE (ID_Versione, Prezzo, Colore, CavalliPotenza, 
-                Segmento, Modello, Produttore)
-    VALUES ('1234567890', '100000', 'Rosso', '500', 'Sport', 'Giulia', 
-                'Alfa Romeo');
-    INSERT INTO SUPERCAR (ID_Supercar, Telaio, Versione)
-    VALUES ('1234567890', '1234567890', '1234567890');
+    INSERT INTO ORDINE(Data, Ora, Email_Aziendale, ID_Badge) 
+    VALUES (curdate(), current_time(), 'Email Dipendente', Codice Cliente);
+
+    UPDATE VERSIONE
+    SET Cod_Ordine = (SELECT ORDINE.Cod_Ordine
+                        FROM ORDINE
+                        ORDER BY Cod_Ordine DESC
+                        LIMIT 1)
+    WHERE Nome_Modello = 'Enzo'
+    AND Cod_Ordine IS NULL
+    LIMIT 1;
 \end{lstlisting}
 
 \subsubsection*{Aggiungere un contratto di conto vendita}
 \begin{lstlisting}
     INSERT INTO CONTO_VENDITA (ID_ContoVendita, DataVendita, Cliente, 
                 Dipendente, Prezzo, Commisione)
-    VALUES ('1234567890', '2020-01-01', '1234567890', '1234567890', '100000', 
-                '10000');
+    VALUES ('1234567890', '2020-01-01', '1234567890', '1234567890', 
+                                '100000', '10000');
     INSERT INTO SCHEDA_VALUTAZIONE (ID_SchedaValutazione, Stato, 
                 ID_ContoVendita)
     VALUES ('1234567890', 'Buono', '1234567890');
 \end{lstlisting}
 
-\subsubsection*{Visualizza i dipendenti che in un certo mese hanno
-ottenuto il bonus}
+\subsubsection*{Visualizza i dipendenti che in un certo mese hanno ottenuto il
+bonus}
+
+\begin{lstlisting}
+    SELECT DIPENDENTE.Nome, DIPENDENTE.Cognome, 
+                                    DIPENDENTE.Email_Aziendale 
+    FROM DIPENDENTE, STIPENDIO
+    WHERE STIPENDIO.Email_Aziendale = DIPENDENTE.Email_Aziendale
+    AND STIPENDIO.Mese = 'Numero Mese'
+    AND STIPENDIO.Anno = 'Anno'
+    AND STIPENDIO.Bonus is not null;
+\end{lstlisting}
+
+% \begin{lstlisting}
+%     INSERT INTO STIPENDIO(EMAIL_AZIENDALE, IMPORTO, ANNO, MESE, BONUS)
+%     VALUES ('Email Dipendente', 2500, 2022, 10, 
+%     (CASE 
+%         WHEN (SELECT COUNT(*) 
+%                 FROM ORDINE 
+%                 WHERE ORDINE.Email_Aziendale 
+%                                     = 'Email Dipendente') >= 10
+%         THEN 500
+%     END ));
+% \end{lstlisting}
 
 \subsubsection*{Visualizza Top 10 supercar piu veloci di un segmento}
 

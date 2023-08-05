@@ -10,10 +10,12 @@ public partial class InsertNewCostumer : ContentPage
     private string _email;
     private string _name;
     private string _surname;
+    private MySqlConnection _con;
 
-    public InsertNewCostumer()
+    public InsertNewCostumer(MySqlConnection mySqlConnection)
     {
         InitializeComponent();
+        _con = mySqlConnection;
     }
 
     private void InsertClicked(object sender, EventArgs e)
@@ -35,14 +37,12 @@ public partial class InsertNewCostumer : ContentPage
 
     private void ConfirmClicked(object sender, EventArgs e)
     {
-        MySqlConnection con = new("SERVER=localhost; DATABASE=ElegantMotors; " +
-                                  "UID=root; PASSWORD=Elvis101");
         try {
-            con.Open();
+            _con.Open();
             var insertQuery =
                 "INSERT INTO CLIENTE(Data_Scadenza, Nome, Cognome, CF, Cellulare_Personale, Mail_Personale) " +
                 "VALUES (date_add(curdate(), INTERVAL 1 YEAR), @name, @surname, @cf, @cellular, @email)";
-            var cmd = new MySqlCommand(insertQuery, con);
+            var cmd = new MySqlCommand(insertQuery, _con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@name", _name);
             cmd.Parameters.AddWithValue("@surname", _surname);
@@ -59,7 +59,7 @@ public partial class InsertNewCostumer : ContentPage
             ConfirmBtn.Text = "Error, retry!";
         }
         finally {
-            con.Close();
+            _con.Close();
         }
     }
 }

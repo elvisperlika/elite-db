@@ -5,22 +5,23 @@ namespace Elite_db;
 
 public partial class MainPage
 {
+    public MySqlConnection Con { get; }
     public string Email { get; set; }
 
     public MainPage()
     {
         InitializeComponent();
+        Con = new("SERVER=localhost; DATABASE=ElegantMotors; " +
+                  "UID=root; PASSWORD=Elvis101");
     }
 
     private async void OnLogInClicked(object sender, EventArgs e)
     {
         var emailTmp = EmailBox.Text;
-
-        MySqlConnection con = new("SERVER=localhost; DATABASE=ElegantMotors; " +
-                                  "UID=root; PASSWORD=Elvis101");
-        con.Open();
+        
+        Con.Open();
         string query = "SELECT * FROM DIPENDENTE WHERE Email_Aziendale = @email";
-        MySqlCommand cmd = new MySqlCommand(query, con);
+        MySqlCommand cmd = new MySqlCommand(query, Con);
         cmd.CommandType = CommandType.Text;
         cmd.Parameters.AddWithValue("@email", emailTmp);
 
@@ -36,6 +37,6 @@ public partial class MainPage
                 }
             }
         }
-        con.Close();
+        Con.Close();
     }
 }

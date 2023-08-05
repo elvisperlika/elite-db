@@ -14,25 +14,25 @@ public partial class OperationsPage : ContentPage
 
     private void InsertNewCustomerClicked(object sender, EventArgs e)
     {
-        var insertNewCustomerPage = new InsertNewCostumer();
+        var insertNewCustomerPage = new InsertNewCostumer(MainPage.Con);
         ContentPresenter.Content = insertNewCustomerPage.Content;
     }
 
     private void ViewCustomerOrderClicked(object sender, EventArgs e)
     {
-        var viewCustomersOrderPage = new ViewCustomerOrder();
+        var viewCustomersOrderPage = new ViewCustomerOrder(MainPage.Con);
         ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 
     private void ShowOptionalsCompanyClicked(object sender, EventArgs e)
     {
-        var viewCustomersOrderPage = new ShowCompanyOptional();
+        var viewCustomersOrderPage = new ShowCompanyOptional(MainPage.Con);
         ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 
     private void InsertNewOrderClicked(object sender, EventArgs e)
     {
-        var viewCustomersOrderPage = new InsertNewOrder(MainPage.Email);
+        var viewCustomersOrderPage = new InsertNewOrder(MainPage.Email, MainPage.Con);
         ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 
@@ -43,7 +43,8 @@ public partial class OperationsPage : ContentPage
 
     private void ShowEmployeesWithBonusClicked(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        var viewCustomersOrderPage = new ShowEmployeesWithBonus(MainPage.Con);
+        ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 
     private void ShowTop10SupercarClicked(object sender, EventArgs e)

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Elite_db.operations.ShowEmployeesWithBonus">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                
+                <Entry x:Name="EntryYear" Placeholder="Year" HorizontalOptions="Center"/>
+                <Entry x:Name="EntryMonth" Placeholder="Month" HorizontalOptions="Center"/>
+                
+                <Button x:Name="ShowBtn" Text="Show" Clicked="ShowEmplyeesClicked" HorizontalOptions="Center"/>
+
+                <Label Text="Employees:" HorizontalOptions="Center" FontAttributes="Bold"/>
+
+                <ListView x:Name="DataListView" HeightRequest="500">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid x:Name="dataGrid">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}"
+                                           HorizontalOptions="Center" VerticalOptions="Center" />
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Surname}"
+                                           HorizontalOptions="Center" VerticalOptions="Center" />
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding Email}"
+                                           HorizontalOptions="Center" VerticalOptions="Center" />
+                                
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>

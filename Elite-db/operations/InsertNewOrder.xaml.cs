@@ -13,11 +13,10 @@ public partial class InsertNewOrder : ContentPage
 {
     private readonly MySqlConnection _con;
     private readonly string _userMail;
-    public InsertNewOrder(string mainPageEmail)
+    public InsertNewOrder(string mainPageEmail, MySqlConnection mySqlConnection)
     {
         InitializeComponent();
-        _con = new("SERVER=localhost; DATABASE=ElegantMotors; " +
-                                  "UID=root; PASSWORD=Elvis101");
+        _con = mySqlConnection;
         _userMail = mainPageEmail;
 
         fillListView();

@@ -6,7 +6,7 @@ namespace Elite_db;
 
 public partial class ViewCustomerOrder : ContentPage
 {
-    public ViewCustomerOrder()
+    public ViewCustomerOrder(MySqlConnection mySqlConnection)
     {
         InitializeComponent();
     }
