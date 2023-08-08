@@ -1,42 +1,41 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\contentsline {section}{\numberline {1}Analisi dei requisiti}{5}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Intervista}{5}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Rilevamento delle ambiguità e analisi del intervista}{5}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Clienti}{5}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Ordini}{6}{subsubsection.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3}Dipendenti}{6}{subsubsection.1.2.3}%
-\contentsline {subsubsection}{\numberline {1.2.4}Supercar}{7}{subsubsection.1.2.4}%
-\contentsline {subsubsection}{\numberline {1.2.5}Optional e Produttore}{8}{subsubsection.1.2.5}%
-\contentsline {subsubsection}{\numberline {1.2.6}Conto-Vendita}{8}{subsubsection.1.2.6}%
-\contentsline {subsection}{\numberline {1.3}Definizione delle specifiche in linguaggio naturale ed estrazione dei concetti principali}{10}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Progettazione Concettuale}{11}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Schema scheletro assemblato}{11}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Schema concettuale finale}{12}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Progettazione Logica}{13}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Stima del volume dei dati}{13}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Descrizione delle operazioni principali e stima della loro frequenza}{13}{subsection.3.2}%
+\contentsline {section}{\numberline {1}Analisi dei requisiti}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Intervista}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Rilevamento delle ambiguità e analisi del intervista}{4}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Clienti}{4}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Ordini}{5}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Dipendenti}{5}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Supercar}{6}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Optional e Produttore}{7}{subsubsection.1.2.5}%
+\contentsline {subsubsection}{\numberline {1.2.6}Conto-Vendita}{7}{subsubsection.1.2.6}%
+\contentsline {subsection}{\numberline {1.3}Definizione delle specifiche in linguaggio naturale ed estrazione dei concetti principali}{9}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Progettazione Concettuale}{10}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Schema scheletro assemblato}{10}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Schema concettuale finale}{11}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Progettazione Logica}{12}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Stima del volume dei dati}{12}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Descrizione delle operazioni principali e stima della loro frequenza}{14}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Schemi di navigazione e tabelle degli accessi}{14}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Log In di un dipendente}{14}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.2}Inserimento di un nuovo cliente}{14}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Visualizza le vetture acquistate da un cliente in un certo periodo in ordine crescente di data}{14}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.3}Visualizza le vetture acquistate da un cliente in un certo periodo in ordine crescente di data}{15}{subsubsection.3.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.4}Visualizza gli optional di una certa azienda}{15}{subsubsection.3.3.4}%
 \contentsline {subsubsection}{\numberline {3.3.5}Inserimento di un nuovo ordine}{16}{subsubsection.3.3.5}%
 \contentsline {subsubsection}{\numberline {3.3.6}Aggiungere un contratto di conto vendita}{16}{subsubsection.3.3.6}%
-\contentsline {subsubsection}{\numberline {3.3.7}Visualizza i dipendenti che in un certo mese hanno ottenuto il bonus}{16}{subsubsection.3.3.7}%
+\contentsline {subsubsection}{\numberline {3.3.7}Visualizza i dipendenti che in un certo mese hanno ottenuto il bonus}{17}{subsubsection.3.3.7}%
 \contentsline {subsubsection}{\numberline {3.3.8}Visualizza Top 10 supercar più veloci di un segmento e calcola la media dei cavalli potenza}{17}{subsubsection.3.3.8}%
-\contentsline {subsubsection}{\numberline {3.3.9}Inserisci una nuova versione di una supercar}{17}{subsubsection.3.3.9}%
-\contentsline {subsubsection}{\numberline {3.3.10}Aggiungi manutenzione ad un veicolo}{17}{subsubsection.3.3.10}%
-\contentsline {subsubsection}{\numberline {3.3.11}Calcola l'importo totale di un ordine}{17}{subsubsection.3.3.11}%
-\contentsline {subsubsection}{\numberline {3.3.12}Calcola la spesa annuale in risorse umane della concessionaria}{18}{subsubsection.3.3.12}%
-\contentsline {subsection}{\numberline {3.4}Raffinamento dello schema (eliminazione di identificatori esterni, attributi composti e gerarchie, scelta delle chiavi)}{18}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Attributi Composti}{18}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Eliminazione delle Gerarchie}{18}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Scelta delle Chiavi}{18}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}Accorpamento di Entità}{18}{subsubsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.5}Analisi delle ridondanze}{19}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Traduzione di entità e associazioni in relazioni}{19}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Schema relazionale finale}{19}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}Traduzione delle operazioni in query SQL}{19}{subsection.3.8}%
-\contentsline {section}{\numberline {4}Progettazione dell'applicazione}{20}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Descrizione dell'architettura dell'applicazione realizzata con obbligo di inserire alcuni screenshot dell'interfaccia utente}{20}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {3.3.9}Inserisci una nuova versione di una supercar}{18}{subsubsection.3.3.9}%
+\contentsline {subsubsection}{\numberline {3.3.10}Aggiungi manutenzione ad un veicolo}{18}{subsubsection.3.3.10}%
+\contentsline {subsubsection}{\numberline {3.3.11}Calcola l'importo totale di un ordine}{18}{subsubsection.3.3.11}%
+\contentsline {subsubsection}{\numberline {3.3.12}Calcola la spesa annuale in risorse umane della concessionaria}{19}{subsubsection.3.3.12}%
+\contentsline {subsection}{\numberline {3.4}Raffinamento dello schema (eliminazione di identificatori esterni, attributi composti e gerarchie, scelta delle chiavi)}{20}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Attributi Composti}{20}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Eliminazione delle Gerarchie}{20}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Scelta delle Chiavi}{20}{subsubsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.5}Analisi delle ridondanze}{21}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Traduzione di entità e associazioni in relazioni}{21}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Schema relazionale finale}{21}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Traduzione delle operazioni in query SQL}{21}{subsection.3.8}%
+\contentsline {section}{\numberline {4}Progettazione dell'applicazione}{23}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Descrizione dell'architettura dell'applicazione realizzata con obbligo di inserire alcuni screenshot dell'interfaccia utente}{23}{subsection.4.1}%

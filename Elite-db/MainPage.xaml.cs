@@ -11,25 +11,25 @@ public partial class MainPage
     public MainPage()
     {
         InitializeComponent();
-        Con = new("SERVER=localhost; DATABASE=ElegantMotors; " +
+        Con = new("SERVER=localhost; DATABASE=ELITE; " +
                   "UID=root; PASSWORD=Elvis101");
     }
 
     private async void OnLogInClicked(object sender, EventArgs e)
     {
-        var emailTmp = EmailBox.Text;
-        
         Con.Open();
-        string query = "SELECT * FROM DIPENDENTE WHERE Email_Aziendale = @email";
+        string query = "SELECT * " +
+                       "FROM DIPENDENTE " +
+                       "WHERE Email_Aziendale = @email";
         MySqlCommand cmd = new MySqlCommand(query, Con);
         cmd.CommandType = CommandType.Text;
-        cmd.Parameters.AddWithValue("@email", emailTmp);
+        cmd.Parameters.AddWithValue("@email", EmailBox.Text);
 
         using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd)) {
             using (DataTable dt = new DataTable()) {
                 sda.Fill(dt);
                 if (dt.Rows.Count > 0) {
-                    Email = emailTmp;
+                    Email = EmailBox.Text;
                     await Navigation.PushAsync(new OperationsPage(this));
                 }
                 else {
@@ -37,6 +37,6 @@ public partial class MainPage
                 }
             }
         }
-        Con.Close();
+        await Con.CloseAsync();
     }
 }
