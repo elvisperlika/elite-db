@@ -1,11 +1,10 @@
 using Elite_db.operations;
-using MySql.Data.MySqlClient;
 
 namespace Elite_db;
 
-public partial class OperationsPage : ContentPage
+public partial class OperationsPage
 {
-    public MainPage MainPage { get; set; }
+    public MainPage MainPage { get; }
     public OperationsPage(MainPage mainPage)
     {
         MainPage = mainPage;
@@ -62,7 +61,7 @@ public partial class OperationsPage : ContentPage
         throw new NotImplementedException();
     }
 
-    private void ShowOldestCostumersClicked(object sender, EventArgs e)
+    private void ShowSuperCarWithMaintenanceClicked(object sender, EventArgs e)
     {
         throw new NotImplementedException();
     }

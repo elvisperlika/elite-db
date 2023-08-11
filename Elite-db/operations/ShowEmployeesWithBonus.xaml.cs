@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace Elite_db.operations;
 
-public partial class ShowEmployeesWithBonus : ContentPage
+public partial class ShowEmployeesWithBonus
 {
     private readonly MySqlConnection _con;
     public ShowEmployeesWithBonus(MySqlConnection mySqlConnection)

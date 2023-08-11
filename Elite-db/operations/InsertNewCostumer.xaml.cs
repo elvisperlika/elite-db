@@ -1,16 +1,16 @@
 using System.Data;
 using MySql.Data.MySqlClient;
 
-namespace Elite_db;
+namespace Elite_db.operations;
 
-public partial class InsertNewCostumer : ContentPage
+public partial class InsertNewCostumer
 {
     private string _cellular;
     private string _cf;
     private string _email;
     private string _name;
     private string _surname;
-    private MySqlConnection _con;
+    private readonly MySqlConnection _con;
 
     public InsertNewCostumer(MySqlConnection mySqlConnection)
     {

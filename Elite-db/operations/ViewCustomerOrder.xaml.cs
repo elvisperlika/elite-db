@@ -2,9 +2,9 @@ using System.Collections.ObjectModel;
 using System.Data;
 using MySql.Data.MySqlClient;
 
-namespace Elite_db;
+namespace Elite_db.operations;
 
-public partial class ViewCustomerOrder : ContentPage
+public partial class ViewCustomerOrder
 {
     public ViewCustomerOrder(MySqlConnection mySqlConnection)
     {
@@ -23,10 +23,11 @@ public partial class ViewCustomerOrder : ContentPage
             con.Open();
 
             var insertQuery =
-                "SELECT Cod_Ordine, Data, Ora, Email_Aziendale FROM ORDINE " +
-                "WHERE ID_Badge = @costumerID AND " +
-                "Data BETWEEN @startDate AND @endDate " +
-                "ORDER BY Data";
+                "SELECT Cod_Ordine, Data_Ordine, Ora, Email_Aziendale " +
+                "FROM ORDINE " +
+                "WHERE ID_Badge = @costumerID " +
+                "AND Data_Ordine BETWEEN @startDate AND @endDate " +
+                "ORDER BY Data_Ordine DESC";
             
             var cmd = new MySqlCommand(insertQuery, con);
             cmd.CommandType = CommandType.Text;

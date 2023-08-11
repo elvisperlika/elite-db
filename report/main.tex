@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper, total={6in, 10in}]{geometry}
 \usepackage{graphicx} % Required for inserting images
@@ -10,6 +10,24 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{tcolorbox}
+
+\lstdefinestyle{sqlStyle}{
+    language=SQL,
+    basicstyle=\ttfamily\footnotesize, 
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{gray},
+    morecomment=[l][\color{magenta}]{\#},
+    morekeywords={INSERT, INTO, VALUES},
+    breaklines=true,
+    showstringspaces=false,
+    numbers=left,
+    frame=none,
+    numberstyle=\small,
+    numbersep=-18pt,
+    xleftmargin=-13pt,
+}
+
 
 \title{Dealership ``Elite" Data Base}
 \author{Elvis Perlika}
@@ -103,7 +121,6 @@ Il BADGE è unico ed appartene ad un solo proprietario che a sua volta ne può
 avere uno solo. Il BADGE, inoltre, è rinnovabile annualmente quindi mantiene lo
 stesso codice ma cambia la data di scadenza.
 
-
 \begin{center}
     \includegraphics[width=\linewidth]{images/cliente.png}
 \end{center}
@@ -124,6 +141,8 @@ possono includere più di una vettura. Viene quindi introdotta l'entità ORDINE
 che rappresenta un contratto di acquisto. Lo storico delle supercar acquistate
 da un cliente è utile alla concessionaria al fine di conoscere i gusti del
 cliente e proporre nuovi modelli che gli potrebbero interessare.
+Le supercar presenti nel database sono sia quelle facenti parte di un ordine che 
+non, quindi la cardinalità da SUPERCAR ad ORDINE è 0:1.
 
 \begin{center}
     \includegraphics[width=\linewidth]{images/ordine.png}
@@ -160,13 +179,13 @@ per lo stesso modello crea diversi restyling.}
 Il codice del telaio è l'identificatore fondamentale di una qualsiasi vettura.
 Il cliente, unico proprietario di una certa vettura acquistata, può portarla in
 revisione dal officina della concessionaria ogni 2 anni gratuitamente.\\
-Si pone particoalre attenzione sul restylng di una supercar in quanto per un
+Si pone particolare attenzione sul restylng di una supercar in quanto per un
 certo modello possono essere prodotte diverse versioni. Viene quindi introdotta
 l'entità VERSIONE che separa alcuni attributi dalla entità SUPERCAR. Il prezzo
 ed il colore ad esempio variano in base alla versione della vettura quindi vanno
 a caratterizzare una VERSIONE e non il modello; il primo per via delle leggi di
 mercato, il secondo a causa di vetture a tiratura limitana che vengono prodotte
-con colori particoalri. Inoltre l'entità VERSIONE definisce anche istanze di
+con colori particolari. Inoltre l'entità VERSIONE definisce anche istanze di
 vetture che non hanno ricevuto un nuovo aggiornamento in quanto in termini
 assoluti si trovano alla loro prima versione, ne segue che non esiste una
 SUPERCAR senza almeno una VERSIONE. Per quanto riguarda il modello (sinominimo
@@ -268,14 +287,14 @@ ed estrazione dei concetti principali}}
 \subsection{Schema scheletro assemblato}
 
 \begin{center}
-    \includegraphics[scale=0.75, angle=90]{images/schemaScheletro.png}
+    \includegraphics[scale=1.20, angle=90]{images/schemaScheletro.jpeg}
 \end{center}
 
 \newpage
 
 \subsection{Schema concettuale finale}
 \begin{center}
-    \includegraphics[scale=0.85, angle=90]{images/schemaFinale.png}
+    \includegraphics[scale=0.95, angle=90]{images/schemaFinale.jpg}
 \end{center}
 
 \newpage
@@ -293,7 +312,7 @@ VALUTAZIONE. Il BADGE è stato accorpato alla entità CLIENTE mentre
 la SCHEDA VALUTAZIONE è stata accorpata nel entità CONTOVENDITA.
 
 \begin{center}
-    \includegraphics[scale=0.80, angle=90]{images/schemaFinaleRistrutturato.jpeg}
+    \includegraphics[scale=0.20, angle=90]{images/schemaFinaleRistrutturato.jpeg}
 \end{center}
 
 Di seguito la stima di dati valutata ad un anno dalla apertura della
@@ -655,17 +674,31 @@ attributi composti e gerarchie, scelta delle chiavi)}
 
 \subsubsection{Scelta delle Chiavi}
 
-\begin{itemize}
-    \item Si rimuove l'identificatore \textit{Cellulare Aziendale} da DIPENDETE
-    in quanto è più frequente l'utilizzo della Mail per l'identificazione.  
-    A livello applicativo si eseguono i dovuti controlli affinché non esistano
-    più dipendenti con lo stesso Cellulare (Aziendale e non).
-    \item Allo stesso modo viene rimosso l'identificatore \textit{Nome} dal
-    PRODUTTORE in quanto l'identificatore fondamentale è la P.IVA. Nuovamente, a
-    livello applicativo, ci si assicura che non vengano inserite entità
-    PRODUTTORE con lo stesso nome anche al fine di non creare confusione nei
-    dipendenti nel utilizzo del data base. 
-\end{itemize}
+Di seguito riporto una tabella che riassume le chiavi scelte per ogni entità.
+
+\begin{center}
+    \begin{table}[htbp]
+        \centering
+        \small
+        \rowcolors{2}{red!5!}{white}
+        \begin{tabularx}{\textwidth}{l l}
+            \rowcolor{red!20!}
+            \textbf{Concetto} & \textbf{Chaive Primaria}\\
+            CLIENTE & IDBadge \\
+            DIPENDENTE & EmailAziendale \\
+            ORDINE & CodOrdine \\
+            CONTOVENDITA & CodContratto \\
+            VERSIONE & NrTelaio \\
+            SUPERCAR & NomeModello \\
+            SEGMENTO & Nome \\
+            PRODUTTORE & PIVA \\
+            STIPENDIO & DIPENDENTE(EmailAziendale), Anno, Mese \\
+            MANUTENZIONE & VERSIONE(NrTelaio), Anno \\
+            OPTIONAL-AUTO & PRODUTTORE(PIVA), NomeOptional \\
+            SUPERCAR & PRODUTTORE(PIVA), NomeModello \\
+        \end{tabularx}
+    \end{table}    
+\end{center}
 
 \newpage
 
@@ -698,30 +731,362 @@ cliente potrebbe voler accedere al Importo del ordine durante la creazione dello
 stesso, integrando o rimuovendo supercar e/o optional.
 Si decide quindi di integrare l'attributo \textit{Importo} nella entità ORDINE.
 
+\newpage
+
+\subsection{Schema Logico}
+
+\begin{center}
+    \includegraphics[scale=0.92, angle=90]{images/schemaLogico.jpeg}
+\end{center}
+
+\newpage
 
 \subsection{Traduzione di entità e associazioni in relazioni}
 
+\small
+
+\begin{flushleft}
+CLIENTI(\underline{IDBadge}, DataScadenza, Nome, Cognome, CF,
+    CellularePersonale, MailPersonale*)\\
+UNIQUE(CF, CellularePersonale, MailPersonale)
+\end{flushleft}
+    
+
+\begin{flushleft}
+DIPENDENTI(\underline{EmailAziendale}, Nome, Cognome, CF, CellularePersonale,
+MailPersonale*, CellulareAziendale)\\
+UNIQUE(CellularePersonale, MailPersonale, CellulareAziendale, CF)
+\end{flushleft}
+
+\begin{flushleft}
+STIPENDI(\underline{EmailAziendale}, Importo, Anno, Mese, Bonus*)\\
+FK EmailAziendale REFERENCES DIPENDENTI
+\end{flushleft}
+
+\begin{flushleft}
+ORDINI(\underline{CodOrdine}, Data, Ora, Importo, EmailAziendale, IDBadge)\\
+FK EmailAziendale REFERENCES DIPENDENTI\\
+FK IDBadge REFERENCES CLIENTI
+\end{flushleft}
+
+\begin{flushleft}
+CONTOVENDITA(\underline{CodContratto}, Prezzo, Commissione, LivMotore,
+LivCarrozzeria, LivInterni, IDBadge, NrTelaio)\\
+FK IDBadge REFERENCES CLIENTI\\
+FK NrTelaio REFERENCES VERSIONI
+\end{flushleft}
+
+\begin{flushleft}
+VERSIONI(\underline{NrTelaio}, Prezzo, Colore, CodOrdine, NomeModello, CodOrdine*)\\
+FK NomeModello REFERENCES SUPERCAR
+FK CodOrdine REFERENCES ORDINI
+\end{flushleft}
+
+\begin{flushleft}
+MANUTENZIONE(\underline{DataManutenzione}, \underline{NrTelaio})\\
+FK NrTelaio REFERENCES VERSIONI
+\end{flushleft}
+
+\begin{flushleft}
+SUPERCAR(\underline{NomeModello}, Peso, CavalliPotenza, PIVA, Nome)\\
+FK PIVA REFERENCES PRODUTTORI\\
+FK Nome REFERENCES SEGMENTI
+\end{flushleft}
+
+\begin{flushleft}
+SEGMENTI(\underline{Nome}, Descrizione)
+\end{flushleft}
+
+\begin{flushleft}
+PRODUTTORI(\underline{PIVA}, Automobilistico, OptionalMarket, Stato, Citta, Via,
+Civico, NomeProduttore)\\
+UNIQUE(NomeProduttore)
+\end{flushleft}
+
+\begin{flushleft}
+OPTIONAL-AUTO(\underline{NomeOptional}, \underline{PIVA}, Prezzo, Descrizione,
+LivelloQualità)\\
+FK PIVA REFERENCES PRODUTTORI
+\end{flushleft}
+
+\normalsize
+
+\newpage 
+
 \subsection{Schema relazionale finale}
 
-\subsection{Traduzione delle operazioni in query SQL}
+\begin{center}
+    \includegraphics[scale=0.89, angle=90]{images/schemaRelazionale.jpeg}
+\end{center}
 
-\lstdefinestyle{sqlStyle}{
-    language=SQL,
-    basicstyle=\ttfamily\footnotesize, 
-    keywordstyle=\color{blue},
-    stringstyle=\color{red},
-    commentstyle=\color{gray},
-    morecomment=[l][\color{magenta}]{\#},
-    morekeywords={INSERT, INTO, VALUES},
-    breaklines=true,
-    showstringspaces=false,
-    numbers=left,
-    frame=none,
-    numberstyle=\small,
-    numbersep=-18pt,
-    xleftmargin=-13pt,
-}
+\newpage
+
+\subsection{Creazione del database}
+
 \lstset{style=sqlStyle}
+
+\begin{lstlisting}
+    -- Database Section
+    -- ________________ 
+
+    create database Elite;
+    use Elite;
+
+    -- Tables Section
+    -- _____________ 
+
+    create table CLIENTE (
+        Nome char(30) not null,
+        Cognome char(30) not null,
+        CF char(16) not null unique check(length(CF) = 16),
+        Cellulare_Personale bigint(10) not null unique check(length(Cellulare_Personale) = 10),
+        Mail_Personale char(40) unique check (Mail_Personale like '%@%'),
+        ID_Badge bigint not null AUTO_INCREMENT,
+        Data_Scadenza date not null,
+        constraint ID_CLIENTE_ID primary key (ID_Badge));
+
+    create table CONTO_VENDITA (
+        Liv_Motore int not null check(Liv_Motore >= 0 and Liv_Motore <= 10),
+        Liv_Carrozzeria int not null check(Liv_Carrozzeria >= 0 and Liv_Carrozzeria <= 10),
+        Liv_Interni int not null check(Liv_Interni >= 0 and Liv_Interni <= 10),
+        Cod_Contratto int not null auto_increment,
+        Nr_Telaio bigint(11) not null,
+        Prezzo decimal(10,2) not null,
+        Commissione decimal(10,2) not null,
+        ID_Badge bigint not null,
+        constraint ID_CONTO_VENDITA_ID primary key (Cod_Contratto),
+        constraint FKrelazione_ID unique (Nr_Telaio));
+
+    create table DIPENDENTE (
+        Nome char(30) not null,
+        Cognome char(30) not null,
+        CF char(16) not null check(length(CF) = 16),
+        Cellulare_Personale int not null unique check(length(Cellulare_Personale) = 10),
+        Mail_Personale char(40) unique check (Mail_Personale like '%@%'),
+        Cellulare_Aziendale int not null unique check(length(Cellulare_Aziendale) = 10),
+        Email_Aziendale char(40) not null unique check (Email_Aziendale like '%@%'),
+        constraint ID_DIPENDENTE_ID primary key (Email_Aziendale));
+
+    create table MANUTENZIONE (
+        Nr_Telaio bigint not null,
+        Data_Manutenzione date not null,
+        constraint ID_MANUTENZIONE_ID primary key (Nr_Telaio, Data_Manutenzione));
+
+    create table OPTIONAL_AUTO (
+        P_IVA char(11) not null, 
+        Prezzo bigint not null,
+        Nome_Optional char(20) not null,
+        Descrizione varchar(400) not null,
+        Livello_Qualita int not null check(Livello_Qualita >= 0 and Livello_Qualita <= 10),
+        Nome_Modello char(30) not null,
+        constraint ID_OPTIONAL_AUTO_ID primary key (P_IVA, Nome_Optional));
+
+    create table ORDINE (
+        Importo bigint not null,
+        Cod_Ordine int not null auto_increment,
+        DataOrdine date not null,
+        Ora time not null,
+        Email_Aziendale char(40) not null,
+        ID_Badge bigint not null,
+        constraint ID_ORDINE_ID primary key (Cod_Ordine));
+
+    create table PRODUTTORE (
+        Automibilistico boolean not null,
+        OptionalMarket boolean not null,
+        Stato char(40) not null,
+        Citta char(40) not null,
+        Via char(50) not null,
+        Civico int not null,
+        Nome_Produttore char(50) not null unique,
+        P_IVA char(11) not null,
+        constraint ID_PRODUTTORE_ID primary key (P_IVA));
+
+    create table SEGMENTO (
+        Nome char(50) not null,
+        Descrizione varchar(300) not null,
+        constraint ID_SEGMENTO_ID primary key (Nome));
+
+    create table STIPENDIO (
+        Email_Aziendale char(40) not null,
+        Importo int not null,
+        Anno int not null,
+        Mese int not null,
+        Bonus int,
+        constraint ID_STIPENDIO_ID primary key (Email_Aziendale, Anno, Mese));
+
+    create table SUPERCAR (
+        Nome_Modello char(50) not null,
+        Cavalli_Potenza int not null,
+        Alimentazione char(50) not null,
+        P_IVA char(11) not null,
+        Nome char(50) not null,
+        constraint ID_SUPERCAR_ID primary key (Nome_Modello));
+
+    create table supporto (
+        P_IVA char(11) not null,
+        Nome_Optional char(20) not null,
+        Nome char(50) not null,
+        constraint ID_supporto_ID primary key (Nome, P_IVA, Nome_Optional));
+
+    create table VERSIONE (
+        Nr_Telaio bigint not null,
+        Colore char(100) not null,
+        Prezzo bigint not null,
+        Nome_Modello char(50) not null,
+        Cod_Ordine int,
+        constraint ID_VERSIONE_ID primary key (Nr_Telaio));
+
+    -- Constraints Section
+    -- ___________________ 
+
+    alter table CONTO_VENDITA add constraint FKrelazione_FK
+        foreign key (Nr_Telaio)
+        references VERSIONE (Nr_Telaio);
+
+    alter table CONTO_VENDITA add constraint FKpiazzamento_FK
+        foreign key (ID_Badge)
+        references CLIENTE (ID_Badge);
+
+    alter table MANUTENZIONE add constraint FKcontrollo
+        foreign key (Nr_Telaio)
+        references VERSIONE (Nr_Telaio);
+
+    -- Not implemented
+    -- alter table OPTIONAL_AUTO add constraint ID_OPTIONAL_AUTO_CHK
+    --     check(exists(select * from supporto
+    --                  where supporto.P_IVA = P_IVA and supporto.Nome_Optional = Nome_Optional)); 
+
+    alter table OPTIONAL_AUTO add constraint FKproduzioneOptional
+        foreign key (P_IVA)
+        references PRODUTTORE (P_IVA);
+
+    alter table OPTIONAL_AUTO add constraint FKequipaggiamento_FK
+        foreign key (Nome_Modello)
+        references SUPERCAR (Nome_Modello);
+
+    -- Not implemented
+    -- alter table ORDINE add constraint ID_ORDINE_CHK
+    --     check(exists(select * from VERSIONE
+    --                  where VERSIONE.Cod_Ordine = Cod_Ordine)); 
+
+    alter table ORDINE add constraint FKvendita_FK
+        foreign key (Email_Aziendale)
+        references DIPENDENTE (Email_Aziendale);
+
+    alter table ORDINE add constraint FKacquisto_FK
+        foreign key (ID_Badge)
+        references CLIENTE (ID_Badge);
+
+    alter table STIPENDIO add constraint FKpagamento
+        foreign key (Email_Aziendale)
+        references DIPENDENTE (Email_Aziendale);
+
+    -- Not implemented
+    -- alter table SUPERCAR add constraint ID_SUPERCAR_CHK
+    --     check(exists(select * from OPTIONAL_AUTO
+    --                  where OPTIONAL_AUTO.Nome_Modello = Nome_Modello)); 
+
+    -- Not implemented
+    -- alter table SUPERCAR add constraint ID_SUPERCAR_CHK
+    --     check(exists(select * from VERSIONE
+    --                  where VERSIONE.Nome_Modello = Nome_Modello)); 
+
+    alter table SUPERCAR add constraint FKproduzioneSupercar_FK
+        foreign key (P_IVA)
+        references PRODUTTORE (P_IVA);
+
+    alter table SUPERCAR add constraint FKcategorizzazione_FK
+        foreign key (Nome)
+        references SEGMENTO (Nome);
+
+    alter table supporto add constraint FKsup_SEG
+        foreign key (Nome)
+        references SEGMENTO (Nome);
+
+    alter table supporto add constraint FKsup_OPT_FK
+        foreign key (P_IVA, Nome_Optional)
+        references OPTIONAL_AUTO (P_IVA, Nome_Optional);
+
+    alter table VERSIONE add constraint FKrestyling_FK
+        foreign key (Nome_Modello)
+        references SUPERCAR (Nome_Modello);
+
+    alter table VERSIONE add constraint FKcontenimento_FK
+        foreign key (Cod_Ordine)
+        references ORDINE (Cod_Ordine);
+
+
+    -- Index Section
+    -- _____________ 
+
+    create unique index ID_CLIENTE_IND
+        on CLIENTE (ID_Badge);
+
+    create unique index ID_CONTO_VENDITA_IND
+        on CONTO_VENDITA (Cod_Contratto);
+
+    create unique index FKrelazione_IND
+        on CONTO_VENDITA (Nr_Telaio);
+
+    create index FKpiazzamento_IND
+        on CONTO_VENDITA (ID_Badge);
+
+    create unique index ID_DIPENDENTE_IND
+        on DIPENDENTE (Email_Aziendale);
+
+    create unique index ID_MANUTENZIONE_IND
+        on MANUTENZIONE (Nr_Telaio, Data_Manutenzione);
+
+    create unique index ID_OPTIONAL_AUTO_IND
+        on OPTIONAL_AUTO (P_IVA, Nome_Optional);
+
+    create index FKequipaggiamento_IND
+        on OPTIONAL_AUTO (Nome_Modello);
+
+    create unique index ID_ORDINE_IND
+        on ORDINE (Cod_Ordine);
+
+    create index FKvendita_IND
+        on ORDINE (Email_Aziendale);
+
+    create index FKacquisto_IND
+        on ORDINE (ID_Badge);
+
+    create unique index ID_PRODUTTORE_IND
+        on PRODUTTORE (P_IVA);
+
+    create unique index ID_SEGMENTO_IND
+        on SEGMENTO (Nome);
+
+    create unique index ID_STIPENDIO_IND
+        on STIPENDIO (Email_Aziendale, Anno, Mese);
+
+    create unique index ID_SUPERCAR_IND
+        on SUPERCAR (Nome_Modello);
+
+    create index FKproduzioneSupercar_IND
+        on SUPERCAR (P_IVA);
+
+    create index FKcategorizzazione_IND
+        on SUPERCAR (Nome);
+
+    create unique index ID_supporto_IND
+        on supporto (Nome, P_IVA, Nome_Optional);
+
+    create index FKsup_OPT_IND
+        on supporto (P_IVA, Nome_Optional);
+
+    create unique index ID_VERSIONE_IND
+        on VERSIONE (Nr_Telaio);
+
+    create index FKrestyling_IND
+        on VERSIONE (Nome_Modello);
+
+    create index FKcontenimento_IND
+        on VERSIONE (Cod_Ordine);
+\end{lstlisting}
+
+\subsection{Traduzione delle operazioni in query SQL}
 
 \subsubsection*{Log In Dipendente}
 
@@ -741,15 +1106,15 @@ abbia una riga sola e si effettua il Log In.
                 'CognomeCliente', 'CodiceFiscale', 'NumeroCellulare', 'EmailCliente');
 \end{lstlisting}
 
-\subsubsection*{Visualizza le vetture acquistate da un cliente in un certo perio-
-do in ordine crescente di data}
+\subsubsection*{Visualizza le vetture acquistate da un cliente in un certo
+perio- do in ordine crescente di data}
 
 \begin{lstlisting}
     SELECT Cod_Ordine, Data, Ora, Email_Aziendale 
     FROM ORDINE
     WHERE ID_Badge = 'ID Badge Cliente' 
     AND Data BETWEEN 'Data di Inzio' AND 'Data di Fine'
-    ORDER BY Data;
+    ORDER BY Data DESC;
 \end{lstlisting}
 
 \subsubsection*{Visualizza gli optional di una certa azienda}
@@ -806,8 +1171,8 @@ ria in un certo anno}
 
 \section{Progettazione dell'applicazione}
 
-\subsection{Descrizione dell'architettura dell'applicazione
-realizzata con obbligo di inserire alcuni screenshot dell'interfaccia utente}
+\subsection{Descrizione dell'architettura dell'applicazione realizzata con
+obbligo di inserire alcuni screenshot dell'interfaccia utente}
 
 Si e progettata l'applicazione in C\# con il supporto del package
 MySQLConnection Framework. Si e valutato fosse importante una GUI semplice ed

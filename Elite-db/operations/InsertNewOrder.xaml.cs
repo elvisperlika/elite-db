@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Utilities;
 
 namespace Elite_db.operations;
 
-public partial class InsertNewOrder : ContentPage
+public partial class InsertNewOrder
 {
     private readonly MySqlConnection _con;
     private readonly string _userMail;
@@ -30,7 +24,7 @@ public partial class InsertNewOrder : ContentPage
             /*
              * Estrae dal DB solo i veicoli che non sono presenti in un ordine.
              */
-            string selectQuery = "SELECT PRODUTTORE.Nome, VERSIONE.Nome_Modello, VERSIONE.Colore, " +
+            string selectQuery = "SELECT PRODUTTORE.Nome_Produttore, VERSIONE.Nome_Modello, VERSIONE.Colore, " +
                                  "SUPERCAR.Cavalli_Potenza, SUPERCAR.Alimentazione, VERSIONE.Prezzo  " +
                                  "FROM VERSIONE, SUPERCAR, PRODUTTORE " +
                                  "WHERE VERSIONE.Nome_Modello = SUPERCAR.Nome_Modello " +
@@ -70,7 +64,7 @@ public partial class InsertNewOrder : ContentPage
         try {
             _con.Open();
             
-            string insertQuery = "INSERT INTO ORDINE(DATA, ORA, EMAIL_AZIENDALE, ID_BADGE) " +
+            string insertQuery = "INSERT INTO ORDINE(Data_Ordine, ORA, EMAIL_AZIENDALE, ID_BADGE) " +
                                  "VALUES (curdate(), current_time(), @userMail, @costumerBadge)";
             MySqlCommand cmd = new MySqlCommand(insertQuery, _con);
             cmd.CommandType = CommandType.Text;

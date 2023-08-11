@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace Elite_db.operations;
 
-public partial class ShowCompanyOptional : ContentPage
+public partial class ShowCompanyOptional
 {
     private readonly MySqlConnection _con; 
     public ShowCompanyOptional(MySqlConnection mySqlConnection)
@@ -28,7 +23,7 @@ public partial class ShowCompanyOptional : ContentPage
             var selectQuery =
                 "SELECT Nome_Optional, Prezzo, Livello_Qualita " +
                 "FROM OPTIONAL_AUTO, PRODUTTORE " +
-                "WHERE PRODUTTORE.Nome = @companyName " +
+                "WHERE PRODUTTORE.Nome_Produttore = @companyName " +
                 "AND OPTIONAL_AUTO.P_IVA = PRODUTTORE.P_IVA";
 
             var cmd = new MySqlCommand(selectQuery, _con);
