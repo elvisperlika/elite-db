@@ -9,70 +9,70 @@
             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Always" >
                 <HorizontalStackLayout>
                     <Button
-                    x:Name="2-InsertNewCustomer" 
+                    x:Name="InsertNewCustomer" 
                     Text="Insert New Customer"
                     Clicked="InsertNewCustomerClicked"
                     HorizontalOptions="Center" 
                     Margin="5,5,5,5" />
                     
                 <Button
-                    x:Name="3-ViewCustomerOrder" 
+                    x:Name="ViewCustomerOrder" 
                     Text="View Customer Order"
                     Clicked="ViewCustomerOrderClicked"
                     HorizontalOptions="Center" 
                     Margin="5,5,5,5" />
                 
                 <Button
-                    x:Name="4-ShowOptionalsCompany" 
+                    x:Name="ShowOptionalsCompany" 
                     Text="Show Optionals of a Company"
                     Clicked="ShowOptionalsCompanyClicked"
                     HorizontalOptions="Center" 
                     Margin="5,5,5,5" />
                 
                 <Button
-                    x:Name="5-InsertNewOrder"
+                    x:Name="InsertNewOrder"
                     Text="Insert New Order"
                     Clicked="InsertNewOrderClicked"
                     HorizontalOptions="Center" 
                     Margin="5,5,5,5" />
                 
                 <Button
-                    x:Name="6-InsertConsignment"
+                    x:Name="InsertConsignment"
                     Text="Insert Consignment"
                     Clicked="InsertConsignmentClicked"
                     HorizontalOptions="Center" 
                     Margin="5,5,5,5" />
                 
                 <Button
-                    x:Name="7-ShowEmployeesWithBonus"
+                    x:Name="ShowEmployeesWithBonus"
                     Text="Show Employees With Bonus"
                     Clicked="ShowEmployeesWithBonusClicked"
                     HorizontalOptions="Center" 
                     Margin="5,5,5,5" />
                 
                 <Button 
-                    x:Name="8-ShowTop10Seupercar"
+                    x:Name="ShowTop10Seupercar"
                     Text="Show Top 10 Supercar"
                     Clicked="ShowTop10SupercarClicked"
                     HorizontalOptions="Center" 
                     Margin="5,5,5,5" />
                 
                 <Button
-                    x:Name="9-InsertNewSupercarVersion"
+                    x:Name="InsertNewSupercarVersion"
                     Text="Insert New Supercar Version"
                     Clicked="InsertNewSupercarVersionClicked"
                     HorizontalOptions="Center" 
                     Margin="5,5,5,5" />
                 
                 <Button
-                    x:Name="10-InsertMaintenance"
+                    x:Name="InsertMaintenance"
                     Text="Insert Maintenance"
                     Clicked="InsertMaintananceClicked"
                     HorizontalOptions="Center" 
                     Margin="5,5,5,5" />
                 
                 <Button
-                    x:Name="12-ShowSuperCarWithMaintenance"
+                    x:Name="ShowSuperCarWithMaintenance"
                     Text="Show Supercar With Maintenance"
                     Clicked="ShowSuperCarWithMaintenanceClicked"
                     HorizontalOptions="Center" 

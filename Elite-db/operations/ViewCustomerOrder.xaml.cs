@@ -23,11 +23,11 @@ public partial class ViewCustomerOrder
             con.Open();
 
             var insertQuery =
-                "SELECT Cod_Ordine, Data_Ordine, Ora, Email_Aziendale " +
+                "SELECT Cod_Ordine, DataOrdine, Ora, Email_Aziendale " +
                 "FROM ORDINE " +
                 "WHERE ID_Badge = @costumerID " +
-                "AND Data_Ordine BETWEEN @startDate AND @endDate " +
-                "ORDER BY Data_Ordine DESC";
+                "AND DataOrdine BETWEEN @startDate AND @endDate " +
+                "ORDER BY DataOrdine DESC";
             
             var cmd = new MySqlCommand(insertQuery, con);
             cmd.CommandType = CommandType.Text;

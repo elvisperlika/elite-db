@@ -5,17 +5,19 @@
              x:Class="Elite_db.operations.ShowCompanyOptional">
     <ContentPage.Content>
         <VerticalStackLayout>
-
-            <Entry
-                x:Name="CompanyNameBox"
-                HorizontalTextAlignment="Center"
-                Placeholder="Insert Company Name"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand"
-                Margin="10,10,10,10" />
+            
+            <StackLayout>
+                <Picker x:Name="DropdownPicker"
+                        Title="Select a brand"
+                        SelectedIndexChanged="DropdownPicker_SelectedIndexChanged"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center">
+                </Picker>
+            </StackLayout>
 
             <Button
                 x:Name="SearchButton"
+                IsEnabled="False"
                 Text="Show"
                 Clicked="SearchOptionalsClicked"
                 VerticalOptions="FillAndExpand"

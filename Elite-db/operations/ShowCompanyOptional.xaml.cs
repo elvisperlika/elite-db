@@ -6,20 +6,36 @@ namespace Elite_db.operations;
 
 public partial class ShowCompanyOptional
 {
-    private readonly MySqlConnection _con; 
+    private readonly MySqlConnection _con;
+    private string _companyName;
     public ShowCompanyOptional(MySqlConnection mySqlConnection)
     {
         InitializeComponent();
         _con = mySqlConnection;
+        try {
+            _con.Open();
+            var selectCompaniesQuery = "SELECT Nome_Produttore FROM PRODUTTORE";
+            var cmdCompanies = new MySqlCommand(selectCompaniesQuery, _con);
+            var readerCompanies = cmdCompanies.ExecuteReader();
+            while (readerCompanies.Read()) {
+                DropdownPicker.Items.Add(readerCompanies["Nome_Produttore"].ToString());
+            }
+            readerCompanies.Close();
+        }
+        catch (Exception e) {
+            Console.WriteLine(e);
+            throw;
+        }
+        finally {
+            _con.Close();
+        }
     }
 
     private void SearchOptionalsClicked(object sender, EventArgs e)
     {
-        var companyName = CompanyNameBox.Text;
-
         try {
             _con.Open();
-
+            
             var selectQuery =
                 "SELECT Nome_Optional, Prezzo, Livello_Qualita " +
                 "FROM OPTIONAL_AUTO, PRODUTTORE " +
@@ -28,7 +44,7 @@ public partial class ShowCompanyOptional
 
             var cmd = new MySqlCommand(selectQuery, _con);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@companyName", companyName);
+            cmd.Parameters.AddWithValue("@companyName", _companyName);
 
             var dataList = new ObservableCollection<RowData>();
 
@@ -46,6 +62,7 @@ public partial class ShowCompanyOptional
         }
         finally {
             _con.Close();
+            SearchButton.IsEnabled = false;
         }
     }
     
@@ -60,6 +77,15 @@ public partial class ShowCompanyOptional
             OptionalName = optionalName;
             Price = price;
             QualityLevel = qualityLevel;
+        }
+    }
+
+    private void DropdownPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var selectedItem = DropdownPicker.SelectedItem?.ToString();
+        if (!string.IsNullOrEmpty(selectedItem)) {
+            _companyName = selectedItem;
+            SearchButton.IsEnabled = true;
         }
     }
 }

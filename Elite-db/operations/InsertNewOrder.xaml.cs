@@ -64,7 +64,7 @@ public partial class InsertNewOrder
         try {
             _con.Open();
             
-            string insertQuery = "INSERT INTO ORDINE(Data_Ordine, ORA, EMAIL_AZIENDALE, ID_BADGE) " +
+            string insertQuery = "INSERT INTO ORDINE(DataOrdine, ORA, EMAIL_AZIENDALE, ID_BADGE) " +
                                  "VALUES (curdate(), current_time(), @userMail, @costumerBadge)";
             MySqlCommand cmd = new MySqlCommand(insertQuery, _con);
             cmd.CommandType = CommandType.Text;

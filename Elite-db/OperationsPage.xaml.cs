@@ -4,7 +4,7 @@ namespace Elite_db;
 
 public partial class OperationsPage
 {
-    public MainPage MainPage { get; }
+    private MainPage MainPage { get; }
     public OperationsPage(MainPage mainPage)
     {
         MainPage = mainPage;
@@ -31,7 +31,7 @@ public partial class OperationsPage
 
     private void InsertNewOrderClicked(object sender, EventArgs e)
     {
-        var viewCustomersOrderPage = new InsertNewOrder(MainPage.Email, MainPage.Con);
+        var viewCustomersOrderPage = new InsertNewOrder(MainPage.UserMail, MainPage.Con);
         ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 

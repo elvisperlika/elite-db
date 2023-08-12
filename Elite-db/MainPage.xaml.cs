@@ -6,12 +6,12 @@ namespace Elite_db;
 public partial class MainPage
 {
     public MySqlConnection Con { get; }
-    public string Email { get; set; }
+    public string UserMail { get; private set; }
 
     public MainPage()
     {
         InitializeComponent();
-        Con = new("SERVER=localhost; DATABASE=ELITE; " +
+        Con = new("SERVER=localhost; DATABASE=Elite; " +
                   "UID=root; PASSWORD=Elvis101");
     }
 
@@ -29,7 +29,7 @@ public partial class MainPage
             using (DataTable dt = new DataTable()) {
                 sda.Fill(dt);
                 if (dt.Rows.Count > 0) {
-                    Email = EmailBox.Text;
+                    UserMail = EmailBox.Text;
                     await Navigation.PushAsync(new OperationsPage(this));
                 }
                 else {

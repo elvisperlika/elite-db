@@ -27,12 +27,6 @@ public partial class InsertNewCostumer
         _email = Email.Text;
 
         ConfirmBtn.IsEnabled = true;
-
-        Namelabel.Text = _name;
-        Surnamelabel.Text = _surname;
-        Cflabel.Text = _cf;
-        Cellularelabel.Text = _cellular;
-        EmailLabel.Text = _email;
     }
 
     private void ConfirmClicked(object sender, EventArgs e)
