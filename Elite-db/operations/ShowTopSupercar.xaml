@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Elite_db.operations.ShowTopSupercar">
+    <ContentPage.Content>
+        
+        <StackLayout>
+            <Picker x:Name="DropdownPicker"
+                    Title="Select a Segement"
+                    SelectedIndexChanged="DropdownPicker_SelectedIndexChanged"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center">
+            </Picker>
+            
+            <ListView x:Name="DataListViewSupercars" HeightRequest="500">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid x:Name="dataGrid">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Company}"
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Model}"
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding HorsePower}"
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

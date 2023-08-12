@@ -47,13 +47,11 @@ public partial class ShowCompanyOptional
             cmd.Parameters.AddWithValue("@companyName", _companyName);
 
             var dataList = new ObservableCollection<RowData>();
-
             var reader = cmd.ExecuteReader();
             while (reader.Read()) {
                 dataList.Add(new RowData(reader["Nome_Optional"].ToString(),
                     reader["Prezzo"].ToString(), reader["Livello_Qualita"].ToString()));
             }
-
             DataListView.ItemsSource = dataList;
             reader.Close();
         }

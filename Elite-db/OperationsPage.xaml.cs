@@ -48,7 +48,8 @@ public partial class OperationsPage
 
     private void ShowTop10SupercarClicked(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        var viewCustomersOrderPage = new ShowTopSupercar(MainPage.Con);
+        ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 
     private void InsertNewSupercarVersionClicked(object sender, EventArgs e)
