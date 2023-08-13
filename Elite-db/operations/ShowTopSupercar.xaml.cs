@@ -18,7 +18,8 @@ public partial class ShowTopSupercar : ContentPage
         _con = mySqlConnection;
         try {
             _con.Open();
-            var selectSegmentQuery = "SELECT Nome FROM SEGMENTO";
+            var selectSegmentQuery = "SELECT NomeSegemento " +
+                                     "FROM SEGMENTO";
             var cmdSegment = new MySqlCommand(selectSegmentQuery, _con);
             var readerSegment = cmdSegment.ExecuteReader();
             while (readerSegment.Read()) {
@@ -47,11 +48,11 @@ public partial class ShowTopSupercar : ContentPage
     {
         try {
             _con.Open();
-            string selectSupercars = "SELECT PRODUTTORE.Nome_Produttore, SUPERCAR.Nome_Modello, SUPERCAR.Cavalli_Potenza " +
+            string selectSupercars = "SELECT PRODUTTORE.NomeProduttore, SUPERCAR.NomeModello, SUPERCAR.CavalliPotenza " +
                                      "FROM SUPERCAR, PRODUTTORE " +
-                                     "WHERE SUPERCAR.Nome = @segment " +
-                                     "AND SUPERCAR.P_IVA = PRODUTTORE.P_IVA " +
-                                     "ORDER BY Cavalli_Potenza DESC";
+                                     "WHERE SUPERCAR.NomeSegemento = @segment " +
+                                     "AND SUPERCAR.NomeProduttore = PRODUTTORE.NomeProduttore " +
+                                     "ORDER BY CavalliPotenza DESC";
             var cmd = new MySqlCommand(selectSupercars, _con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@segment", selectedItem);
@@ -59,8 +60,8 @@ public partial class ShowTopSupercar : ContentPage
             var dataList = new ObservableCollection<ModelRowData>();
             var reader = cmd.ExecuteReader();
             while (reader.Read()) {
-                dataList.Add(new ModelRowData(reader["Nome_Produttore"].ToString(),
-                    reader["Nome_Modello"].ToString(), reader["Cavalli_Potenza"].ToString()));
+                dataList.Add(new ModelRowData(reader["NomeProduttore"].ToString(),
+                    reader["NomeModello"].ToString(), reader["CavalliPotenza"].ToString()));
             }
             DataListViewSupercars.ItemsSource = dataList;
             reader.Close();
@@ -78,9 +79,9 @@ public partial class ShowTopSupercar : ContentPage
 
 internal class ModelRowData
 {
-    public string Company { get; }
-    public string Model { get; }
-    public string HorsePower { get; }
+    public string Company;
+    public string Model;
+    public string HorsePower;
 
     public ModelRowData(string company, string model, string horsePower)
     {

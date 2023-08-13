@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.20)  12 AUG 2023 11:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.20)  13 AUG 2023 22:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -542,131 +542,132 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout5 = `main.toc'.
 
  [3] [4]
-<images/cliente.png, id=243, 490.83376pt x 103.38625pt>
-File: images/cliente.png Graphic file (type png)
-<use images/cliente.png>
-Package pdftex.def Info: images/cliente.png  used on input line 125.
-(pdftex.def)             Requested size: 433.62pt x 91.33827pt.
-<images/ordine.png, id=245, 737.75626pt x 101.37875pt>
-File: images/ordine.png Graphic file (type png)
-<use images/ordine.png>
-Package pdftex.def Info: images/ordine.png  used on input line 148.
-(pdftex.def)             Requested size: 433.62pt x 59.58554pt.
-<images/dipendente.png, id=246, 724.7075pt x 262.9825pt>
-File: images/dipendente.png Graphic file (type png)
-<use images/dipendente.png>
-Package pdftex.def Info: images/dipendente.png  used on input line 166.
-(pdftex.def)             Requested size: 433.62pt x 157.3533pt.
- [5 <./images/cliente.png> <./images/ordine.png>]
-<images/versione.png, id=253, 955.57pt x 242.9075pt>
-File: images/versione.png Graphic file (type png)
-<use images/versione.png>
-Package pdftex.def Info: images/versione.png  used on input line 196.
-(pdftex.def)             Requested size: 433.62pt x 110.22656pt.
- [6 <./images/dipendente.png> <./images/versione.png>]
-<images/optional.png, id=261, 1051.93pt x 386.44376pt>
-File: images/optional.png Graphic file (type png)
-<use images/optional.png>
-Package pdftex.def Info: images/optional.png  used on input line 218.
-(pdftex.def)             Requested size: 433.62pt x 159.29797pt.
-<images/contovendita.png, id=262, 1061.9675pt x 287.0725pt>
-File: images/contovendita.png Graphic file (type png)
-<use images/contovendita.png>
-Package pdftex.def Info: images/contovendita.png  used on input line 244.
-(pdftex.def)             Requested size: 433.62pt x 117.21864pt.
- [7 <./images/optional.png> <./images/contovendita.png>]
+<images/partialSchemes/cliente.png, id=243, 226.56645pt x 137.67435pt>
+File: images/partialSchemes/cliente.png Graphic file (type png)
+<use images/partialSchemes/cliente.png>
+Package pdftex.def Info: images/partialSchemes/cliente.png  used on input line 125.
+(pdftex.def)             Requested size: 433.62pt x 263.49352pt.
+<images/partialSchemes/ordine.png, id=244, 742.2129pt x 178.86826pt>
+File: images/partialSchemes/ordine.png Graphic file (type png)
+<use images/partialSchemes/ordine.png>
+Package pdftex.def Info: images/partialSchemes/ordine.png  used on input line 147.
+(pdftex.def)             Requested size: 433.62pt x 104.5024pt.
+ [5 <./images/partialSchemes/cliente.png> <./images/partialSchemes/ordine.png>]
+<images/partialSchemes/dipendente.png, id=251, 409.0482pt x 317.2653pt>
+File: images/partialSchemes/dipendente.png Graphic file (type png)
+<use images/partialSchemes/dipendente.png>
+Package pdftex.def Info: images/partialSchemes/dipendente.png  used on input line 165.
+(pdftex.def)             Requested size: 433.62pt x 336.3335pt.
+ [6 <./images/partialSchemes/dipendente.png>]
+<images/partialSchemes/versione.png, id=258, 964.8045pt x 481.67955pt>
+File: images/partialSchemes/versione.png Graphic file (type png)
+<use images/partialSchemes/versione.png>
+Package pdftex.def Info: images/partialSchemes/versione.png  used on input line 196.
+(pdftex.def)             Requested size: 433.62pt x 216.4892pt.
+<images/partialSchemes/optional.png, id=259, 877.3578pt x 405.4347pt>
+File: images/partialSchemes/optional.png Graphic file (type png)
+<use images/partialSchemes/optional.png>
+Package pdftex.def Info: images/partialSchemes/optional.png  used on input line 218.
+(pdftex.def)             Requested size: 433.62pt x 200.37837pt.
+ [7 <./images/partialSchemes/versione.png> <./images/partialSchemes/optional.png>]
+<images/partialSchemes/contoVendita.png, id=267, 926.86275pt x 429.64516pt>
+File: images/partialSchemes/contoVendita.png Graphic file (type png)
+<use images/partialSchemes/contoVendita.png>
+Package pdftex.def Info: images/partialSchemes/contoVendita.png  used on input line 244.
+(pdftex.def)             Requested size: 433.62pt x 201.0023pt.
+ [8 <./images/partialSchemes/contoVendita.png>]
 Underfull \hbox (badness 2310) in paragraph at lines 281--281
 []|\OT1/cmr/m/n/10 descrive lo sta-to di una vet-tu-ra in CONTO-
  []
 
-<images/schemaScheletro.jpeg, id=270, 559.1289pt x 264.99pt>
-File: images/schemaScheletro.jpeg Graphic file (type jpg)
-<use images/schemaScheletro.jpeg>
-Package pdftex.def Info: images/schemaScheletro.jpeg  used on input line 290.
-(pdftex.def)             Requested size: 670.95132pt x 317.9864pt.
-[8] [9 <./images/schemaScheletro.jpeg>]
-<images/schemaFinale.jpg, id=279, 695.7192pt x 446.6286pt>
-File: images/schemaFinale.jpg Graphic file (type jpg)
-<use images/schemaFinale.jpg>
-Package pdftex.def Info: images/schemaFinale.jpg  used on input line 297.
-(pdftex.def)             Requested size: 660.92947pt x 424.29475pt.
- [10 <./images/schemaFinale.jpg>]
-<images/schemaFinaleRistrutturato.jpeg, id=284, 2876.7475pt x 1911.14pt>
-File: images/schemaFinaleRistrutturato.jpeg Graphic file (type jpg)
-<use images/schemaFinaleRistrutturato.jpeg>
-Package pdftex.def Info: images/schemaFinaleRistrutturato.jpeg  used on input line 315.
-(pdftex.def)             Requested size: 575.33931pt x 382.22122pt.
- [11 <./images/schemaFinaleRistrutturato.jpeg>] [12] [13]
-<images/navigationSchemes/ordiniCliente.png, id=301, 813.0375pt x 400.49625pt>
+<images/fullSchemes/scheletro.png, id=273, 1105.731pt x 621.522pt>
+File: images/fullSchemes/scheletro.png Graphic file (type png)
+<use images/fullSchemes/scheletro.png>
+Package pdftex.def Info: images/fullSchemes/scheletro.png  used on input line 290.
+(pdftex.def)             Requested size: 663.44373pt x 372.91608pt.
+[9] [10 <./images/fullSchemes/scheletro.png>]
+<images/fullSchemes/finale.jpeg, id=283, 1195.1049pt x 809.424pt>
+File: images/fullSchemes/finale.jpeg Graphic file (type jpg)
+<use images/fullSchemes/finale.jpeg>
+Package pdftex.def Info: images/fullSchemes/finale.jpeg  used on input line 297.
+(pdftex.def)             Requested size: 633.40259pt x 428.99268pt.
+ [11 <./images/fullSchemes/finale.jpeg>]
+<images/fullSchemes/finalAccorpamenti.png, id=288, 1194.98445pt x 845.19765pt>
+File: images/fullSchemes/finalAccorpamenti.png Graphic file (type png)
+<use images/fullSchemes/finalAccorpamenti.png>
+Package pdftex.def Info: images/fullSchemes/finalAccorpamenti.png  used on input line 315.
+(pdftex.def)             Requested size: 573.58603pt x 405.69026pt.
+ [12 <./images/fullSchemes/finalAccorpamenti.png>] [13] [14]
+<images/navigationSchemes/ordiniCliente.png, id=306, 831.105pt x 657.657pt>
 File: images/navigationSchemes/ordiniCliente.png Graphic file (type png)
 <use images/navigationSchemes/ordiniCliente.png>
-Package pdftex.def Info: images/navigationSchemes/ordiniCliente.png  used on input line 452.
-(pdftex.def)             Requested size: 430.90782pt x 212.262pt.
- [14 <./images/navigationSchemes/ordiniCliente.png>]
-<images/navigationSchemes/creaOrdine.png, id=307, 805.0075pt x 616.3025pt>
+Package pdftex.def Info: images/navigationSchemes/ordiniCliente.png  used on input line 455.
+(pdftex.def)             Requested size: 415.55148pt x 328.8277pt.
+ [15 <./images/navigationSchemes/ordiniCliente.png>]
+<images/navigationSchemes/creaOrdine.png, id=313, 848.81116pt x 737.8767pt>
 File: images/navigationSchemes/creaOrdine.png Graphic file (type png)
 <use images/navigationSchemes/creaOrdine.png>
-Package pdftex.def Info: images/navigationSchemes/creaOrdine.png  used on input line 500.
-(pdftex.def)             Requested size: 426.65195pt x 326.63876pt.
- [15 <./images/navigationSchemes/creaOrdine.png>]
-<images/navigationSchemes/bonusDipendente.png, id=314, 192.72pt x 374.39874pt>
+Package pdftex.def Info: images/navigationSchemes/creaOrdine.png  used on input line 503.
+(pdftex.def)             Requested size: 433.62pt x 376.9539pt.
+ [16 <./images/navigationSchemes/creaOrdine.png>]
+<images/navigationSchemes/bonusDipendente.png, id=320, 233.79346pt x 445.54456pt>
 File: images/navigationSchemes/bonusDipendente.png Graphic file (type png)
 <use images/navigationSchemes/bonusDipendente.png>
-Package pdftex.def Info: images/navigationSchemes/bonusDipendente.png  used on input line 546.
-(pdftex.def)             Requested size: 102.1411pt x 198.43039pt.
-<images/navigationSchemes/supercarSegmento.png, id=315, 554.07pt x 204.26312pt>
+Package pdftex.def Info: images/navigationSchemes/bonusDipendente.png  used on input line 549.
+(pdftex.def)             Requested size: 123.90993pt x 236.13748pt.
+ [17 <./images/navigationSchemes/bonusDipendente.png>]
+<images/navigationSchemes/supercarSegmento.png, id=326, 923.97195pt x 579.96675pt>
 File: images/navigationSchemes/supercarSegmento.png Graphic file (type png)
 <use images/navigationSchemes/supercarSegmento.png>
-Package pdftex.def Info: images/navigationSchemes/supercarSegmento.png  used on input line 571.
-(pdftex.def)             Requested size: 415.55148pt x 153.19696pt.
- [16 <./images/navigationSchemes/bonusDipendente.png>]
-<images/navigationSchemes/calcolaOrdine.png, id=321, 651.43375pt x 553.06625pt>
+Package pdftex.def Info: images/navigationSchemes/supercarSegmento.png  used on input line 574.
+(pdftex.def)             Requested size: 433.62pt x 272.17732pt.
+ [18 <./images/navigationSchemes/supercarSegmento.png>]
+<images/navigationSchemes/calcolaOrdine.png, id=332, 644.6484pt x 566.5968pt>
 File: images/navigationSchemes/calcolaOrdine.png Graphic file (type png)
 <use images/navigationSchemes/calcolaOrdine.png>
-Package pdftex.def Info: images/navigationSchemes/calcolaOrdine.png  used on input line 631.
-(pdftex.def)             Requested size: 429.94759pt x 365.02484pt.
- [17 <./images/navigationSchemes/supercarSegmento.png>] [18 <./images/navigationSchemes/calcolaOrdine.png>]
-Underfull \hbox (badness 10000) in alignment at lines 699--699
+Package pdftex.def Info: images/navigationSchemes/calcolaOrdine.png  used on input line 634.
+(pdftex.def)             Requested size: 433.62pt x 381.13086pt.
+ [19 <./images/navigationSchemes/calcolaOrdine.png>]
+Underfull \hbox (badness 10000) in alignment at lines 702--702
 [][] 
  []
 
-[19]
-<images/ordineImporto.png, id=338, 405.515pt x 282.05376pt>
-File: images/ordineImporto.png Graphic file (type png)
-<use images/ordineImporto.png>
-Package pdftex.def Info: images/ordineImporto.png  used on input line 713.
-(pdftex.def)             Requested size: 324.41243pt x 225.6433pt.
- [20 <./images/ordineImporto.png>]
-<images/schemaLogico.jpeg, id=344, 695.7192pt x 467.346pt>
-File: images/schemaLogico.jpeg Graphic file (type jpg)
-<use images/schemaLogico.jpeg>
-Package pdftex.def Info: images/schemaLogico.jpeg  used on input line 739.
-(pdftex.def)             Requested size: 640.0588pt x 429.95639pt.
- [21 <./images/schemaLogico.jpeg>] [22]
-<images/schemaRelazionale.jpeg, id=353, 708.0051pt x 486.3771pt>
-File: images/schemaRelazionale.jpeg Graphic file (type jpg)
-<use images/schemaRelazionale.jpeg>
-Package pdftex.def Info: images/schemaRelazionale.jpeg  used on input line 819.
-(pdftex.def)             Requested size: 630.12254pt x 432.87427pt.
- [23 <./images/schemaRelazionale.jpeg>] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 710--713
+
+ []
+
+[21]
+<images/fullSchemes/logico.jpeg, id=348, 4463.67625pt x 3225.04875pt>
+File: images/fullSchemes/logico.jpeg Graphic file (type jpg)
+<use images/fullSchemes/logico.jpeg>
+Package pdftex.def Info: images/fullSchemes/logico.jpeg  used on input line 738.
+(pdftex.def)             Requested size: 600.11835pt x 433.62pt.
+ [22 <./images/fullSchemes/logico.jpeg>] [23]
+<images/fullSchemes/relazionale.jpeg, id=357, 4101.3225pt x 3394.6825pt>
+File: images/fullSchemes/relazionale.jpeg Graphic file (type jpg)
+<use images/fullSchemes/relazionale.jpeg>
+Package pdftex.def Info: images/fullSchemes/relazionale.jpeg  used on input line 823.
+(pdftex.def)             Requested size: 523.86607pt x 433.62pt.
+ [24 <./images/fullSchemes/relazionale.jpeg>] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [24] [25] [26] [27] [28] [29] (./main.aux)
+) [25] [26] [27] [28] [29] [30] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5A2E64C0D2E37793293513534F5697D8;10989.
+(rerunfilecheck)             Checksum: 25436DC023AD1FF770CB80CAEB908A4F;11014.
  ) 
 Here is how much of TeX's memory you used:
- 22417 strings out of 478268
- 410800 string characters out of 5846346
- 1160064 words of memory out of 5000000
- 39890 multiletter control sequences out of 15000+600000
+ 22412 strings out of 478268
+ 411322 string characters out of 5846346
+ 1160025 words of memory out of 5000000
+ 39884 multiletter control sequences out of 15000+600000
  476764 words of font info for 53 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  83i,12n,80p,799b,2065s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on main.pdf (29 pages, 3620836 bytes).
+Output written on main.pdf (30 pages, 6847129 bytes).
 PDF statistics:
- 828 PDF objects out of 1000 (max. 8388607)
- 737 compressed objects within 8 object streams
- 384 named destinations out of 1000 (max. 500000)
- 431 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 833 PDF objects out of 1000 (max. 8388607)
+ 741 compressed objects within 8 object streams
+ 385 named destinations out of 1000 (max. 500000)
+ 426 words of extra memory for PDF output out of 10000 (max. 10000000)
 

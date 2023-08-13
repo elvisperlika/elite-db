@@ -14,16 +14,6 @@
                         HorizontalTextAlignment="Center">
                 </Picker>
             </StackLayout>
-
-            <Button
-                x:Name="SearchButton"
-                IsEnabled="False"
-                Text="Show"
-                Clicked="SearchOptionalsClicked"
-                VerticalOptions="FillAndExpand"
-                HorizontalOptions="FillAndExpand"
-                Margin="10,10,10,10" />
-            
             
             <Label Text="----" HorizontalOptions="CenterAndExpand"/>
 
@@ -65,7 +55,6 @@
                                        HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Italic"/>
                                 <Label Grid.Row="0" Grid.Column="2" Text="{Binding QualityLevel}"
                                        HorizontalOptions="Center" VerticalOptions="Center" />
-                                
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

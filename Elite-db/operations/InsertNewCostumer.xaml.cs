@@ -5,11 +5,6 @@ namespace Elite_db.operations;
 
 public partial class InsertNewCostumer
 {
-    private string _cellular;
-    private string _cf;
-    private string _email;
-    private string _name;
-    private string _surname;
     private readonly MySqlConnection _con;
 
     public InsertNewCostumer(MySqlConnection mySqlConnection)
@@ -20,40 +15,30 @@ public partial class InsertNewCostumer
 
     private void InsertClicked(object sender, EventArgs e)
     {
-        _name = Name.Text;
-        _surname = Surname.Text;
-        _cf = CF.Text;
-        _cellular = Cellular.Text;
-        _email = Email.Text;
-
-        ConfirmBtn.IsEnabled = true;
-    }
-
-    private void ConfirmClicked(object sender, EventArgs e)
-    {
         try {
             _con.Open();
             var insertQuery =
-                "INSERT INTO CLIENTE(Data_Scadenza, Nome, Cognome, CF, Cellulare_Personale, Mail_Personale) " +
-                "VALUES (date_add(curdate(), INTERVAL 1 YEAR), @name, @surname, @cf, @cellular, @email)";
+                "INSERT INTO CLIENTE(Nome, Cognome, CF, CellularePersonale, MailPersonale, DataScadenza) " +
+                "VALUES (@name, @surname, @cf, @cellular, @email, date_add(curdate(), INTERVAL 1 YEAR))";
             var cmd = new MySqlCommand(insertQuery, _con);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@name", _name);
-            cmd.Parameters.AddWithValue("@surname", _surname);
-            cmd.Parameters.AddWithValue("@cf", _cf);
-            cmd.Parameters.AddWithValue("@cellular", _cellular);
-            cmd.Parameters.AddWithValue("@email", _email);
+            cmd.Parameters.AddWithValue("@name", Name.Text);
+            cmd.Parameters.AddWithValue("@surname", Surname.Text);
+            cmd.Parameters.AddWithValue("@cf", CF.Text);
+            cmd.Parameters.AddWithValue("@cellular", Cellular.Text);
+            cmd.Parameters.AddWithValue("@email", Email.Text);
 
             if (cmd.ExecuteNonQuery() == 1) {
-                ConfirmBtn.Text = "Customer inserted!";
-                ConfirmBtn.IsEnabled = false;
+                InsertBtn.Text = "Done!";
             }
         }
         catch {
-            ConfirmBtn.Text = "Error, retry!";
+            InsertBtn.Text = "Error, retry!";
         }
         finally {
             _con.Close();
         }
+        
     }
+
 }

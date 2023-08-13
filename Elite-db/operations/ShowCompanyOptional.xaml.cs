@@ -12,13 +12,15 @@ public partial class ShowCompanyOptional
     {
         InitializeComponent();
         _con = mySqlConnection;
+        
         try {
             _con.Open();
-            var selectCompaniesQuery = "SELECT Nome_Produttore FROM PRODUTTORE";
+            var selectCompaniesQuery = "SELECT NomeProduttore " +
+                                                "FROM PRODUTTORE";
             var cmdCompanies = new MySqlCommand(selectCompaniesQuery, _con);
             var readerCompanies = cmdCompanies.ExecuteReader();
             while (readerCompanies.Read()) {
-                DropdownPicker.Items.Add(readerCompanies["Nome_Produttore"].ToString());
+                DropdownPicker.Items.Add(readerCompanies["NomeProduttore"].ToString());
             }
             readerCompanies.Close();
         }
@@ -31,16 +33,16 @@ public partial class ShowCompanyOptional
         }
     }
 
-    private void SearchOptionalsClicked(object sender, EventArgs e)
+    private void ShowOpionals()
     {
         try {
             _con.Open();
             
             var selectQuery =
-                "SELECT Nome_Optional, Prezzo, Livello_Qualita " +
+                "SELECT NomeOptional, Prezzo, LivelloQualita " +
                 "FROM OPTIONAL_AUTO, PRODUTTORE " +
-                "WHERE PRODUTTORE.Nome_Produttore = @companyName " +
-                "AND OPTIONAL_AUTO.P_IVA = PRODUTTORE.P_IVA";
+                "WHERE PRODUTTORE.NomeProduttore = @companyName " +
+                "AND OPTIONAL_AUTO.NomeProduttore = PRODUTTORE.NomeProduttore";
 
             var cmd = new MySqlCommand(selectQuery, _con);
             cmd.CommandType = CommandType.Text;
@@ -49,18 +51,18 @@ public partial class ShowCompanyOptional
             var dataList = new ObservableCollection<RowData>();
             var reader = cmd.ExecuteReader();
             while (reader.Read()) {
-                dataList.Add(new RowData(reader["Nome_Optional"].ToString(),
-                    reader["Prezzo"].ToString(), reader["Livello_Qualita"].ToString()));
+                dataList.Add(new RowData(reader["NomeOptional"].ToString(),
+                    reader["Prezzo"].ToString(), reader["LivelloQualita"].ToString()));
             }
             DataListView.ItemsSource = dataList;
             reader.Close();
         }
-        catch {
-            SearchButton.Text = "Error, retry!";
+        catch (Exception e) {
+            Console.WriteLine(e);
+            throw;
         }
         finally {
             _con.Close();
-            SearchButton.IsEnabled = false;
         }
     }
     
@@ -83,7 +85,7 @@ public partial class ShowCompanyOptional
         var selectedItem = DropdownPicker.SelectedItem?.ToString();
         if (!string.IsNullOrEmpty(selectedItem)) {
             _companyName = selectedItem;
-            SearchButton.IsEnabled = true;
+            ShowOpionals();
         }
     }
 }

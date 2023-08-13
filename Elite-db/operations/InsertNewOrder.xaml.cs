@@ -24,12 +24,12 @@ public partial class InsertNewOrder
             /*
              * Estrae dal DB solo i veicoli che non sono presenti in un ordine.
              */
-            string selectQuery = "SELECT PRODUTTORE.Nome_Produttore, VERSIONE.Nome_Modello, VERSIONE.Colore, " +
-                                 "SUPERCAR.Cavalli_Potenza, SUPERCAR.Alimentazione, VERSIONE.Prezzo  " +
+            string selectQuery = "SELECT PRODUTTORE.NomeProduttore, VERSIONE.NomeModello, VERSIONE.Colore, " +
+                                 "SUPERCAR.CavalliPotenza, SUPERCAR.Alimentazione, VERSIONE.Prezzo  " +
                                  "FROM VERSIONE, SUPERCAR, PRODUTTORE " +
-                                 "WHERE VERSIONE.Nome_Modello = SUPERCAR.Nome_Modello " +
-                                 "AND SUPERCAR.P_IVA = PRODUTTORE.P_IVA " +
-                                 "AND VERSIONE.Cod_Ordine IS NULL";
+                                 "WHERE VERSIONE.NomeModello = SUPERCAR.NomeModello " +
+                                 "AND SUPERCAR.NomeProduttore = PRODUTTORE.NomeProduttore " +
+                                 "AND VERSIONE.CodOrdine IS NULL";
             MySqlCommand cmd = new MySqlCommand(selectQuery, _con);
             
             var reader = cmd.ExecuteReader();
@@ -59,16 +59,14 @@ public partial class InsertNewOrder
 
     private void ConfirmBtnClicked(object sender, EventArgs e)
     {
-        var costumerBadge = EntryCostumerBadge.Text;
-        
         try {
             _con.Open();
             
-            string insertQuery = "INSERT INTO ORDINE(DataOrdine, ORA, EMAIL_AZIENDALE, ID_BADGE) " +
-                                 "VALUES (curdate(), current_time(), @userMail, @costumerBadge)";
+            string insertQuery = "INSERT INTO ORDINE(Importo, DataOrdine, EmailAziendale, IDBadge) " +
+                                 "VALUES (0, curdate(), @userMail, @costumerBadge)";
             MySqlCommand cmd = new MySqlCommand(insertQuery, _con);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@costumerBadge", costumerBadge);
+            cmd.Parameters.AddWithValue("@costumerBadge", EntryCostumerBadge.Text);
             cmd.Parameters.AddWithValue("@userMail", _userMail);
 
             if (cmd.ExecuteNonQuery() == 1) {
@@ -82,5 +80,15 @@ public partial class InsertNewOrder
         finally {
             _con.Close();   
         }
+    }
+
+    private void ModelPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnAddItemClicked(object sender, EventArgs e)
+    {
+        throw new NotImplementedException();
     }
 }

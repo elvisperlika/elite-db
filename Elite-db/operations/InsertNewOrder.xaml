@@ -7,15 +7,37 @@
         <ScrollView>
             <StackLayout x:Name="StackLayout">
                 <Entry x:Name="EntryCostumerBadge" 
-                       Placeholder="Insert Costumer's ID Badge" FontSize="27"/>
+                       Placeholder="Insert Costumer's ID Badge" 
+                       FontSize="27" 
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"/>
             
                 <Label Text="Chose a SuperCar" HorizontalOptions="Center" FontAttributes="Bold" FontSize="25"/>
             
-                <ListView x:Name="Models">
-                    
-                </ListView>
+                <Picker x:Name="ModelPicker"
+                        Title="Select a Segement"
+                        SelectedIndexChanged="ModelPicker_SelectedIndexChanged"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center">
+                </Picker>
+                
+                <StackLayout>
+                    <ListView x:Name="checklistListView">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <CheckBox IsChecked="{Binding IsChecked}" VerticalOptions="Center" />
+                                        <Label Text="{Binding ItemText}" VerticalOptions="Center" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button Text="Aggiungi elemento" Clicked="OnAddItemClicked" />
+                </StackLayout>
             
-                <Button x:Name="ConfirmOrderBtn" Text="Confirm Order" Clicked="ConfirmBtnClicked"/>
+                <Button x:Name="ConfirmOrderBtn" Text="Confirm Order" Clicked="ConfirmBtnClicked" TextColor="Green"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

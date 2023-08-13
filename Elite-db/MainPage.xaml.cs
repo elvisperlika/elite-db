@@ -11,8 +11,8 @@ public partial class MainPage
     public MainPage()
     {
         InitializeComponent();
-        Con = new("SERVER=localhost; DATABASE=Elite; " +
-                  "UID=root; PASSWORD=Elvis101");
+        Con = new MySqlConnection("SERVER=localhost; DATABASE=Elite; " +
+                                  "UID=root; PASSWORD=Elvis101");
     }
 
     private async void OnLogInClicked(object sender, EventArgs e)
@@ -20,7 +20,7 @@ public partial class MainPage
         Con.Open();
         string query = "SELECT * " +
                        "FROM DIPENDENTE " +
-                       "WHERE Email_Aziendale = @email";
+                       "WHERE EmailAziendale = @email";
         MySqlCommand cmd = new MySqlCommand(query, Con);
         cmd.CommandType = CommandType.Text;
         cmd.Parameters.AddWithValue("@email", EmailBox.Text);

@@ -23,7 +23,7 @@
                     BackgroundColor="White"
                     TextColor="Black"
                     HorizontalTextAlignment="Center"
-                    Placeholder="Enter your email ...@elegant.it"
+                    Placeholder="Enter your email ...@elite.it"
                     HorizontalOptions="Center" 
                     WidthRequest="400" />
                     

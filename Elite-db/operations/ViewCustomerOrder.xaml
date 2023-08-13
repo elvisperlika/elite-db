@@ -11,7 +11,7 @@
                 x:Name="CustomerBadgeBox"
                 HorizontalTextAlignment="Center"
                 Placeholder="Insert Costumer Badge ID"
-                HorizontalOptions="FillAndExpand"
+                HorizontalOptions="Center"
                 VerticalOptions="FillAndExpand"
                 Margin="10,10,10,10" />
 
@@ -51,15 +51,14 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" Text="Order ID" HorizontalOptions="Center" FontAttributes="Bold" />
-                <Label Grid.Row="0" Grid.Column="1" Text="Date" HorizontalOptions="Center" FontAttributes="Bold" />
-                <Label Grid.Row="0" Grid.Column="2" Text="Time" HorizontalOptions="Center" FontAttributes="Bold" />
-                <Label Grid.Row="0" Grid.Column="3" Text="Employer Mail" HorizontalOptions="Center"
-                       FontAttributes="Bold" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Company" HorizontalOptions="Center" FontAttributes="Bold" />
+                <Label Grid.Row="0" Grid.Column="2" Text="Model" HorizontalOptions="Center" FontAttributes="Bold" />
+                <Label Grid.Row="0" Grid.Column="3" Text="Version" HorizontalOptions="Center" FontAttributes="Bold" />
             </Grid>
             
             <Label Text="----" HorizontalOptions="CenterAndExpand"/>
 
-            <ListView x:Name="dataListView" HeightRequest="500">
+            <ListView x:Name="DataListView" HeightRequest="500">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -76,13 +75,13 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Cod_Ordine}"
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding CodOrder}"
                                        HorizontalOptions="Center" VerticalOptions="Center" />
-                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Data}" HorizontalOptions="Center"
-                                       VerticalOptions="Center" />
-                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Ora}" HorizontalOptions="Center"
-                                       VerticalOptions="Center" />
-                                <Label Grid.Row="0" Grid.Column="3" Text="{Binding Email_Aziendale}"
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Company}" 
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Model}" 
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Grid.Row="0" Grid.Column="3" Text="{Binding Version}"
                                        HorizontalOptions="Center" VerticalOptions="Center" />
                             </Grid>
                         </ViewCell>

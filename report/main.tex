@@ -33,7 +33,7 @@
 \author{Elvis Perlika}
 \date{\today}
 
-\begin{document} 
+\begin{document}
 
 \maketitle
 
@@ -80,11 +80,11 @@ dipendenti, possono ottenere un bonus sullo stipendio se raggiungono un numero
 minimo di vendite mensili, questo sistema incoraggia le vendite.\\
 Le vetture del catalogo che andranno mantenute in memoria sono definite dal
 codice di telaio, marca, modello, colore, unico segmento [Sport, Luxury,
-SUV,...], cavalli potenza, prezzo, e colore. Inoltre variano in base al
-restyling. Una vettura può essere acquistata da un solo cliente che ogni 2 anni
-potrà portarla nel officina della concessionaria per manutenzione ordinaria,
-servizio gratuito esplicitato al momento del ordine. Una autovettura può essere
-prodotta da un solo produttore detto anche \textit{Casa Automobilista}, la quale
+SUV,...], cavalli potenza, prezzo, e colore. Una vettura può essere acquistata
+da un solo cliente che ogni 2 anni potrà portarla nel officina della
+concessionaria per manutenzione ordinaria, servizio gratuito esplicitato al
+momento del ordine. Una autovettura può essere prodotta da un solo produttore
+detto anche \textit{Casa Automobilista} identificato dal proprio nome, la quale
 per lo stesso modello crea diversi restyling.\\
 La super car può essere equipaggiata da optional differenti, i quali possono
 essere prodotti da fornitori diversi. Ogni segmento possiede i propri optional
@@ -108,31 +108,30 @@ Si procede con un analisi del testo frammentanta, analizzando parte per parte e
 costruendo i relativi scheletri degli schemi E/R .
 
 \subsubsection{Clienti}
-\textbf{La concessionaria desidera che vengano mantenuti in memoria i dati dei
-propri clienti con nome, cognome, numero di telefono ed opzionalmente email. Per
-poter acquistare una autovettura bisogna disporre del badge di iscrizione alla
+\textbf{La concessionaria desidera che vengano mantenuti in memoria i dati dei propri
+clienti con nome, cognome, numero di telefono ed opzionalmente email. Per poter
+acquistare una autovettura bisogna disporre del badge di iscrizione alla
 concessionaria rinnovabile annualmente che identifica il cliente.}
 
 Si rileva che il cliente è un concetto fondamentale per la concessionaria e
 viene identificato con un tesserino chiamato BADGE. Non è uno strumento
-realmente utile alla concessionaria per la vendita, bensì è uno struemnto di
+realmente utile alla concessionaria per la vendita, bensì è uno strumento di
 marketing che vuole fidelizzare il cliente trasmettendo un senso di esclusività.
 Il BADGE è unico ed appartene ad un solo proprietario che a sua volta ne può
 avere uno solo. Il BADGE, inoltre, è rinnovabile annualmente quindi mantiene lo
 stesso codice ma cambia la data di scadenza.
 
 \begin{center}
-    \includegraphics[width=\linewidth]{images/cliente.png}
+    \includegraphics[width=\linewidth]{images/partialSchemes/cliente.png}
 \end{center}
 
 \subsubsection{Ordini}
-\textbf{Oltre ai clienti iscritti alla concessionaria potrebbero venire in
-visita persone comuni non iscritte delle quali non si ha interesse nel
-memorizzarle. Considerando che non tutte le vetture in vendita sono presenti
-fisicamente nel salone della concessionaria si richiede un sistema per la
-creazione di ordini che possono includere più di una vettura. Ogni cliente
-possiede uno storico di super car acquistate, utile alla azienda ai fini di
-marketing.}
+\textbf{Oltre ai clienti iscritti alla concessionaria potrebbero venire in visita
+persone comuni non iscritte delle quali non si ha interesse nel memorizzarle.
+Considerando che non tutte le vetture in vendita sono presenti fisicamente nel
+salone della concessionaria si richiede un sistema per la creazione di ordini
+che possono includere più di una vettura. Ogni cliente possiede uno storico di
+super car acquistate, utile alla azienda ai fini di marketing.}
 
 Non c'é interesse nel memorizzare i dati di persone comuni in visita alla
 concessionaria. Per quanto riguarda i clienti invece, si vuole mantenere uno
@@ -145,14 +144,14 @@ Le supercar presenti nel database sono sia quelle facenti parte di un ordine che
 non, quindi la cardinalità da SUPERCAR ad ORDINE è 0:1.
 
 \begin{center}
-    \includegraphics[width=\linewidth]{images/ordine.png}
+    \includegraphics[width=\linewidth]{images/partialSchemes/ordine.png}
 \end{center}
 
 \subsubsection{Dipendenti}
-\textbf{I dipendenti vengono distinti per nome, cognome, email aziendale e
-numero di telefono aziendale e hanno uno storico delle proprie auto vendute.
-Inoltre, i dipendenti, possono ottenere un bonus sullo stipendio se raggiungono
-un numero minimo di vendite mensili, questo sistema incoraggia le vendite.}
+\textbf{I dipendenti vengono distinti per nome, cognome, email aziendale e numero di
+telefono aziendale e hanno uno storico delle proprie auto vendute. Inoltre, i
+dipendenti, possono ottenere un bonus sullo stipendio se raggiungono un numero
+minimo di vendite mensili, questo sistema incoraggia le vendite.}
 
 A seguito di ulteriori indagini si rileva che ad identificare i dipendenti è la
 mail aziendale, la quale è utile anche nella fase di log in nel applicativo.
@@ -163,7 +162,7 @@ la memorizzazione opzionale del bonus. Per memorizzare lo storio delle vendite
 invece si sfrutta l'entità ORDINE.
 
 \begin{center}
-    \includegraphics[width=\linewidth]{images/dipendente.png}
+    \includegraphics[width=\linewidth]{images/partialSchemes/dipendente.png}
 \end{center}
 
 \subsubsection{Supercar}
@@ -173,8 +172,9 @@ SUV,...], cavalli potenza, prezzo, e colore. Inoltre variano in base al
 restyling. Una vettura può essere acquistata da un solo cliente che ogni 2 anni
 potrà portarla nel officina della concessionaria per manutenzione ordinaria,
 servizio gratuito esplicitato al momento del ordine. Una autovettura può essere
-prodotta da un solo produttore detto anche \textit{Casa Automobilista}, la quale
-per lo stesso modello crea diversi restyling.}
+prodotta da un solo produttore detto anche \textit{Casa Automobilista}
+identificato dal proprio nome, la quale per lo stesso modello crea diversi
+restyling..}
 
 Il codice del telaio è l'identificatore fondamentale di una qualsiasi vettura.
 Il cliente, unico proprietario di una certa vettura acquistata, può portarla in
@@ -193,7 +193,7 @@ di SUPERCAR), esso è prodotto da una CASA AUTOMOBILISTICA che attraverso il
 proprio nome definisce la marca di una certa SUPERCAR.
 
 \begin{center}
-    \includegraphics[width=\linewidth]{images/versione.png}
+    \includegraphics[width=\linewidth]{images/partialSchemes/versione.png}
 \end{center}
 
 \subsubsection{Optional e Produttore}
@@ -215,7 +215,7 @@ essere CASE AUTOMOBILISTICHE. Si introduce quindi una gerarchia Totale e
 Sovrapposta che definisce i produttori di optional e le case automobilistiche.
 
 \begin{center}
-    \includegraphics[width=\linewidth]{images/optional.png}
+    \includegraphics[width=\linewidth]{images/partialSchemes/optional.png}
 \end{center}
 
 \subsubsection{Conto-Vendita}
@@ -241,7 +241,7 @@ una vettura in conto-vendita non aumenta il numero di autovetture vendute dal
 dipendente utili ad ottenere il bonus.
 
 \begin{center}
-    \includegraphics[width=\linewidth]{images/contovendita.png}
+    \includegraphics[width=\linewidth]{images/partialSchemes/contoVendita.png}
 \end{center}
 
 \newpage
@@ -287,14 +287,14 @@ ed estrazione dei concetti principali}}
 \subsection{Schema scheletro assemblato}
 
 \begin{center}
-    \includegraphics[scale=1.20, angle=90]{images/schemaScheletro.jpeg}
+    \includegraphics[scale=0.60, angle=90]{images/fullSchemes/scheletro.png}
 \end{center}
 
 \newpage
 
 \subsection{Schema concettuale finale}
 \begin{center}
-    \includegraphics[scale=0.95, angle=90]{images/schemaFinale.jpg}
+    \includegraphics[scale=0.53, angle=90]{images/fullSchemes/finale.jpeg}
 \end{center}
 
 \newpage
@@ -312,7 +312,7 @@ VALUTAZIONE. Il BADGE è stato accorpato alla entità CLIENTE mentre
 la SCHEDA VALUTAZIONE è stata accorpata nel entità CONTOVENDITA.
 
 \begin{center}
-    \includegraphics[scale=0.20, angle=90]{images/schemaFinaleRistrutturato.jpeg}
+    \includegraphics[scale=0.48, angle=90]{images/fullSchemes/finalAccorpamenti.png}
 \end{center}
 
 Di seguito la stima di dati valutata ad un anno dalla apertura della
@@ -383,7 +383,7 @@ mercato e preformare al meglio nelle vendite.
       8 & Visualizza Top 10 supercar più vendute di un segmento & 3 al mese \\
       9 & Inserisci una nuova versione di una supercar & 75 al mese \\
       10 & Aggiungi manutenzione ad un veicolo & 500 all' anno \\
-      11 & Calcola l'importo totale di un ordine & 100 al mese \\
+      11 & Visualizzare l'importo totale di un ordine & 100 al mese \\
       12 & Visualizza le vetture che hanno eseguito manutenzione ordinaria in un
       certo anno & 5 all'anno \\
     \end{tabularx}
@@ -444,12 +444,15 @@ informazioni complete.
         contenimento & A & 3 & L \\
         VERSIONE & E & 3 & L \\ 
         restyling & A & 3 & L \\
-        SUPERCAR & E & 3 & L \ \end{tabular}\\
-        \( 16L  \rightarrow 14 \) al mese = \( 224 \) al mese
+        SUPERCAR & E & 3 & L \\
+        prduzioneSupercar & A & 3 & L \\
+        PRODUTTORE & E & 3 & L \\
+    \end{tabular}\\
+        \( 22L  \rightarrow 14 \) al mese = \( 308 \) al mese
 \end{table}
 
 \begin{center}
-    \includegraphics[scale=0.53]{images/navigationSchemes/ordiniCliente.png}
+    \includegraphics[scale=0.50]{images/navigationSchemes/ordiniCliente.png}
 \end{center}
 
 \subsubsection{Visualizza gli optional di una certa azienda} 
@@ -489,15 +492,15 @@ saranno 10'000 Optional / 300 Aziende produttrici di optional = 33 .
         VERSIONE & E & 2 & L \\
         restyling & A & 2 & L \\
         SUPERCAR & E & 2 & L \\ 
-        equipaggiamento & A & 22 & L \\
-        OPTIONAL & E & 22 & L \\
+        equipaggiamento & A & 22 & S \\
+        OPTIONAL & A & 22 & S \\
     \end{tabular}\\
-    \( 4S + 52L \rightarrow \) 66 al mese = \( 4S \times 2 \times 66 + 52L \times
-    66 = 3960\) al mese
+    \( 48S + 52L \rightarrow \) 66 al mese = \( 48S \times 2 \times 66 + 52L \times
+    66 = 9.768\) al mese
 \end{table}
 
 \begin{center}
-    \includegraphics[scale=0.53]{images/navigationSchemes/creaOrdine.png}
+    \includegraphics[width=\linewidth]{images/navigationSchemes/creaOrdine.png}
 \end{center}
 
 \subsubsection{Aggiungere un contratto di conto vendita}
@@ -568,7 +571,7 @@ supercar per segmento.
 \end{table}
 
 \begin{center}
-    \includegraphics[scale=0.75]{images/navigationSchemes/supercarSegmento.png}
+    \includegraphics[width=\linewidth]{images/navigationSchemes/supercarSegmento.png}
 \end{center}
 
 \subsubsection{Inserisci una nuova versione di una supercar} 
@@ -605,7 +608,7 @@ supercar per segmento.
     \times 500 = 1500 \) all'anno
 \end{table}
 
-\subsubsection{Calcola l'importo totale di un ordine} 
+\subsubsection{Visualizzare l'importo totale di un ordine} 
 
 Mediamente una vettura equipaggia 10'000 optional / 900 versioni = 11 optional per vettura.
 
@@ -628,7 +631,7 @@ Mediamente una vettura equipaggia 10'000 optional / 900 versioni = 11 optional p
 \end{table}
 
 \begin{center}
-    \includegraphics[scale=0.66]{images/navigationSchemes/calcolaOrdine.png}
+    \includegraphics[width=\linewidth]{images/navigationSchemes/calcolaOrdine.png}
 \end{center}
 
 \subsubsection{Calcola la spesa annuale in risorse umane della concessionaria}
@@ -694,7 +697,7 @@ Di seguito riporto una tabella che riassume le chiavi scelte per ogni entità.
             PRODUTTORE & PIVA \\
             STIPENDIO & DIPENDENTE(EmailAziendale), Anno, Mese \\
             MANUTENZIONE & VERSIONE(NrTelaio), Anno \\
-            OPTIONAL-AUTO & PRODUTTORE(PIVA), NomeOptional \\
+            OPTIONAL-AUTO & CodOptional \\
             SUPERCAR & PRODUTTORE(PIVA), NomeModello \\
         \end{tabularx}
     \end{table}    
@@ -704,14 +707,12 @@ Di seguito riporto una tabella che riassume le chiavi scelte per ogni entità.
 
 \subsection{Analisi delle ridondanze}
 
-Non sono presenti ridondanze in quanto non esistono attributi calcolati. Si
-vuole comunque valutare la presenza di un nuovo attributo \textit{Importo} nella entità ORDINE. \\
-\textit{Importo} che andrà calacolato sommando il prezzo di
-ogni supercar contenuta nel ordine e degli optional equipaggiati in ognuna.
+La presenza del attributo  \textit{Importo}  al intero di Ordine comporta una ridondanza 
+in quanto è un valore calcolabile anche mediante somme dei prezzi dei prodotti presenti nel ordine. 
+Si vuole valutare la presenza di questo attributo. \\
 
-\begin{center}
-    \includegraphics[scale=0.80]{images/ordineImporto.png}
-\end{center}
+L'operazione "Visualizzare l'importo totale di un ordine" è una delle più
+frequenti ed è utile per misurare l'efficienza di questo attributo.
 
 \begin{table}[H]
     \centering
@@ -726,17 +727,15 @@ ogni supercar contenuta nel ordine e degli optional equipaggiati in ognuna.
 \end{table}
 
 Inserire questa ridondanza appesantisce il database ma velocizza le operazioni e
-risulterebbe utile anche per ulteriori operazioni statistiche. Inoltre il
-cliente potrebbe voler accedere al Importo del ordine durante la creazione dello
-stesso, integrando o rimuovendo supercar e/o optional.
-Si decide quindi di integrare l'attributo \textit{Importo} nella entità ORDINE.
+risulterebbe utile anche per ulteriori operazioni statistiche. 
+Si decide quindi di mantere l'attributo \textit{Importo} nella entità ORDINE.
 
 \newpage
 
 \subsection{Schema Logico}
 
 \begin{center}
-    \includegraphics[scale=0.92, angle=90]{images/schemaLogico.jpeg}
+    \includegraphics[height=\linewidth, angle=90]{images/fullSchemes/logico.jpeg}
 \end{center}
 
 \newpage
@@ -777,9 +776,10 @@ FK NrTelaio REFERENCES VERSIONI
 \end{flushleft}
 
 \begin{flushleft}
-VERSIONI(\underline{NrTelaio}, Prezzo, Colore, CodOrdine, NomeModello, CodOrdine*)\\
+VERSIONI(\underline{NrTelaio}, NomeVersione, Prezzo, Colore, CodContratto*, NomeModello, CodOrdine*)\\
 FK NomeModello REFERENCES SUPERCAR
 FK CodOrdine REFERENCES ORDINI
+FK CodContratto REFERENCES CONTOVENDITE
 \end{flushleft}
 
 \begin{flushleft}
@@ -788,25 +788,29 @@ FK NrTelaio REFERENCES VERSIONI
 \end{flushleft}
 
 \begin{flushleft}
-SUPERCAR(\underline{NomeModello}, Peso, CavalliPotenza, PIVA, Nome)\\
-FK PIVA REFERENCES PRODUTTORI\\
-FK Nome REFERENCES SEGMENTI
+SUPERCAR(\underline{NomeModello}, \underline{NomeProduttore}, CavalliPotenza, NomeSegmento)\\
+FK NomeProduttore REFERENCES PRODUTTORI\\
+FK NomeSegmento REFERENCES SEGMENTI
 \end{flushleft}
 
 \begin{flushleft}
-SEGMENTI(\underline{Nome}, Descrizione)
+SEGMENTI(\underline{NomeSegmento}, Descrizione)
 \end{flushleft}
 
 \begin{flushleft}
-PRODUTTORI(\underline{PIVA}, Automobilistico, OptionalMarket, Stato, Citta, Via,
-Civico, NomeProduttore)\\
-UNIQUE(NomeProduttore)
+supporto(\underline{NomeSegmento}, \underline{CodOptional})
+FK NomeSegmento REFERENCES SEGMENTI
+FK CodOptional REFERENCES OPTIONAL-AUTO
 \end{flushleft}
 
 \begin{flushleft}
-OPTIONAL-AUTO(\underline{NomeOptional}, \underline{PIVA}, Prezzo, Descrizione,
-LivelloQualità)\\
-FK PIVA REFERENCES PRODUTTORI
+PRODUTTORI(\underline{NomeProduttore}, Automobilistico, OptionalMarket, Indirizzo)
+\end{flushleft}
+
+\begin{flushleft}
+OPTIONAL-AUTO(\underline{CodOptional}, \underline{NomeProduttore}, \underline{NomeOptional}, Prezzo, Descrizione, LivelloQualità)\\
+FK NomeProduttore REFERENCES PRODUTTORI
+FK 
 \end{flushleft}
 
 \normalsize
@@ -816,7 +820,7 @@ FK PIVA REFERENCES PRODUTTORI
 \subsection{Schema relazionale finale}
 
 \begin{center}
-    \includegraphics[scale=0.89, angle=90]{images/schemaRelazionale.jpeg}
+    \includegraphics[height=\linewidth, angle=90]{images/fullSchemes/relazionale.jpeg}
 \end{center}
 
 \newpage
@@ -1164,7 +1168,7 @@ bonus}
 
 \subsubsection*{Aggiungi manutenzione ad un veicolo}
 
-\subsubsection*{Calcola l’importo totale di un ordine}
+\subsubsection*{Visualizzare l’importo totale di un ordine}
 
 \subsubsection*{Visualizza le vetture che hanno eseguito manutenzione ordinaria in un certo anno}
 

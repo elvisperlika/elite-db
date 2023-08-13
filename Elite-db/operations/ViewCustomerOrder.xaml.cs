@@ -6,66 +6,65 @@ namespace Elite_db.operations;
 
 public partial class ViewCustomerOrder
 {
+    private readonly MySqlConnection _con;
+
     public ViewCustomerOrder(MySqlConnection mySqlConnection)
     {
         InitializeComponent();
+        _con = mySqlConnection;
     }
 
     private void SearchOrdersClicked(object sender, EventArgs e)
     {
-        var costumerID = CustomerBadgeBox.Text;
-        var startDate = StartDatePicker.Date;
-        var endDate = EndDatePicker.Date;
-
-        MySqlConnection con = new("SERVER=localhost; DATABASE=ElegantMotors; " +
-                                  "UID=root; PASSWORD=Elvis101");
         try {
-            con.Open();
+            _con.Open();
 
-            var insertQuery =
-                "SELECT Cod_Ordine, DataOrdine, Ora, Email_Aziendale " +
-                "FROM ORDINE " +
-                "WHERE ID_Badge = @costumerID " +
-                "AND DataOrdine BETWEEN @startDate AND @endDate " +
-                "ORDER BY DataOrdine DESC";
-            
-            var cmd = new MySqlCommand(insertQuery, con);
+            var selectQeury =
+                "SELECT ORDINE.CodOrdine, PRODUTTORE.NomeProduttore, SUPERCAR.NomeModello, VERSIONE.NomeVersione " +
+                "FROM ORDINE, VERSIONE, SUPERCAR, PRODUTTORE " +
+                "where ORDINE.IDBadge = @costumerID " +
+                "and ORDINE.CodOrdine = VERSIONE.CodOrdine " +
+                "and VERSIONE.NomeModello = SUPERCAR.NomeModello " +
+                "and SUPERCAR.NomeProduttore = PRODUTTORE.NomeProduttore " +
+                "and ORDINE.DataOrdine BETWEEN @startDate AND @endDate " +
+                "order by ORDINE.DataOrdine DESC";
+
+            var cmd = new MySqlCommand(selectQeury, _con);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@costumerID", costumerID);
-            cmd.Parameters.AddWithValue("@startDate", startDate);
-            cmd.Parameters.AddWithValue("@endDate", endDate);
-            
+            cmd.Parameters.AddWithValue("@costumerID", CustomerBadgeBox.Text);
+            cmd.Parameters.AddWithValue("@startDate", StartDatePicker.Date);
+            cmd.Parameters.AddWithValue("@endDate", EndDatePicker.Date);
+
             var dataList = new ObservableCollection<RowData>();
-
             var reader = cmd.ExecuteReader();
-            while (reader.Read())
-                dataList.Add(new RowData(reader["Cod_Ordine"].ToString(), reader["Data"].ToString(),
-                    reader["Ora"].ToString(), reader["Email_Aziendale"].ToString()));
-
-            dataListView.ItemsSource = dataList;
+            while (reader.Read()) {
+                dataList.Add(new RowData(reader["CodOrdine"].ToString(),reader["NomeProduttore"].ToString(),
+                    reader["NomeModello"].ToString(),reader["NomeVersione"].ToString()));   
+            }
+            DataListView.ItemsSource = dataList;
             reader.Close();
         }
         catch {
             SearchButton.Text = "Error, retry!";
         }
         finally {
-            con.Close();
+            _con.Close();
         }
     }
 
     public class RowData
     {
-        public RowData(string codOrdine, string data, string ora, string emailAziendale)
-        {
-            Cod_Ordine = codOrdine;
-            Data = data;
-            Ora = ora;
-            Email_Aziendale = emailAziendale;
-        }
+        private string CodOrder { get; }
+        private string Company { get; }
+        private string Model { get; }
+        private string Version { get; }
 
-        public string Cod_Ordine { get; }
-        public string Data { get; }
-        public string Ora { get; }
-        public string Email_Aziendale { get; }
+        public RowData(string codOrder, string company, string model, string version)
+        {
+            CodOrder = codOrder;
+            Company = company;
+            Model = model;
+            Version = version;
+        }
     }
 }

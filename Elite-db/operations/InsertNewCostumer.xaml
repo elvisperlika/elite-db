@@ -9,37 +9,35 @@
             <Entry
                 x:Name="Name"
                 HorizontalTextAlignment="Center"
-                Placeholder="Name"
+                Placeholder="Name(max 100 char)"
                 HorizontalOptions="FillAndExpand" 
                 VerticalOptions="FillAndExpand"/>
             <Entry
                 x:Name="Surname"
                 HorizontalTextAlignment="Center"
-                Placeholder="Surname"
+                Placeholder="Surname(max 100 char)"
                 HorizontalOptions="FillAndExpand" 
                 VerticalOptions="FillAndExpand"/>
             <Entry
                 x:Name="CF"
                 HorizontalTextAlignment="Center"
-                Placeholder="CF"
+                Placeholder="CF(16 char)"
                 HorizontalOptions="FillAndExpand" 
                 VerticalOptions="FillAndExpand"/>
             <Entry
                 x:Name="Email"
                 HorizontalTextAlignment="Center"
-                Placeholder="Email"
+                Placeholder="Email( % @ %)"
                 HorizontalOptions="FillAndExpand" 
                 VerticalOptions="FillAndExpand"/>
             <Entry
                 x:Name="Cellular"
                 HorizontalTextAlignment="Center"
-                Placeholder="Cellular"
+                Placeholder="Cellular(10 int)"
                 HorizontalOptions="FillAndExpand" 
                 VerticalOptions="FillAndExpand"/>
             
-            <Button x:Name="InsertBtn" Text="Insert" Clicked="InsertClicked"/>
-
-            <Button x:Name="ConfirmBtn"  Text="Confirm" IsEnabled="False" Clicked="ConfirmClicked"/>
+            <Button x:Name="InsertBtn" Text="Insert" Clicked="InsertClicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -21,9 +21,9 @@ public partial class ShowEmployeesWithBonus
         try {
             _con.Open();
 
-            var selectQuery = "SELECT DIPENDENTE.Nome, DIPENDENTE.Cognome, DIPENDENTE.Email_Aziendale " +
+            var selectQuery = "SELECT DIPENDENTE.Nome, DIPENDENTE.Cognome, DIPENDENTE.EmailAziendale " +
                                       "FROM DIPENDENTE, STIPENDIO " +
-                                      "WHERE STIPENDIO.Email_Aziendale = DIPENDENTE.Email_Aziendale " +
+                                      "WHERE STIPENDIO.EmailAziendale = DIPENDENTE.EmailAziendale " +
                                       "AND STIPENDIO.Mese = @month " +
                                       "AND STIPENDIO.Anno = @year " +
                                       "AND STIPENDIO.Bonus is not null";
