@@ -36,7 +36,6 @@
                                            HorizontalOptions="Center" VerticalOptions="Center" />
                                     <Label Grid.Row="0" Grid.Column="2" Text="{Binding Email}"
                                            HorizontalOptions="Center" VerticalOptions="Center" />
-                                
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>

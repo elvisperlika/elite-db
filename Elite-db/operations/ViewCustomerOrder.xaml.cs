@@ -38,8 +38,13 @@ public partial class ViewCustomerOrder
             var dataList = new ObservableCollection<RowData>();
             var reader = cmd.ExecuteReader();
             while (reader.Read()) {
-                dataList.Add(new RowData(reader["CodOrdine"].ToString(),reader["NomeProduttore"].ToString(),
-                    reader["NomeModello"].ToString(),reader["NomeVersione"].ToString()));   
+                var row = new RowData {
+                    CodOrder = reader["CodOrdine"].ToString(),
+                    Company = reader["NomeProduttore"].ToString(),
+                    Model = reader["NomeModello"].ToString(),
+                    Version = reader["NomeVersione"].ToString()
+                };
+                dataList.Add(row);   
             }
             DataListView.ItemsSource = dataList;
             reader.Close();
@@ -54,17 +59,10 @@ public partial class ViewCustomerOrder
 
     public class RowData
     {
-        private string CodOrder { get; }
-        private string Company { get; }
-        private string Model { get; }
-        private string Version { get; }
-
-        public RowData(string codOrder, string company, string model, string version)
-        {
-            CodOrder = codOrder;
-            Company = company;
-            Model = model;
-            Version = version;
-        }
+        public string CodOrder { get; set; }
+        public string Company { get; set; }
+        public string Model { get; set; }
+        public string Version { get; set; }
+        
     }
 }

@@ -28,11 +28,11 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-
+                                
                                 <Label Grid.Row="0" Grid.Column="0" Text="{Binding Company}"
                                        HorizontalOptions="Center" VerticalOptions="Center" />
                                 <Label Grid.Row="0" Grid.Column="1" Text="{Binding Model}"
-                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                       HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Italic"/>
                                 <Label Grid.Row="0" Grid.Column="2" Text="{Binding HorsePower}"
                                        HorizontalOptions="Center" VerticalOptions="Center" />
                                 

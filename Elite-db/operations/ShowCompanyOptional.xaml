@@ -14,8 +14,6 @@
                         HorizontalTextAlignment="Center">
                 </Picker>
             </StackLayout>
-            
-            <Label Text="----" HorizontalOptions="CenterAndExpand"/>
 
             <Grid>
                 <Grid.RowDefinitions>

@@ -51,8 +51,12 @@ public partial class ShowCompanyOptional
             var dataList = new ObservableCollection<RowData>();
             var reader = cmd.ExecuteReader();
             while (reader.Read()) {
-                dataList.Add(new RowData(reader["NomeOptional"].ToString(),
-                    reader["Prezzo"].ToString(), reader["LivelloQualita"].ToString()));
+                var row = new RowData {
+                    OptionalName = reader["NomeOptional"].ToString(),
+                    Price = reader["Prezzo"].ToString(),
+                    QualityLevel = reader["LivelloQualita"].ToString()
+                };
+                dataList.Add(row);
             }
             DataListView.ItemsSource = dataList;
             reader.Close();
@@ -68,16 +72,9 @@ public partial class ShowCompanyOptional
     
     public class RowData
     {
-        public string OptionalName { get; }
-        public string Price { get; }
-        public string QualityLevel { get; }
-
-        public RowData(string optionalName, string price, string qualityLevel)
-        {
-            OptionalName = optionalName;
-            Price = price;
-            QualityLevel = qualityLevel;
-        }
+        public string OptionalName { get; set; }
+        public string Price { get; set; }
+        public string QualityLevel { get; set; }
     }
 
     private void DropdownPicker_SelectedIndexChanged(object sender, EventArgs e)

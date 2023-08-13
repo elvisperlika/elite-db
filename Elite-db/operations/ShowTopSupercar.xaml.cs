@@ -16,20 +16,20 @@ public partial class ShowTopSupercar : ContentPage
     {
         InitializeComponent();
         _con = mySqlConnection;
+        
         try {
             _con.Open();
-            var selectSegmentQuery = "SELECT NomeSegemento " +
-                                     "FROM SEGMENTO";
+            var selectSegmentQuery = "SELECT NomeSegemento FROM SEGMENTO";
             var cmdSegment = new MySqlCommand(selectSegmentQuery, _con);
+            
             var readerSegment = cmdSegment.ExecuteReader();
             while (readerSegment.Read()) {
-                DropdownPicker.Items.Add(readerSegment["Nome"].ToString());
+                DropdownPicker.Items.Add(readerSegment["NomeSegemento"].ToString());
             }
             readerSegment.Close();
         }
         catch (Exception e) {
-            Console.WriteLine(e);
-            throw;
+            Console.WriteLine("Error while loading segments");
         }
         finally {
             _con.Close();
@@ -60,8 +60,12 @@ public partial class ShowTopSupercar : ContentPage
             var dataList = new ObservableCollection<ModelRowData>();
             var reader = cmd.ExecuteReader();
             while (reader.Read()) {
-                dataList.Add(new ModelRowData(reader["NomeProduttore"].ToString(),
-                    reader["NomeModello"].ToString(), reader["CavalliPotenza"].ToString()));
+                var row = new ModelRowData {
+                    Company = reader["NomeProduttore"].ToString(),
+                    Model = reader["NomeModello"].ToString(),
+                    HorsePower = reader["CavalliPotenza"].ToString()
+                };
+                dataList.Add(row);
             }
             DataListViewSupercars.ItemsSource = dataList;
             reader.Close();
@@ -79,14 +83,7 @@ public partial class ShowTopSupercar : ContentPage
 
 internal class ModelRowData
 {
-    public string Company;
-    public string Model;
-    public string HorsePower;
-
-    public ModelRowData(string company, string model, string horsePower)
-    {
-        Company = company;
-        Model = model;
-        HorsePower = horsePower;
-    }
+    public string Company { get; set; }
+    public string Model { get; set; }
+    public string HorsePower { get; set; }
 }
