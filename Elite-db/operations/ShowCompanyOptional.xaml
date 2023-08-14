@@ -31,7 +31,7 @@
                 <Label Grid.Row="0" Grid.Column="2" Text="Quality Level" HorizontalOptions="Center" FontAttributes="Bold" />
             </Grid>
             
-            <ListView x:Name="DataListView" HeightRequest="500">
+            <ListView x:Name="DataListView" HeightRequest="500" BackgroundColor="Transparent">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

@@ -14,7 +14,7 @@
 
                 <Label Text="Employees:" HorizontalOptions="Center" FontAttributes="Bold"/>
 
-                <ListView x:Name="DataListView" HeightRequest="500">
+                <ListView x:Name="DataListView" HeightRequest="500" BackgroundColor="Transparent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

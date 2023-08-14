@@ -29,7 +29,7 @@
                 <Label Grid.Row="0" Grid.Column="2" Text="Horse Power" HorizontalOptions="Center" FontAttributes="Bold" />
             </Grid>
             
-            <ListView x:Name="DataListViewSupercars" HeightRequest="500">
+            <ListView x:Name="DataListViewSupercars" HeightRequest="500" BackgroundColor="Transparent">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

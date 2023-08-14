@@ -58,7 +58,7 @@
             
             <Label Text="----" HorizontalOptions="CenterAndExpand"/>
 
-            <ListView x:Name="DataListView" HeightRequest="500">
+            <ListView x:Name="DataListView" HeightRequest="500" BackgroundColor="Transparent">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
