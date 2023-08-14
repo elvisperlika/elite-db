@@ -37,7 +37,8 @@ public partial class OperationsPage
 
     private void InsertConsignmentClicked(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        var viewCustomersOrderPage = new InsertConsigment(MainPage.Con);
+        ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 
     private void ShowEmployeesWithBonusClicked(object sender, EventArgs e)

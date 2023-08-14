@@ -14,30 +14,33 @@
             
                 <Label Text="Chose a SuperCar" HorizontalOptions="Center" FontAttributes="Bold" FontSize="25"/>
             
-                <Picker x:Name="ModelPicker"
-                        Title="Select a Segement"
-                        SelectedIndexChanged="ModelPicker_SelectedIndexChanged"
-                        HorizontalOptions="Center"
-                        HorizontalTextAlignment="Center">
-                </Picker>
-                
-                <StackLayout>
-                    <ListView x:Name="checklistListView">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout Orientation="Horizontal">
-                                        <CheckBox IsChecked="{Binding IsChecked}" VerticalOptions="Center" />
-                                        <Label Text="{Binding ItemText}" VerticalOptions="Center" />
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                    <Button Text="Aggiungi elemento" Clicked="OnAddItemClicked" />
-                </StackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Picker x:Name="BrandPicker"
+                            Title="Select a brand"
+                            SelectedIndexChanged="BrandPicker_SelectedIndexChanged"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center">
+                    </Picker>
+                    
+                    <Picker x:Name="ModelPicker"
+                            Title="Select a model"
+                            SelectedIndexChanged="ModelPicker_SelectedIndexChanged"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center">
+                    </Picker>
+                    
+                    <Picker x:Name="VersionPicker"
+                            Title="Select a model"
+                            SelectedIndexChanged="VersionPicker_SelectedIndexChanged"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center">
+                    </Picker>
+                </HorizontalStackLayout>
             
-                <Button x:Name="ConfirmOrderBtn" Text="Confirm Order" Clicked="ConfirmBtnClicked" TextColor="Green"/>
+                <Button x:Name="ConfirmOrderBtn" 
+                        Text="Confirm Order" 
+                        Clicked="ConfirmBtnClicked" 
+                        IsEnabled="False"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

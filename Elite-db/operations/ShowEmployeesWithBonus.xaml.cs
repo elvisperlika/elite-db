@@ -38,7 +38,7 @@ public partial class ShowEmployeesWithBonus
             var reader = cmd.ExecuteReader();
             while (reader.Read()) {
                 dataList.Add(new RowData(reader["Nome"].ToString(),
-                    reader["Cognome"].ToString(), reader["Email_Aziendale"].ToString()));
+                    reader["Cognome"].ToString(), reader["EmailAziendale"].ToString()));
             }
 
             DataListView.ItemsSource = dataList;

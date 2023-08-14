@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Elite_db.operations.InsertConsigment">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <VerticalStackLayout HorizontalOptions="Center">
+                <Picker x:Name="CostumerPicker"
+                        Title="Select ID Badge Costumer"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center">
+                </Picker>
+                <Picker x:Name="NrChassisPicker"
+                        Title="Select Nr Chassis"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center">
+                </Picker>
+                <Entry x:Name="EngineStatusEntry" Placeholder="Engine Status (1-10)"/>
+                <Entry x:Name="InsideStatusEntry" Placeholder="Inside Status (1-10)"/>
+                <Entry x:Name="BodyworkStatusEntry" Placeholder="Bodywork Status (1-10)"/>
+                <Entry x:Name="PriceEntry" Placeholder="Price"/>
+                <Entry x:Name="FeeEntry" Placeholder="Fee"/>
+                
+                <Button x:Name="AddBtn" Text="Add" Clicked="AddConsigmentBtnClicked" />
+            </VerticalStackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
