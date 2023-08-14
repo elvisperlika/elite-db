@@ -383,8 +383,7 @@ mercato e preformare al meglio nelle vendite.
       8 & Visualizza Top 10 supercar più vendute di un segmento & 3 al mese \\
       9 & Inserisci una nuova versione di una supercar & 75 al mese \\
       10 & Visualizzare l'importo totale di un ordine & 100 al mese \\
-      11 & Visualizza le vetture che hanno eseguito manutenzione ordinaria in un
-      certo anno & 5 all'anno \\
+      11 & Calcola la spesa annuale in risorse umane della concessionaria & 5 all'anno \\
     \end{tabularx}
     \label{tab:tabella_frequenze}
 \end{table}
@@ -824,70 +823,112 @@ abbia una riga sola e si effettua il Log In.
 \subsubsection*{Inserimento di un nuovo cliente}
 
 \begin{lstlisting}
-    INSERT INTO CLIENTE (Data_Scadenza, Nome, Cognome, CF, Cellulare_Personale, Mail_Personale)
-    VALUES (date_add(curdate(), INTERVAL 1 YEAR), 'NomeCliente', 
-                'CognomeCliente', 'CodiceFiscale', 'NumeroCellulare', 'EmailCliente');
+    INSERT INTO CLIENTE(Nome, Cognome, CF, CellularePersonale, MailPersonale, DataScadenza)
+    VALUES (?, ?, ?, ?, ?, date_add(curdate(), INTERVAL 1 YEAR))
 \end{lstlisting}
 
 \subsubsection*{Visualizza le vetture acquistate da un cliente in un certo
-perio- do in ordine crescente di data}
+periodo in ordine crescente di data}
 
 \begin{lstlisting}
-    SELECT Cod_Ordine, Data, Ora, Email_Aziendale 
-    FROM ORDINE
-    WHERE ID_Badge = 'ID Badge Cliente' 
-    AND Data BETWEEN 'Data di Inzio' AND 'Data di Fine'
-    ORDER BY Data DESC;
+    SELECT ORDINE.CodOrdine, PRODUTTORE.NomeProduttore, SUPERCAR.NomeModello, VERSIONE.NomeVersione
+    FROM ORDINE, VERSIONE, SUPERCAR, PRODUTTORE
+    where ORDINE.IDBadge = ?
+    and ORDINE.CodOrdine = VERSIONE.CodOrdine
+    and VERSIONE.NomeModello = SUPERCAR.NomeModello
+    and SUPERCAR.NomeProduttore = PRODUTTORE.NomeProduttore
+    and ORDINE.DataOrdine BETWEEN ? AND ?
+    order by ORDINE.DataOrdine DESC;
 \end{lstlisting}
 
 \subsubsection*{Visualizza gli optional di una certa azienda}
 \begin{lstlisting}
-    SELECT Nome_Optional
+    SELECT NomeOptional, Prezzo, LivelloQualita
     FROM OPTIONAL_AUTO, PRODUTTORE
-    WHERE PRODUTTORE.Nome = 'Nome Azienda'
-    AND OPTIONAL_AUTO.P_IVA = PRODUTTORE.P_IVA;
+    WHERE PRODUTTORE.NomeProduttore = ?
+    AND OPTIONAL_AUTO.NomeProduttore = PRODUTTORE.NomeProduttore
 \end{lstlisting}
 
 \subsubsection*{Inserimento di un nuovo ordine}
 \begin{lstlisting}
-    INSERT INTO ORDINE(Data, Ora, Email_Aziendale, ID_Badge) 
-    VALUES (curdate(), current_time(), 'Email Dipendente', Codice Cliente);
+    INSERT INTO ORDINE(Importo, DataOrdine, EmailAziendale, IDBadge)
+    VALUES (0 , current_date(), ?, ?)
 
     UPDATE VERSIONE
-    SET Cod_Ordine = (SELECT ORDINE.Cod_Ordine
-                        FROM ORDINE
-                        ORDER BY Cod_Ordine DESC
-                        LIMIT 1)
-    WHERE Nome_Modello = 'Enzo'
-    AND Cod_Ordine IS NULL
+    SET VERSIONE.CodOrdine = (SELECT ORDINE.CodOrdine
+                            FROM ORDINE
+                            ORDER BY ORDINE.CodOrdine DESC 
+                            LIMIT 1)
+    WHERE VERSIONE.NrTelaio = ?;
+
+    UPDATE ORDINE
+    SET ORDINE.Importo = (SELECT SUM(VERSIONE.Prezzo) 
+                        FROM VERSIONE 
+                        WHERE VERSIONE.CodOrdine = ORDINE.CodOrdine)
+    ORDER BY ORDINE.CodOrdine DESC 
     LIMIT 1;
 \end{lstlisting}
 
 \subsubsection*{Aggiungere un contratto di conto vendita}
 \begin{lstlisting}
+    INSERT INTO CONTO_VENDITA(LivMotore, LivCarrozzeria, LivInterni, NrTelaio, Prezzo, Commissione, IDBadge)
+    VALUES (?, ?, ?, ?, ?, ?, ?);
 
+    UPDATE VERSIONE
+    SET VERSIONE.CodOrdine = null, VERSIONE.Prezzo = (SELECT CONTO_VENDITA.Prezzo 
+                                                    FROM CONTO_VENDITA 
+                                                    WHERE CONTO_VENDITA.NrTelaio = VERSIONE.NrTelaio) 
+    WHERE VERSIONE.NrTelaio = ?;
 \end{lstlisting}
 
 \subsubsection*{Visualizza i dipendenti che in un certo mese hanno ottenuto il
 bonus}
 
 \begin{lstlisting}
-    SELECT DIPENDENTE.Nome, DIPENDENTE.Cognome, 
-                                    DIPENDENTE.Email_Aziendale 
+    SELECT DIPENDENTE.Nome, DIPENDENTE.Cognome, DIPENDENTE.EmailAziendale
     FROM DIPENDENTE, STIPENDIO
-    WHERE STIPENDIO.Email_Aziendale = DIPENDENTE.Email_Aziendale
-    AND STIPENDIO.Mese = 'Numero Mese'
-    AND STIPENDIO.Anno = 'Anno'
+    WHERE STIPENDIO.EmailAziendale = DIPENDENTE.EmailAziendale
+    AND STIPENDIO.Mese = ?
+    AND STIPENDIO.Anno = ?
     AND STIPENDIO.Bonus is not null;
 \end{lstlisting}
 
 \subsubsection*{Visualizza Top 10 supercar piu veloci di un segmento}
 
+\begin{lstlisting}
+    SELECT PRODUTTORE.NomeProduttore, SUPERCAR.NomeModello, SUPERCAR.CavalliPotenza
+    FROM SUPERCAR, PRODUTTORE
+    WHERE SUPERCAR.NomeSegemento = ?
+    AND SUPERCAR.NomeProduttore = PRODUTTORE.NomeProduttore
+    ORDER BY CavalliPotenza DESC
+    LIMIT 10;
+\end{lstlisting}
+
 \subsubsection*{Inserisci una nuova versione di una supercar}
+
+\begin{lstlisting}
+    INSERT INTO VERSIONE(NomeVersione, NrTelaio, Colore, Prezzo, CodOrdine, NomeProduttore, NomeModello)
+    VALUES(?, ?, ?, ?, null, ?, ?);
+\end{lstlisting}
 
 \subsubsection*{Visualizzare l’importo totale di un ordine}
 
-\subsubsection*{Visualizza le vetture che hanno eseguito manutenzione ordinaria in un certo anno}
+Questa operazione viene eseguita nel momento di inserimeto di una nuovo ordine.
+
+\begin{lstlisting}
+    SELECT Importo
+    FROM ORDINE
+    ORDER BY ORDINE.CodOrdine DESC
+    LIMIT 1;
+\end{lstlisting}
+
+\subsubsection*{Calcola la spesa annuale in risorse umane della concessionaria}
+
+\begin{lstlisting}
+    SELECT SUM(STIPENDIO.Importo) + SUM(STIPENDIO.Bonus) AS 'Spesa Annuale'
+    FROM STIPENDIO
+    WHERE STIPENDIO.Anno = ?;
+\end{lstlisting}
 
 \section{Progettazione dell'applicazione}
 

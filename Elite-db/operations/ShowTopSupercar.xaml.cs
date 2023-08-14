@@ -48,11 +48,13 @@ public partial class ShowTopSupercar : ContentPage
     {
         try {
             _con.Open();
-            string selectSupercars = "SELECT PRODUTTORE.NomeProduttore, SUPERCAR.NomeModello, SUPERCAR.CavalliPotenza " +
-                                     "FROM SUPERCAR, PRODUTTORE " +
-                                     "WHERE SUPERCAR.NomeSegemento = @segment " +
-                                     "AND SUPERCAR.NomeProduttore = PRODUTTORE.NomeProduttore " +
-                                     "ORDER BY CavalliPotenza DESC";
+            string selectSupercars =
+                "SELECT PRODUTTORE.NomeProduttore, SUPERCAR.NomeModello, SUPERCAR.CavalliPotenza " +
+                "FROM SUPERCAR, PRODUTTORE " +
+                "WHERE SUPERCAR.NomeSegemento = @segment " +
+                "AND SUPERCAR.NomeProduttore = PRODUTTORE.NomeProduttore " +
+                "ORDER BY CavalliPotenza DESC " +
+                "LIMIT 10";
             var cmd = new MySqlCommand(selectSupercars, _con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@segment", selectedItem);

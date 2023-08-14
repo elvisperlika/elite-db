@@ -74,7 +74,10 @@
             </ScrollView>
             
             <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <ContentPresenter x:Name="ContentPresenter"/>
+                <Grid>
+                    <Image Source="ferrari.jpeg" Aspect="AspectFill" Opacity="0.5" />
+                    <ContentPresenter x:Name="ContentPresenter"/>
+                </Grid>
             </Frame>
             
         </StackLayout>
