@@ -31,7 +31,9 @@ public partial class OperationsPage
 
     private void InsertNewOrderClicked(object sender, EventArgs e)
     {
-        var viewCustomersOrderPage = new InsertNewOrder(MainPage.UserMail, MainPage.Con);
+        //var viewCustomersOrderPage = new InsertNewOrder(MainPage.UserMail, MainPage.Con);
+        //ContentPresenter.Content = viewCustomersOrderPage.Content;
+        var viewCustomersOrderPage = new NewOrder(MainPage.UserMail, MainPage.Con);
         ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 

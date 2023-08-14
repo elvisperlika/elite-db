@@ -789,9 +789,9 @@ PRODUTTORI(\underline{NomeProduttore}, Automobilistico, OptionalMarket, Indirizz
 \end{flushleft}
 
 \begin{flushleft}
-OPTIONAL-AUTO(\underline{CodOptional}, \underline{NomeProduttore}, \underline{NomeOptional}, Prezzo, Descrizione, LivelloQualità)\\
+OPTIONAL-AUTO(\underline{CodOptional}, \underline{NomeProduttore}, \underline{NomeOptional}, Prezzo, Descrizione, LivelloQualità, NrTelaio*)\\
 FK NomeProduttore REFERENCES PRODUTTORI
-FK 
+FK NrTelaio REFERENCES VERSIONI
 \end{flushleft}
 
 \normalsize
