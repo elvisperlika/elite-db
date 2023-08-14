@@ -72,9 +72,9 @@
                     Margin="5,5,5,5" />
                 
                 <Button
-                    x:Name="ShowSuperCarWithMaintenance"
-                    Text="Show Supercar With Maintenance"
-                    Clicked="ShowSuperCarWithMaintenanceClicked"
+                    x:Name="ShowAmountHumanResorcesCostBtn"
+                    Text="Show Amount Human Resorces Cost"
+                    Clicked="ShowAmountHumanResorcesCost"
                     HorizontalOptions="Center" 
                     Margin="5,5,5,5" />
                 </HorizontalStackLayout>

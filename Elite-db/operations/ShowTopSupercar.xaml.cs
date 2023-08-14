@@ -69,6 +69,15 @@ public partial class ShowTopSupercar : ContentPage
             }
             DataListViewSupercars.ItemsSource = dataList;
             reader.Close();
+            
+            string avarageQuery = "SELECT AVG(CavalliPotenza) AS AvarageHorsePower " +
+                                  "FROM SUPERCAR " +
+                                  "WHERE NomeSegemento = @segment";
+            var cmdAvarage = new MySqlCommand(avarageQuery, _con);
+            cmdAvarage.CommandType = CommandType.Text;
+            cmdAvarage.Parameters.AddWithValue("@segment", selectedItem);
+            var avarage = cmdAvarage.ExecuteScalar().ToString();
+            HorsePowerAvarage.Text = avarage;
         }
         catch (Exception e) {
             Console.WriteLine(e);

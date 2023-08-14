@@ -55,7 +55,8 @@ public partial class OperationsPage
 
     private void InsertNewSupercarVersionClicked(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        var viewCustomersOrderPage = new InsertNewSuperCarVersion(MainPage.Con);
+        ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 
     private void InsertMaintananceClicked(object sender, EventArgs e)
@@ -63,7 +64,7 @@ public partial class OperationsPage
         throw new NotImplementedException();
     }
 
-    private void ShowSuperCarWithMaintenanceClicked(object sender, EventArgs e)
+    private void ShowAmountHumanResorcesCost(object sender, EventArgs e)
     {
         throw new NotImplementedException();
     }

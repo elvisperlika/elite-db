@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Elite_db.operations.InsertNewSuperCarVersion">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Picker x:Name="BrandPicker"
+                    Title="Select a brand"
+                    SelectedIndexChanged="BrandPicker_SelectedIndexChanged"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center">
+            </Picker>
+                    
+            <Picker x:Name="ModelPicker"
+                    Title="Select a model"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center">
+            </Picker>
+            
+            <Entry x:Name="VersionNameEntry" Placeholder="Insert the Version name here"/>
+            <Entry x:Name="ChassisEntry" Placeholder="Insert the Version chassis number here"/>
+            <Entry x:Name="ColorEntry" Placeholder="Insert the Version color here"/>
+            <Entry x:Name="PriceEntry" Placeholder="Insert the Version price here"/>
+            
+            <Button x:Name="AddVersionBtn" Text="Add" Clicked="AddNewVersion"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

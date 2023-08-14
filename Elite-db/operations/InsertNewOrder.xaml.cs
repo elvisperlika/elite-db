@@ -228,6 +228,18 @@ public partial class InsertNewOrder
                 cmdUpdateAmount.CommandType = CommandType.Text;
                 if (cmdUpdate.ExecuteNonQuery() == 1 && cmdUpdateAmount.ExecuteNonQuery() == 1) {
                     ConfirmOrderBtn.Text = "Order created successfully, click -Insert New Order- to create another one";
+                    
+                    var selectAmount = "SELECT Importo " +
+                                       "FROM ORDINE " +
+                                       "ORDER BY ORDINE.CodOrdine DESC " +
+                                       "LIMIT 1";
+                    var cmdSelectAmount = new MySqlCommand(selectAmount, _con);
+                    cmdSelectAmount.CommandType = CommandType.Text;
+                    var reader = cmdSelectAmount.ExecuteReader();
+                    if (reader.Read()) {
+                        var amount = reader["Importo"].ToString();
+                        PriceLabel.Text = amount;
+                    }
                 }
             }
             

@@ -12,8 +12,7 @@
                     HorizontalOptions="Center"
                     HorizontalTextAlignment="Center">
             </Picker>
-            
-            
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -58,6 +57,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
+            <Label Text="HorsePowerAvarage" />
+            <Label x:Name="HorsePowerAvarage" />
+            
         </StackLayout>
         
     </ContentPage.Content>

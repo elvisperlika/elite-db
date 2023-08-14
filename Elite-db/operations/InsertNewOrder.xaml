@@ -41,6 +41,11 @@
                         Text="Confirm Order" 
                         Clicked="ConfirmBtnClicked" 
                         IsEnabled="False"/>
+                
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label Text="Amount: $" FontAttributes="Italic"/>
+                    <Label x:Name="PriceLabel" FontAttributes="Bold" FontSize="27"/>    
+                </HorizontalStackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
