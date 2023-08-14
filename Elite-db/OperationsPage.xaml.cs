@@ -59,13 +59,9 @@ public partial class OperationsPage
         ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 
-    private void InsertMaintananceClicked(object sender, EventArgs e)
+    private void ShowAmountHumanResourcesCost(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
-    }
-
-    private void ShowAmountHumanResorcesCost(object sender, EventArgs e)
-    {
-        throw new NotImplementedException();
+        var viewCustomersOrderPage = new ShowHumanResourcesCost(MainPage.Con);
+        ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 }

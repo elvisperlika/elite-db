@@ -65,16 +65,9 @@
                     Margin="5,5,5,5" />
                 
                 <Button
-                    x:Name="InsertMaintenance"
-                    Text="Insert Maintenance"
-                    Clicked="InsertMaintananceClicked"
-                    HorizontalOptions="Center" 
-                    Margin="5,5,5,5" />
-                
-                <Button
                     x:Name="ShowAmountHumanResorcesCostBtn"
                     Text="Show Amount Human Resorces Cost"
-                    Clicked="ShowAmountHumanResorcesCost"
+                    Clicked="ShowAmountHumanResourcesCost"
                     HorizontalOptions="Center" 
                     Margin="5,5,5,5" />
                 </HorizontalStackLayout>
