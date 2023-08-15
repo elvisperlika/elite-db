@@ -14,6 +14,8 @@
                 
                 <Button x:Name="AddSupercarBtn" Text="Add Supercar" Clicked="AddSupercarBtn_Clicked"/>
                 
+                <Button x:Name="ConfirmOrderBtn" Text="Confirm Order" Clicked="ConfirmOrderBtn_Clicked"/>
+                
             </StackLayout>
         </ScrollView>
         

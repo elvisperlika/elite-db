@@ -855,18 +855,14 @@ periodo in ordine crescente di data}
     VALUES (0 , current_date(), ?, ?)
 
     UPDATE VERSIONE
-    SET VERSIONE.CodOrdine = (SELECT ORDINE.CodOrdine
-                            FROM ORDINE
-                            ORDER BY ORDINE.CodOrdine DESC 
-                            LIMIT 1)
-    WHERE VERSIONE.NrTelaio = ?;
+    SET CodOrdine = ?
+    WHERE NomeProduttore = ?
+    AND NomeModello = ?
+    AND NomeVersione = ?
 
-    UPDATE ORDINE
-    SET ORDINE.Importo = (SELECT SUM(VERSIONE.Prezzo) 
-                        FROM VERSIONE 
-                        WHERE VERSIONE.CodOrdine = ORDINE.CodOrdine)
-    ORDER BY ORDINE.CodOrdine DESC 
-    LIMIT 1;
+    UPDATE OPTIONAL_AUTO
+    SET NrTelaio = ?
+    WHERE NomeOptional = ?
 \end{lstlisting}
 
 \subsubsection*{Aggiungere un contratto di conto vendita}
@@ -918,8 +914,22 @@ Questa operazione viene eseguita nel momento di inserimeto di una nuovo ordine.
 \begin{lstlisting}
     SELECT Importo
     FROM ORDINE
-    ORDER BY ORDINE.CodOrdine DESC
-    LIMIT 1;
+    WHERE ORDINE.CodOrdine = ?;
+\end{lstlisting}
+
+Query di calcolo dell'importo totale di un ordine:
+
+\begin{lstlisting}
+UPDATE ORDINE
+SET ORDINE.Importo = ((SELECT SUM(VERSIONE.Prezzo)
+                      FROM VERSIONE 
+                      WHERE VERSIONE.CodOrdine = ?) 
+                          + (SELECT SUM(OPTIONAL_AUTO.Prezzo)
+                             FROM OPTIONAL_AUTO
+                             WHERE OPTIONAL_AUTO.NrTelaio IN (SELECT VERSIONE.NrTelaio
+                                                              FROM VERSIONE
+                                                              WHERE VERSIONE.CodOrdine = ?)))
+WHERE ORDINE.CodOrdine = ?;
 \end{lstlisting}
 
 \subsubsection*{Calcola la spesa annuale in risorse umane della concessionaria}

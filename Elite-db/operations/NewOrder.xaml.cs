@@ -75,9 +75,13 @@ public partial class NewOrder : ContentPage
              AutomationId = "SupercarVerticalStackLayout",
              HorizontalOptions = LayoutOptions.Center,
              Children = {
-                 horizontalStackLayout, _confirmOrderBtn
+                 horizontalStackLayout
              }
          };
+         
+         _modelPicker.IsEnabled = true;
+         _brandPicker.IsEnabled = true;
+         _versionPicker.IsEnabled = true;
         
         _addOptionalBtn.Clicked += OnAddOptionalBtnClicked;
         
@@ -265,6 +269,9 @@ public partial class NewOrder : ContentPage
 
     private void OnAddOptionalBtnClicked(object sender, EventArgs e)
     {
+        _brandPicker.IsEnabled = false;
+        _modelPicker.IsEnabled = false;
+        _versionPicker.IsEnabled = false;
         
         _optionalPicker = new Picker {
             AutomationId = "OptionalPicker",
@@ -330,5 +337,10 @@ public partial class NewOrder : ContentPage
         finally {
             _con.Close();
         }
+    }
+
+    private void ConfirmOrderBtn_Clicked(object sender, EventArgs e)
+    {
+        throw new NotImplementedException();
     }
 }

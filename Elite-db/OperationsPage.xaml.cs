@@ -33,7 +33,7 @@ public partial class OperationsPage
     {
         //var viewCustomersOrderPage = new InsertNewOrder(MainPage.UserMail, MainPage.Con);
         //ContentPresenter.Content = viewCustomersOrderPage.Content;
-        var viewCustomersOrderPage = new NewOrder(MainPage.UserMail, MainPage.Con);
+        var viewCustomersOrderPage = new CreateNewOrder(MainPage.UserMail, MainPage.Con);
         ContentPresenter.Content = viewCustomersOrderPage.Content;
     }
 
