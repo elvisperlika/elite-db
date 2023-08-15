@@ -210,9 +210,11 @@ Si decide di trattare i segmenti come entità identificate dal proprio nome e
 seguite da una descrizione. In generale un SEGMENTO è nient altro che il termine
 tecnico per definire la categoria. Una supercar può equipaggiare optional
 differenti, i quali devono appartenere allo stesso segmento della vettura. Gli
-optional possono essere prodotti da diversi produttori, i quali pssono anche
+optional possono essere prodotti da diversi produttori, i quali possono anche
 essere CASE AUTOMOBILISTICHE. Si introduce quindi una gerarchia Totale e
 Sovrapposta che definisce i produttori di optional e le case automobilistiche.
+Allo stesso modo delle VERSIONI, le quali essistono nel database senza far parte
+di un orine, anche gli OPTIONAL esistono senza essere equipaggiati da una superacar.
 
 \begin{center}
     \includegraphics[width=\linewidth]{images/partialSchemes/optional.png}
@@ -238,7 +240,10 @@ DI VALUTAZIONE. E' importante precisare che non c’è un dipendente in particol
 ad occuparsi della conto-vendita ed è obbiettivo di tutti i dipendenti la più
 rapida conclusione di questi contratti. In questo modo la vendita relativa ad
 una vettura in conto-vendita non aumenta il numero di autovetture vendute dal
-dipendente utili ad ottenere il bonus.
+dipendente utili ad ottenere il bonus. La relazione tra CONTO-VENDITA e VERSIONE
+esist in quanto il cliente può inserire in conto vendita una vettura già
+presente nel database, nel caso non lo sia si procede al inserimento della
+vettura per poi creare il contratto di conto vendita.
 
 \begin{center}
     \includegraphics[width=\linewidth]{images/partialSchemes/contoVendita.png}
@@ -294,7 +299,7 @@ ed estrazione dei concetti principali}}
 
 \subsection{Schema concettuale finale}
 \begin{center}
-    \includegraphics[scale=0.53, angle=90]{images/fullSchemes/finale.jpeg}
+    \includegraphics[height=\linewidth, angle=90]{images/fullSchemes/finale.jpeg}
 \end{center}
 
 \newpage
@@ -850,6 +855,10 @@ periodo in ordine crescente di data}
 \end{lstlisting}
 
 \subsubsection*{Inserimento di un nuovo ordine}
+
+Le istruzioni sottostanti sono le principali per l'inserimento di un nuovo
+ordine, si rimanda al codice per una visione completa.
+
 \begin{lstlisting}
     INSERT INTO ORDINE(Importo, DataOrdine, EmailAziendale, IDBadge)
     VALUES (0 , current_date(), ?, ?)
@@ -871,9 +880,10 @@ periodo in ordine crescente di data}
     VALUES (?, ?, ?, ?, ?, ?, ?);
 
     UPDATE VERSIONE
-    SET VERSIONE.CodOrdine = null, VERSIONE.Prezzo = (SELECT CONTO_VENDITA.Prezzo 
-                                                    FROM CONTO_VENDITA 
-                                                    WHERE CONTO_VENDITA.NrTelaio = VERSIONE.NrTelaio) 
+    SET VERSIONE.CodOrdine = null, 
+            VERSIONE.Prezzo = (SELECT CONTO_VENDITA.Prezzo 
+                            FROM CONTO_VENDITA 
+                            WHERE CONTO_VENDITA.NrTelaio = VERSIONE.NrTelaio) 
     WHERE VERSIONE.NrTelaio = ?;
 \end{lstlisting}
 
@@ -920,16 +930,17 @@ Questa operazione viene eseguita nel momento di inserimeto di una nuovo ordine.
 Query di calcolo dell'importo totale di un ordine:
 
 \begin{lstlisting}
-UPDATE ORDINE
-SET ORDINE.Importo = ((SELECT SUM(VERSIONE.Prezzo)
-                      FROM VERSIONE 
-                      WHERE VERSIONE.CodOrdine = ?) 
-                          + (SELECT SUM(OPTIONAL_AUTO.Prezzo)
-                             FROM OPTIONAL_AUTO
-                             WHERE OPTIONAL_AUTO.NrTelaio IN (SELECT VERSIONE.NrTelaio
-                                                              FROM VERSIONE
-                                                              WHERE VERSIONE.CodOrdine = ?)))
-WHERE ORDINE.CodOrdine = ?;
+    UPDATE ORDINE
+    SET ORDINE.Importo = ((SELECT SUM(VERSIONE.Prezzo)
+                        FROM VERSIONE 
+                        WHERE VERSIONE.CodOrdine = ?) 
+                            + (SELECT SUM(OPTIONAL_AUTO.Prezzo)
+                                FROM OPTIONAL_AUTO
+                                WHERE OPTIONAL_AUTO.NrTelaio 
+                                        IN (SELECT VERSIONE.NrTelaio
+                                            FROM VERSIONE
+                                            WHERE VERSIONE.CodOrdine = ?)))
+    WHERE ORDINE.CodOrdine = ?;
 \end{lstlisting}
 
 \subsubsection*{Calcola la spesa annuale in risorse umane della concessionaria}
@@ -948,10 +959,86 @@ obbligo di inserire alcuni screenshot dell'interfaccia utente}
 Si e progettata l'applicazione in C\# con il supporto del package
 MySQLConnection Framework. Si e valutato fosse importante una GUI semplice ed
 intuitiva che permettesse anche ai nuovi dipendenti di impararne l'utilizzo in
-breve tempo, mantenendo comunque una grafica accattivante in quanto anche i
-clienti potrebbero volere una visualizzazione della vettura che si vuole
-acquistare.\\
+breve tempo.\\
 Di seguito gli screenshot di alcune schermate dell'applicazione.
+
+\subsubsection{Pagina di Log In}
+Di seguito la schermata di login al sistema. Una query contralla che la mail
+inserita sia presente nel database e nel caso positivo permette l'accesso.
+\begin{center}
+    \includegraphics[width=\linewidth]{images/app/logInPage.png}
+\end{center}
+
+\subsubsection{Pagine delle Top 10 Supercar più veloci}
+Con l'utlizzo di un menu a tendina si riesce a scorrere tra i vari segmenti
+e visualizzare le 10 supercar più veloci del segmento scelto.
+
+Nel angolo in basso a sinistra troviamo anche il calcolo della media dei
+cavalli.
+\begin{center}
+    \includegraphics[width=\linewidth]{images/app/topTenSupercar.png}
+\end{center}
+
+\subsubsection{Pagina di visualizzazione degli ordini di un cliente}
+Questa schermata permette l'inserimento del codice presente nel badge del cliente, 
+in seguito si andranno inserite la data di inizo e fine periodo da valutare.
+
+Si presenterà quindio una tabella con le vetture acquistate dal cliente in quel periodo.
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/app/showOrders.png}
+\end{center}
+
+\subsubsection{Pagina di visualizzazione degli optional di un produttore}
+Con l'utilizzo del menu a tendina si può scegliere un produttore e in seguito
+visualizzare gli optional di cui la concessionaria ha disponibilità.
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/app/brandOptional.png}
+\end{center}
+
+\subsubsection{Pagina di visualizzazione della spesa annuale}
+Inserendo un anno avremo il calcolo della spesa annuale in risorse umane della
+concessionaria.
+Vengono tenuti in considerazione sia gli stipendi che i bonus.
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/app/humanResourcesCost.png}
+\end{center}
+
+\subsubsection{Pagina di inserimento di un nuovo cliente}
+Questa schermata permette l'inserimento di un nuovo cliente.
+
+Il pulsante 'Insert' è capace di segnalare se la query è andata a buon fine o meno.
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/app/insertCostumer.png}
+\end{center}
+
+\subsubsection{Pagina di inserimento di un nuovo ordine}
+Di seguito troviamo la pagina di creazione di un ordine e calcolo della spesa
+totale. I menu a tendina vengono aggiornati in tempo reale basandosi sul valore
+scelto nel menu precedente.
+
+E' possibile inserire più vetture nello stesso ordine e per ogni vettura si
+possono inserire più optional che vengono filtrati per il segmento al quale
+appartiene la vettura.
+
+Da notorsi che alla scelta di una vettura o optional vengono aggiornati anche i
+menu a tendina successivi non presentando più le voci già scelte.
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/app/addOrder.png}
+\end{center}
+
+\subsubsection{Pagina di visualizzazione dei migliori dipendenti}
+Nella seguente schermata è possibile scegliere un mese ed un anno per poi
+visualizzareuna tabella con i dipendenti che hanno ottenuto il bonus in quel
+periodo.
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/app/bestEmployees.png}
+\end{center}
 
 \end{document}
 
