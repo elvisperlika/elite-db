@@ -209,7 +209,6 @@ public partial class CreateNewOrder : ContentPage
                 cmd.Parameters.AddWithValue("@model", selectedModel);
                 cmd.Parameters.AddWithValue("@version", selectedVersion);
                 if (cmd.ExecuteNonQuery() == 1) {
-                    Console.WriteLine("version updated");
                     
                     var selectVersionChassis = "SELECT NrTelaio FROM VERSIONE " +
                                                " WHERE NomeProduttore = @brand " +
@@ -262,7 +261,7 @@ public partial class CreateNewOrder : ContentPage
                 cmd.Parameters.AddWithValue("@chassisNr", _chasssisNr);
                 cmd.Parameters.AddWithValue("@optional", selectedOptional);
                 if (cmd.ExecuteNonQuery() == 1) {
-                    Console.WriteLine("optional updated");
+                    _optionalPicker.TextColor = Colors.Green;
                 }
             }
             catch {
