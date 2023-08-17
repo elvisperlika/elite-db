@@ -117,9 +117,10 @@ Si rileva che il cliente è un concetto fondamentale per la concessionaria e
 viene identificato con un tesserino chiamato BADGE. Non è uno strumento
 realmente utile alla concessionaria per la vendita, bensì è uno strumento di
 marketing che vuole fidelizzare il cliente trasmettendo un senso di esclusività.
-Il BADGE è unico ed appartene ad un solo proprietario che a sua volta ne può
+Il BADGE è unico ed appartiene ad un solo proprietario che a sua volta ne può
 avere uno solo. Il BADGE, inoltre, è rinnovabile annualmente quindi mantiene lo
-stesso codice ma cambia la data di scadenza.
+stesso codice ma cambia la data di scadenza nel momento in cui si decide di
+aggiornare l'iscrizione alla concessinaria.
 
 \begin{center}
     \includegraphics[width=\linewidth]{images/partialSchemes/cliente.png}
@@ -139,9 +140,10 @@ storico delle supercar acquistate e dare la possibilità di creare ordini che
 possono includere più di una vettura. Viene quindi introdotta l'entità ORDINE
 che rappresenta un contratto di acquisto. Lo storico delle supercar acquistate
 da un cliente è utile alla concessionaria al fine di conoscere i gusti del
-cliente e proporre nuovi modelli che gli potrebbero interessare.
-Le supercar presenti nel database sono sia quelle facenti parte di un ordine che 
-non, quindi la cardinalità da SUPERCAR ad ORDINE è 0:1.
+cliente e proporre nuovi modelli che gli potrebbero interessare. Le supercar
+presenti nel database sono sia quelle facenti parte di un ordine che non (la
+logica è simile a quella di un magazzino) quindi la cardinalità da SUPERCAR ad
+ORDINE è 0:1.
 
 \begin{center}
     \includegraphics[width=\linewidth]{images/partialSchemes/ordine.png}
@@ -174,7 +176,7 @@ potrà portarla nel officina della concessionaria per manutenzione ordinaria,
 servizio gratuito esplicitato al momento del ordine. Una autovettura può essere
 prodotta da un solo produttore detto anche \textit{Casa Automobilista}
 identificato dal proprio nome, la quale per lo stesso modello crea diversi
-restyling..}
+restyling.}
 
 Il codice del telaio è l'identificatore fondamentale di una qualsiasi vettura.
 Il cliente, unico proprietario di una certa vettura acquistata, può portarla in
@@ -213,7 +215,7 @@ differenti, i quali devono appartenere allo stesso segmento della vettura. Gli
 optional possono essere prodotti da diversi produttori, i quali possono anche
 essere CASE AUTOMOBILISTICHE. Si introduce quindi una gerarchia Totale e
 Sovrapposta che definisce i produttori di optional e le case automobilistiche.
-Allo stesso modo delle VERSIONI, le quali essistono nel database senza far parte
+Allo stesso modo delle VERSIONI, le quali esistono nel database senza far parte
 di un orine, anche gli OPTIONAL esistono senza essere equipaggiati da una superacar.
 
 \begin{center}
@@ -241,9 +243,9 @@ ad occuparsi della conto-vendita ed è obbiettivo di tutti i dipendenti la più
 rapida conclusione di questi contratti. In questo modo la vendita relativa ad
 una vettura in conto-vendita non aumenta il numero di autovetture vendute dal
 dipendente utili ad ottenere il bonus. La relazione tra CONTO-VENDITA e VERSIONE
-esist in quanto il cliente può inserire in conto vendita una vettura già
+esiste in quanto il cliente può inserire in conto vendita una vettura già
 presente nel database, nel caso non lo sia si procede al inserimento della
-vettura per poi creare il contratto di conto vendita.
+vettura per poi creare il contratto di conto vendita associato.
 
 \begin{center}
     \includegraphics[width=\linewidth]{images/partialSchemes/contoVendita.png}
@@ -258,7 +260,7 @@ ed estrazione dei concetti principali}}
 
 \begin{table}[htbp]
     \centering
-    \small
+    \large
     \rowcolors{2}{red!5!}{white}
     \begin{tabularx}{\linewidth}{l l X}
         \rowcolor{red!20!}
@@ -273,16 +275,15 @@ ed estrazione dei concetti principali}}
         7 & SCHEDA VALUTAZIONE & descrive lo stato di una vettura in
         CONTO-VENDITA\\
         8 & VERSIONE & nuova versione di una supercar basata sullo stesso
-        modello (es. Modello: Alfa Romeo Giulia, Versione: Edizione Anniversario) \\
+        modello (es. Modello: Alfa Romeo Giulia, Versione: Quadrifoglio) \\
         9 & SUPERCAR & modello prodotto da una Casa Automobilistica. Alle
-        volte chiamata anche comunaente \textit{Modello} oppure \textit{Vettura}. \\
-        10 & MANUTENZIONE & revisione di una super car (es. cambio del
-        olio) \\
+        volte chiamata anche comunemente \textit{Modello} oppure \textit{Vettura}. \\
+        10 & MANUTENZIONE & revisione di una super car \\
         11 & SEGMENTO & genere/tipologia/categoria di supercar (es. Sport, SUV, Berlina, OffRoad,..)\\
         12 & OPTIONAL & dispositivo che una vettura può equipaggiare
         opzionalmente \\
         13 & CASA AUTOMOBILISTICA & azienda produttrice di autovetture \\
-        14 & PRODUTTORE OPTIONAL & azienda produttrice di optional \\
+        14 & PRODUTTORE OPTIONAL & azienda produttrice di optional
     \end{tabularx}
     \label{tab:tabella_linguaggio}
 \end{table}
@@ -320,7 +321,7 @@ la SCHEDA VALUTAZIONE è stata accorpata nel entità CONTOVENDITA.
     \includegraphics[scale=0.48, angle=90]{images/fullSchemes/finalAccorpamenti.png}
 \end{center}
 
-Di seguito la stima di dati valutata ad un anno dalla apertura della
+Di seguito la stima dei dati valutata ad un anno dalla apertura della
 concessionaria nel mercato di una città di grande dimensioni (es. Milano). 
 
 \begin{table}[htbp]
@@ -335,20 +336,15 @@ concessionaria nel mercato di una città di grande dimensioni (es. Milano).
         E & ORDINE & 800 & Si stimano mediamente 2 ordine a cliente. \\
         E & STIPENDIO & 390 & Mediamente ci sono 13 stipendi per dipendente. \\
         E & CONTO-VENDITA & 20 & \\
-        E & VERSIONE & 1200 & In media in un ordine troviamo 1 oppure 2 vetture.
+        E & VERSIONE & 5000 & \\
         \\
         E & MANUTENZIONE & 10 & Manutenzioni straordinarie dovute a difetti
                                 lievi dovuti al trasporto. Le manutenzione
                                 ordinarie non avevano modo di presentarsi ad un
                                 anno dal apertura della concessioanria. \\
-        E & SUPERCAR & 900 & Questo valore non è riferito solo alle supercar
-                                rilasciate dalle case produttrici nel ultimo
-                                anno ma anche di vetture di anni passati che a
-                                loro volta hanno diverse versioni. \\
-        
-        E & SEGMENTO & 7 & Coupè, Hypercar, Berlina di Lusso, Berlina compatta,
-        SUV, OffRoad, Sportiva \\
-        R & Supporto & 1250 & Mediamente per ogni segmento ci sono un numero
+        E & SUPERCAR & 1000 & \\
+        E & SEGMENTO & 10 & \\
+        R & Supporto & 1000 & Mediamente per ogni segmento ci sono un numero
                                 considerevole di optional ma trattandosi di
                                 vetture particolarmente lussuose il numero si
                                 riduce in favore della qualità. \\
@@ -364,10 +360,7 @@ concessionaria nel mercato di una città di grande dimensioni (es. Milano).
 
 \subsection{Descrizione delle operazioni principali e stima della loro frequenza}
 
-Le seguenti operazioni vanno a descrivere il comportamento di un dipendente tipo
-(ad eccezione delle numero 6 e 9) della concessionaria. In parte sono operazioni
-comuni di vendita, altre di rilevazione statistica al fine di analizzare il
-mercato e preformare al meglio nelle vendite. 
+Di seguito si riportano le operazioni principali che si possono eseguire sul database.
 
 \begin{table}[htbp]
     \centering
@@ -596,7 +589,7 @@ supercar per segmento.
 
 \subsubsection{Visualizzare l'importo totale di un ordine} 
 
-Mediamente una vettura equipaggia 10'000 optional / 900 versioni = 11 optional per vettura.
+Mediamente una vettura equipaggia 11 optional.
 
 \begin{table}[H]
     \centering
@@ -622,7 +615,7 @@ Mediamente una vettura equipaggia 10'000 optional / 900 versioni = 11 optional p
 
 \subsubsection{Calcola la spesa annuale in risorse umane della concessionaria}
 
-Si ipotizzano 14 mensilità e che non ci siano state nuove assunzioni o licenziamenti.
+Si ipotizzano 13 mensilità e che non ci siano state nuove assunzioni o licenziamenti.
 
 \begin{table}[H]
     \centering
@@ -632,10 +625,10 @@ Si ipotizzano 14 mensilità e che non ci siano state nuove assunzioni o licenzia
         \textbf{Concetto} & \textbf{Costrutto} & \textbf{Accessi} &
         \textbf{Tipo}\\
         DIPENDENTE & E & 30 & L \\
-        pagamento & A & 420 & L \\
-        STIPENDIO & E & 420 & L \\
+        pagamento & A & 390 & L \\
+        STIPENDIO & E & 390 & L \\
     \end{tabular}\\
-    \( 870L \rightarrow 5 \) all'anno = \( 4350 \) all'anno
+    \( 810L \rightarrow 5 \) all'anno = \( 4050 \) all'anno 
 \end{table}
 
 \subsection{Raffinamento dello schema (eliminazione di identificatori esterni,
@@ -695,7 +688,7 @@ Di seguito riporto una tabella che riassume le chiavi scelte per ogni entità.
 
 La presenza del attributo \textit{Importo} al intero di Ordine comporta una
 ridondanza in quanto è un valore calcolabile anche mediante somme dei prezzi dei
-prodotti presenti nel ordine. Si vuole valutare la presenza di questo attributo.\\
+prodotti presenti nel ordine. Si vuole valutare la presenza di questo attributo.
 
 L'operazione ``Visualizzare l'importo totale di un ordine" è una delle più
 frequenti ed è utile per misurare l'efficienza di questo attributo.
@@ -823,7 +816,7 @@ FK NrTelaio REFERENCES VERSIONI
     WHERE Email_Aziendale = 'Email Dipendente'
 \end{lstlisting}
 Si verifica che la tabella creata dalla query \\
-abbia una riga sola e si effettua il Log In.
+abbia una riga sola ed in quel caso si effettua il Log In.
 
 \subsubsection*{Inserimento di un nuovo cliente}
 
@@ -875,12 +868,15 @@ ordine, si rimanda al codice per una visione completa.
 \end{lstlisting}
 
 \subsubsection*{Aggiungere un contratto di conto vendita}
+Si trascura la query di inserimento della nuova supercar nel database in quanto
+si tratta di un procedimento variabile dalla supercar portara dal cliente.
+
 \begin{lstlisting}
     INSERT INTO CONTO_VENDITA(LivMotore, LivCarrozzeria, LivInterni, NrTelaio, Prezzo, Commissione, IDBadge)
     VALUES (?, ?, ?, ?, ?, ?, ?);
 
     UPDATE VERSIONE
-    SET VERSIONE.CodOrdine = null, 
+    SET VERSIONE.CodOrdine = NULL, 
             VERSIONE.Prezzo = (SELECT CONTO_VENDITA.Prezzo 
                             FROM CONTO_VENDITA 
                             WHERE CONTO_VENDITA.NrTelaio = VERSIONE.NrTelaio) 
@@ -896,7 +892,7 @@ bonus}
     WHERE STIPENDIO.EmailAziendale = DIPENDENTE.EmailAziendale
     AND STIPENDIO.Mese = ?
     AND STIPENDIO.Anno = ?
-    AND STIPENDIO.Bonus is not null;
+    AND STIPENDIO.Bonus IS NOT NULL;
 \end{lstlisting}
 
 \subsubsection*{Visualizza Top 10 supercar piu veloci di un segmento}
@@ -956,10 +952,12 @@ Query di calcolo dell'importo totale di un ordine:
 \subsection{Descrizione dell'architettura dell'applicazione realizzata con
 obbligo di inserire alcuni screenshot dell'interfaccia utente}
 
-Si e progettata l'applicazione in C\# con il supporto del package
-MySQLConnection Framework. Si e valutato fosse importante una GUI semplice ed
-intuitiva che permettesse anche ai nuovi dipendenti di impararne l'utilizzo in
-breve tempo.\\
+Si e progettata l'applicazione in C\# medainte il Framework MAUI con il supporto
+del Framework MySQLConnection. Si e valutato fosse importante una GUI semplice
+ed intuitiva che permettesse anche ai nuovi dipendenti di impararne l'utilizzo
+in breve tempo.\\
+La seguente applicazione è portabile su tutti i sistemi operativi moderni: iOS,
+MacOS, Windows e Android.\\
 Di seguito gli screenshot di alcune schermate dell'applicazione.
 
 \subsubsection{Pagina di Log In}
@@ -999,7 +997,7 @@ visualizzare gli optional di cui la concessionaria ha disponibilità.
 
 \subsubsection{Pagina di visualizzazione della spesa annuale}
 Inserendo un anno avremo il calcolo della spesa annuale in risorse umane della
-concessionaria.
+concessionaria. \\
 Vengono tenuti in considerazione sia gli stipendi che i bonus.
 
 \begin{center}
