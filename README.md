@@ -1,8 +1,3 @@
-# Elite-db
-MAUI App connect with MySQL.
-Database for a supercar dealership.
-
-## Setup
-
-Open it with intelliJ Idea.
-
+<h1 align="center">Elite</h1>
+<p>Software solution for automotive sales management.</p>
+<p>Built with .NET MAUI framework and MySQL database.</p>
